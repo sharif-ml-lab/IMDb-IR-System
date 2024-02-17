@@ -1,5 +1,6 @@
 import streamlit as st
 import sys
+
 sys.path.append("../")
 from Logic import utils
 import time
@@ -59,7 +60,7 @@ def search_handling(
             search_time(start_time, end_time)
 
             for i in range(len(result)):
-                card = st.columns(1)
+                card = st.columns([3, 1])
                 info = utils.get_movie_by_id(result[i][0], utils.movies_dataset)
                 with card[0].container():
                     st.title(info["Title"])
@@ -81,7 +82,10 @@ def search_handling(
                                 f"<span style='color:{random.choice(list(color)).value}'>{info['Genres'][j]}</span>",
                                 unsafe_allow_html=True,
                             )
-                    st.divider()
+                with card[1].container():
+                    st.image(info["Image_URL"], use_column_width=True)
+
+                st.divider()
 
 
 def main():
