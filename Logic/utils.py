@@ -24,12 +24,12 @@ def correct_text(
 
 def search(
     title_query: str,
-    abstract_query: str,
+    summary_query: str,
     max_result_count: int,
     method: str = "ltn-lnn",
     weight: float = 0.5,
     should_print=False,
-    preferred_field: str = None,
+    preferred_genre: str = None,
 ):
     """
     Finds relevant documents to query
@@ -47,7 +47,7 @@ def search(
 
     method: 'ltn-lnn' or 'ltc-lnc' or 'okapi25'
 
-    preferred_field: A list containing preference rates for each field. If None, the preference rates are equal.
+    preferred_genre: A list containing preference rates for each genre. If None, the preference rates are equal.
 
     Returns
     ----------------------------------------------------------------------------------------------------
