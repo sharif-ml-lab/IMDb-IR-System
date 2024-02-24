@@ -14,9 +14,9 @@
 
 این بخش از 4 بخش اصلی‌تر تشکیل شده است:
 
-## 1) Crawler
+## 1) [Crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py)
 
-## 2) Near-duplicate page detecion
+## 2) [Near-duplicate page detecion](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/LSH.py)
 کلاس MinHashLSH که قرار داده شده است، وظیفه انجام این بخش را بر عهده دارد. همانطور که می‌دانید، این بخش شامل 3 زیربخش است و اول از همه باید 
 عملیات shingle را انجام دهید و بعد از ساخت characteristic matrix، با استفاده از تکنیک mini hashing روند اجرا و یافتن near duplicate ها را بهبود بدهید. 
 در گام نهایی لازم است که از روش LSH استفاده کنید تا با روشی سریع فیلم‌هایی که مشکوک به near duplicate بودن هستند را تشخیص دهید. دقت کنید که خارج 
@@ -25,12 +25,12 @@
 لیستی از string ها و دقت داشته باشید که شما با دومی باید کار کنید و با ترکیب کردن آن string ها یک summary جامع از فیلم بسازید و با مجموعه summary های 
 بدست آمده روش LSH را انجام دهید.
 
-## 3) Preprocess
+## 3) [Preprocess](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/preprocess.py)
 
 این کلاس مسئولیت پیش پردازش را دارد. ورودی آن، دیتای کرال شده و خروجی آن دیتای بدون اطلاعات اضافه است.
 در اینجا پیش پردازش های مورد نیاز را بر روی دیتا اعمال میکنیم تا دیتای مناسب پردازش داشته باشیم.
 
-## 4) Indexing
+## 4) [Indexing](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/index.py)
 
 این کلاس 
 
