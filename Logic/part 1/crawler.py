@@ -137,10 +137,10 @@ class IMDB_crawler:
         pass
 
 def main():
-    imdb_crwaller = IMDB_crawler(crawling_threshold=600)
-    # imdb_crwaller.read_from_file_as_json()
-    imdb_crwaller.start_crawling()
-    imdb_crwaller.write_to_file_as_json()
+    imdb_crawler = IMDB_crawler(crawling_threshold=600)
+    # imdb_crawler.read_from_file_as_json()
+    imdb_crawler.start_crawling()
+    imdb_crawler.write_to_file_as_json()
 
 if __name__ == '__main__':
     main()
