@@ -1,36 +1,80 @@
 import time
 
-class Indexing:
+class Index:
 
     def __init__(self):
-        # Create a class
-
         """
         Create a class for indexing.
         """
         return
 
-    def indexing(self, documents):
-        # The main function of the class.
-
+    def index_stars(self, documents: list):
         """
-        Index the documents.
+        Index the documents based on the stars.
 
         Parameters
         ----------
         documents : list
-            The list of documents to be indexed.
+            The list of documents (output of the crawler) to be indexed.
 
         Returns
         ----------
         dict
-            The index of the documents.
+            The index of the documents based on the stars.
+        """
+        return
+
+    def index_genres(self, documents: list):
+        """
+        Index the documents based on the genres.
+
+        Parameters
+        ----------
+        documents : list
+            The list of documents (output of the crawler) to be indexed.
+
+        Returns
+        ----------
+        dict
+            The index of the documents based on the genres.
+        """
+        return
+
+    def index_summaries(self, documents: list):
+        """
+        Index the documents based on the summaries (not first_page_summary).
+
+        Parameters
+        ----------
+        documents : list
+            The list of documents (output of the crawler) to be indexed.
+
+        Returns
+        ----------
+        dict
+            The index of the documents based on the summaries.
+        """
+        return
+
+    def index_reviews(self, documents: list):
+        """
+        Index the documents based on the reviews.
+
+        Parameters
+        ----------
+        documents : list
+            The list of documents (output of the crawler) to be indexed.
+
+        Returns
+        ----------
+        dict
+            The index of the documents based on the reviews.
         """
         return
 
     def construct_positional_indexes(self, corpus: str):
         """
-        Get processed data and insert words in that into a trie and construct postional_index and posting lists afterwards.
+        Get processed data and insert words in that into a trie and construct positional_index and posting lists afterwards.
         Parameters
         ----------
         corpus: str
@@ -61,7 +105,7 @@ class Indexing:
 
     def store_index(self, path: str):
         """
-        Stores the index in a file
+        Stores the index in a file (such as a JSON file)
 
         Parameters
         ----------
@@ -73,7 +117,8 @@ class Indexing:
         return
 
     def load_index(self, path: str):
-        """Loads the index from a file
+        """
+        Loads the index from a file (such as a JSON file)
 
         Parameters
         ----------
@@ -123,6 +168,7 @@ class Indexing:
 
         end = time.time()
         implemented_time = end - start
+
 
         print("Brute force time: ", brute_force_time)
         print("Implemented time: ", implemented_time)
