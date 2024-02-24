@@ -1,21 +1,17 @@
 import time
 
 class Index:
-
-    def __init__(self):
+    def __init__(self, preprocessed_documents: list):
         """
         Create a class for indexing.
         """
+
+        self.preprocessed_documents = preprocessed_documents
         return
 
-    def index_stars(self, documents: list):
+    def index_stars(self):
         """
         Index the documents based on the stars.
-
-        Parameters
-        ----------
-        documents : list
-            The list of documents (output of the crawler) to be indexed.
 
         Returns
         ----------
@@ -24,14 +20,9 @@ class Index:
         """
         return
 
-    def index_genres(self, documents: list):
+    def index_genres(self):
         """
         Index the documents based on the genres.
-
-        Parameters
-        ----------
-        documents : list
-            The list of documents (output of the crawler) to be indexed.
 
         Returns
         ----------
@@ -40,14 +31,9 @@ class Index:
         """
         return
 
-    def index_summaries(self, documents: list):
+    def index_summaries(self):
         """
         Index the documents based on the summaries (not first_page_summary).
-
-        Parameters
-        ----------
-        documents : list
-            The list of documents (output of the crawler) to be indexed.
 
         Returns
         ----------
@@ -56,14 +42,9 @@ class Index:
         """
         return
 
-    def index_reviews(self, documents: list):
+    def index_reviews(self):
         """
         Index the documents based on the reviews.
-
-        Parameters
-        ----------
-        documents : list
-            The list of documents (output of the crawler) to be indexed.
 
         Returns
         ----------
@@ -87,7 +68,7 @@ class Index:
         """
         return
 
-    def get_posting_list(self, word: str):
+    def get_posting_list(self, word: str, index_type: str):
         """
         get posting_list of a word
         
@@ -95,6 +76,8 @@ class Index:
         ----------
         word: str
             word we want to check
+        index_type: str
+            type of index we want to check (stars, genres, summaries, reviews)
 
         Return
         ----------
@@ -103,7 +86,7 @@ class Index:
         """
         return
 
-    def store_index(self, path: str):
+    def store_index(self, path: str, index_type: str):
         """
         Stores the index in a file (such as a JSON file)
 
@@ -111,6 +94,8 @@ class Index:
         ----------
         path : str
             Path to store the file
+        index_type: str
+            type of index we want to store (stars, genres, summaries, reviews)
 
         """
 
@@ -129,15 +114,17 @@ class Index:
 
         return
 
-    def check_if_indexing_is_good(self, documents):
+    def check_if_indexing_is_good(self, index_type, check_word="emotionally"):
         """
         Checks if the indexing is good. Do not change this function. You can use this
         function to check if your indexing is correct.
 
         Parameters
         ----------
-        documents : list
-            The list of documents which crawled
+        index_type : str
+            Type of index to check (stars, genres, summaries, reviews)
+        check_word : str
+            The word to check in the index
 
         Returns
         ----------
@@ -145,11 +132,10 @@ class Index:
             True if indexing is good, False otherwise
         """
 
-        # brute force check for "emotionally"
+        # brute force to check check_word in the summaries
         start = time.time()
-        check_word = "emotionally"
         docs = []
-        for document in documents:
+        for document in self.preprocessed_documents:
             for summary in document['summaries']:
                 if check_word in summary:
                     docs.append(document['id'])
@@ -164,7 +150,8 @@ class Index:
 
         # check by getting the posting list of the word
         start = time.time()
-        posting_list = self.get_posting_list(check_word)
+        # based on your implementation, you may need to change the following line
+        posting_list = self.get_posting_list(check_word, index_type)
 
         end = time.time()
         implemented_time = end - start
