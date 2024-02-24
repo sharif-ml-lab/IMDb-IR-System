@@ -2,33 +2,32 @@
 
 class Preprocessor:
 
-    def __init__(self, stopwords_path):
-        # Create a variable of stop words.
-        self.stopwords = []
-
-    def preprocess(self, text):
-        # The main function of the class.
-
+    def __init__(self, documents: list):
         """
-        Preprocess the text.
+        Initialize the class.
 
         Parameters
         ----------
-        text : str
-            The text to be preprocessed.
+        documents : list
+            The list of documents to be preprocessed.
+        """
+
+        self.documents = documents
+
+    def preprocess(self):
+        """
+        Preprocess the text using the methods in the class.
 
         Returns
         ----------
         str
-            The preprocessed text.
+            The preprocessed documents.
         """
         return
 
-    def normalize(self, text):
-        # Normalize text (lower case, stemming, lemmatization, etc.)
-
+    def normalize(self, text: str):
         """
-        Normalize the text.
+        Normalize the text by converting it to a lower case, stemming, lemmatization, etc.
 
         Parameters
         ----------
@@ -42,9 +41,7 @@ class Preprocessor:
         """
         return
 
-    def remove_links(self, text):
-        # Remove links
-
+    def remove_links(self, text: str):
         """
         Remove links from the text.
 
@@ -60,9 +57,7 @@ class Preprocessor:
         """
         return
 
-    def remove_punctuations(self, text):
-        # Remove punctuations
-
+    def remove_punctuations(self, text: str):
         """
         Remove punctuations from the text.
 
@@ -78,16 +73,14 @@ class Preprocessor:
         """
         return
 
-    def word_tokenize(self, word):
-        # Tokenize text
-
+    def tokenize(self, text: str):
         """
         Tokenize the words in the text.
 
         Parameters
         ----------
-        word : str
-            The word to be tokenized.
+        text : str
+            The text to be tokenized.
 
         Returns
         ----------
@@ -96,16 +89,14 @@ class Preprocessor:
         """
         return
 
-    def remove_stopwords(self, words):
-        # Remove stopwords
-
+    def remove_stopwords(self, text: str):
         """
         Remove stopwords from the text.
 
         Parameters
         ----------
-        words : list
-            The list of words to be processed.
+        text : str
+            The text to remove stopwords from.
 
         Returns
         ----------

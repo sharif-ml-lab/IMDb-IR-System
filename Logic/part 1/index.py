@@ -53,21 +53,6 @@ class Index:
         """
         return
 
-    def construct_positional_indexes(self, corpus: str):
-        """
-        Get processed data and insert words in that into a trie and construct positional_index and posting lists afterwards.
-        Parameters
-        ----------
-        corpus: str
-            processed data 
-        
-        Return
-        ----------
-        docs: 
-            list of docs with specified id, name,
-        """
-        return
-
     def get_posting_list(self, word: str, index_type: str):
         """
         get posting_list of a word
