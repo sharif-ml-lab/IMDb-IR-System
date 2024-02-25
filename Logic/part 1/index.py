@@ -7,7 +7,6 @@ class Index:
         """
 
         self.preprocessed_documents = preprocessed_documents
-        return
 
     def index_stars(self):
         """
@@ -71,6 +70,32 @@ class Index:
         """
         return
 
+    def add_document_to_index(self, document: dict):
+        """
+        Add a document to all the indexes
+
+        Parameters
+        ----------
+        document : dict
+            Document to add to all the indexes
+
+        """
+
+        pass
+
+    def remove_document_from_index(self, document_id: int):
+        """
+        Remove a document from all the indexes
+
+        Parameters
+        ----------
+        document_id : int
+            ID of the document to remove from all the indexes
+
+        """
+
+        pass
+
     def store_index(self, path: str, index_type: str):
         """
         Stores the index in a file (such as a JSON file)
@@ -84,7 +109,7 @@ class Index:
 
         """
 
-        return
+        pass
 
     def load_index(self, path: str):
         """
@@ -97,7 +122,7 @@ class Index:
 
         """
 
-        return
+        pass
 
     def check_if_indexing_is_good(self, index_type, check_word="emotionally"):
         """
