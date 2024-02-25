@@ -1,50 +1,34 @@
 
-# فاز اول
+# Phase 1
+One of the ways to compare movies and understand which one is a better choice for you, is through websites with this purpose and using appropriate information retrieval methods.
 
-یکی از راه‌های بررسی فیلم‌ها و مقایسه‌ی آن‌ها، بررسی آن‌ها از سایت‌های معتبر و استفاده از روش‌های بازیابی مناسب است.
-  
-  در این فاز از پروژه دیتاهای سایت [IMDb](https://www.imdb.com/) را به دست آورده و برخی از پردازش‌های اولیه را بر روی آن انجام می‌دهیم.
-  سایت [IMDb](https://www.imdb.com/) از کامل‌ترین سایت‌های فیلم و سریال است که امکان امتیازدهی به هر کاربر را مهیا می‌کند و در نتیجه، دیتاست مناسبی برای انجام پروژه است. 
- 
-  این پروژه در دو بخش انجام می‌شود که در ابتدا تنها نیاز است بخش اول را انجام دهید. سپس اطلاعات بخش بعد در اختیار شما قرار می‌گیرد.
+In this phase of project, we begin our journey towards building an information retrieval system for [IMDb](https://www.imdb.com/) website. In this phase, we crawl the required datas from [IMDb](https://www.imdb.com/) and do some preprocessing on them. [IMDb](https://www.imdb.com/) has one of the reachest datasets of movies (with their ratings, comments, actors and etc.).
 
-**توجه:**
-ورودی و خروجی هر تابع و توضیحات مربوط به آن در خود تابع comment شده است.
-# بخش اول
+This phase will be in 2 parts. First, you need to only implement the parts that are mentioned in **Part1**. Then the second part and required data will be given to you.
 
-این بخش از ۴ بخش اصلی‌تر تشکیل شده است:
+**Attention:**
+Inputs, outputs and logic of each function is explained in the comments of each function.
 
-## 1) [Crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py)
-ler.py)
-برای شروع، نیاز است تا داده های مربوطه را جمع آوری کنیم. این کار وظیفه [crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py) است. ساختار داده مورد نیاز در ادامه پروژه به شما داده شده است. انتظار می‌رود در این بخش با پیاده سازی توابع از پیش تعیین شده در [crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py). امکان دریافت داده و ذخیره سازی آن در ساختار مناسب را فراهم کنید. 
-## 2) [Near-duplicate page detecion](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/LSH.py)
-کلاس MinHashLSH که قرار داده شده است، وظیفه انجام این بخش را بر عهده دارد. همانطور که می‌دانید، این بخش شامل 3 زیربخش است و اول از همه باید 
-عملیات shingle را انجام دهید و بعد از ساخت characteristic matrix، با استفاده از تکنیک mini hashing روند اجرا و یافتن near duplicate ها را بهبود بدهید. 
-در گام نهایی لازم است که از روش LSH استفاده کنید تا با روشی سریع فیلم‌هایی که مشکوک به near duplicate بودن هستند را تشخیص دهید. دقت کنید که خارج 
-از کلاس نام برده شده، فقط حق استفاده از متد perform_lsh را دارید و بقیه متدها در درون خود کلاس می‌توانند استفاده شوند. نکته دیگری که به آن باید توجه داشته 
-باشید این است که داده‌های crawl شده دارای چندین فیلد هستند که یکی از آنها first_page_summary است و دیگری summaries که اولی تنها یک string است و دومی 
-لیستی از string ها و دقت داشته باشید که شما با دومی باید کار کنید و با ترکیب کردن آن string ها یک summary جامع از فیلم بسازید و با مجموعه summary های 
-بدست آمده روش LSH را انجام دهید.
+# Part 1
+This part is consisting of 4 sub-parts.
 
-## 3) [Preprocess](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/preprocess.py)
+## 1. [Crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py)
 
-این کلاس مسئولیت پیش پردازش را دارد. ورودی آن، دیتای crawl شده و خروجی آن دیتای بدون اطلاعات اضافه است.
-در اینجا پیش پردازش‌های مورد نیاز را بر روی دیتا اعمال می‌کنیم تا دیتای مناسب پردازش داشته باشیم.
+In the beginning, we need to crawl our required data and create a dataset for our needs. For this sake, we implement a [crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py). The structure and functions required for this part, are explained in the `crawler.py` file.
 
-## 4) [Indexing](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/index.py)
+For **Testing** the correctness of your implementation for crawler part, you can run `tests/test_crawler.py` and see if you crawled correctly. Feel free to change `json_file_path` variable to meet the path of your crawled data.
 
-این کلاس مسئولیت ساخت نمایه‌ها را بر عهده دارد. ورودی آن، دیتای پیش پردازش شده و خروجی آن نمایه‌های مورد نیاز برای جست و جو است. در بخش بعدی این فاز، از نمایه‌های
-ساخته شده در این بخش برای بازیابی اطلاعات استفاده خواهد شد.
+## 2. [Near-duplicate page detecion](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/LSH.py)
+We provided you `MinHashLSH` class. This class is responsible for doing near duplicate detection. As you know, this section consists of 3 sub-sections. First, you need to shingle documents. Then, after characteristic matrix, using mini-hashing technique, improve near duplicate detection. Finally, you need to use LSH so that you can find movies that are suspicious to being duplicate. **Note** that you are only allowed to use `perform_lsh` function outside of your class and other methods only inside the class. **Another Note** is that in your crawled data, you have one section named `first_page_summary` and another section named `summaries`. The first one is a String and the second one is a list of Strings and note that you should work with with the second one and by combining those Strings make a summary of the movie and do LSH on the set of summaries.
 
-توجه کنید در این کلاس، متد check_if_indexing_is_good وجود دارد. از این متد برای چک کردن میزان کارایی indexing شما استفاده می‌شود. یک بار به روش brute force
-به دنبال documnetهای یک کلمه‌ی خاص می‌گردیم و یک بار از indexing شما برای پیدا کردن آن documentها استفاده می‌کنیم. استفاده از indexهای شما باید سرعت بهتری 
-نسبت به brute force داشته باشد.
+## 3. [Preprocess](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/preprocess.py)
+This class is responsible for doing preprocessings required on the input data. The input the crawled data and the output is the data without extra info.
 
-- **شما باید این متد را به ازای هر ۴ نوع index و به ازای ۲ کلمه‌ی مختلف اجرا کنید و مقایسه کنید که آیا indexing شما بهتر است یا خیر.**
-- **توجه کنید که ممکن است یک بخشی از این متد که در فایل پایتون هم مشخص شده است، با توجه به پیاده‌سازی شما نیاز به تغییر داشته باشد.**
+## 4. [Indexing](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/index.py)
+This class is responsile for building index. Its input is preprocessed data and the output is indices required for searching. This section will be used in next phases and the functions will be used for information retrieval.
+**Note** that in this class, `check_if_indexing_is_good` method is used to test your indexing and you can call it to understand how well your indexing is.
 
-## Testing your implementations
-این فاز هم همانند فازهای دیگر درس، تحویل حضوری دارد. اما برای راحتی شما جهت اطمینان از صحت پیاده‌سازیتان، تعدادی تست قرار داده‌ایم که با اجرای آنها بتوانید از صحت پیاده‌سازیتان اطمینان حاصل کنید. برای تست کردن indexing، تابع `check_if_indexing_is_good` را از کلاس `Index` صدا بزنید. برای تست‌ کردن crawlerتان نیز می‌توانید فایل `test_crawler.py` را اجرا کنید.
+- You should run this method, for each of the 4 indexing methods and for 2 different words and compare if your indexing is better or not.
+- **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!
 
-# بخش دوم
-
+# Part 2

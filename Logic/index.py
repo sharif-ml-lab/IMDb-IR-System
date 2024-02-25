@@ -1,11 +1,11 @@
 import time
 
+
 class Index:
     def __init__(self, preprocessed_documents: list):
         """
         Create a class for indexing.
         """
-
         self.preprocessed_documents = preprocessed_documents
 
     def index_stars(self):
@@ -55,7 +55,7 @@ class Index:
     def get_posting_list(self, word: str, index_type: str):
         """
         get posting_list of a word
-        
+
         Parameters
         ----------
         word: str
@@ -146,9 +146,9 @@ class Index:
         start = time.time()
         docs = []
         for document in self.preprocessed_documents:
-            for summary in document['summaries']:
+            for summary in document["summaries"]:
                 if check_word in summary:
-                    docs.append(document['id'])
+                    docs.append(document["id"])
 
                     # if we have found 3 documents with the word, we can break
                     if len(docs) == 3:
@@ -157,7 +157,6 @@ class Index:
         end = time.time()
         brute_force_time = end - start
 
-
         # check by getting the posting list of the word
         start = time.time()
         # based on your implementation, you may need to change the following line
@@ -165,7 +164,6 @@ class Index:
 
         end = time.time()
         implemented_time = end - start
-
 
         print("Brute force time: ", brute_force_time)
         print("Implemented time: ", implemented_time)
@@ -182,4 +180,3 @@ class Index:
         else:
             print("Indexing is wrong")
             return False
-
