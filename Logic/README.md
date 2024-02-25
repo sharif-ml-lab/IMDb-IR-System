@@ -15,7 +15,8 @@
 این بخش از ۴ بخش اصلی‌تر تشکیل شده است:
 
 ## 1) [Crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py)
-
+ler.py)
+برای شروع، نیاز است تا داده های مربوطه را جمع آوری کنیم. این کار وظیفه [crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py) است. ساختار داده مورد نیاز در ادامه پروژه به شما داده شده است. انتظار می‌رود در این بخش با پیاده سازی توابع از پیش تعیین شده در [crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py). امکان دریافت داده و ذخیره سازی آن در ساختار مناسب را فراهم کنید. 
 ## 2) [Near-duplicate page detecion](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/LSH.py)
 کلاس MinHashLSH که قرار داده شده است، وظیفه انجام این بخش را بر عهده دارد. همانطور که می‌دانید، این بخش شامل 3 زیربخش است و اول از همه باید 
 عملیات shingle را انجام دهید و بعد از ساخت characteristic matrix، با استفاده از تکنیک mini hashing روند اجرا و یافتن near duplicate ها را بهبود بدهید. 
