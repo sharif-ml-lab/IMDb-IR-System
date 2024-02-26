@@ -6,10 +6,10 @@ from threading import Lock
 import json
 
 
-class IMDB_crawler:
-    '''
+class IMDbCrawler:
+    """
     put your own user agent in the headers
-    '''
+    """
     headers = {
         'User-Agent': None
     }
@@ -503,7 +503,7 @@ class IMDB_crawler:
 
 
 def main():
-    imdb_crawler = IMDB_crawler(crawling_threshold=600)
+    imdb_crawler = IMDbCrawler(crawling_threshold=600)
     # imdb_crawler.read_from_file_as_json()
     imdb_crawler.start_crawling()
     imdb_crawler.write_to_file_as_json()
