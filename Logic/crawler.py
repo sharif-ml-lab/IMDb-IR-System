@@ -117,17 +117,38 @@ class IMDB_crawler:
     def start_crawling(self):
         """
         Start crawling the movies until the crawling threshold is reached.
+        TODO: 
+            replace WHILE_LOOP_CONSTRAINTS with the proper constraints for the while loop.
+            replace NEW_URL with the new URL to crawl.
+            replace THERE_IS_NOTHING_TO_CRAWL with the condition to check if there is nothing to crawl.
+            delete help variables.
+
+        ThreadPoolExecutor is used to make the crawler faster by using multiple threads to crawl the pages.
+        You are free to use it or not. If used, not to forget safe access to the shared resources.
         """
+
+        # help variables
+        WHILE_LOOP_CONSTRAINTS = None
+        NEW_URL = None
+        THERE_IS_NOTHING_TO_CRAWL = None
+
         self.extract_top_250()
         futures = []
         crawled_counter = 0
-        # TODO
-        pass
+
+        with ThreadPoolExecutor(max_workers=20) as executor:
+            while WHILE_LOOP_CONSTRAINTS:
+                URL = NEW_URL
+                futures.append(executor.submit(self.crawl_page_info, URL))
+                if THERE_IS_NOTHING_TO_CRAWL:
+                    wait(futures)
+                    futures = []
 
     def crawl_page_info(self, URL):
         """
-        Main Logic of the crawler. It crawls the page and extracts the information of the movie and then saves it.
-
+        Main Logic of the crawler. It crawls the page and extracts the information of the movie.
+        Use related links of a movie to crawl more movies.
+        
         Parameters
         ----------
         URL: str
