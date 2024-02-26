@@ -7,35 +7,73 @@ import json
 
 
 class IMDB_crawler:
-    # put your own User agent
+    '''
+    put your own user agent in the headers
+    '''
     headers = {
         'User-Agent': None
     }
     top_250_URL = 'https://www.imdb.com/chart/top/'
 
-    # Initialize the crawler with crawling_threshold being the number of pages to crawl
     def __init__(self,crawling_threshold=1000):
+        '''
+        Initialize the crawler 
+
+        Parameters
+        ----------
+        crawling_threshold: int 
+            The number of pages to crawl
+        '''
         pass
 
-    # get id from URL of site. The id is what comes exactly after title
-    # for example the id for the movie https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1 is tt0111161
     def get_id_from_URL(self, URL):
+        '''
+        Get the id from the URL of the site. The id is what comes exactly after title.
+        for example the id for the movie https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1 is tt0111161.
+
+        Parameters
+        ----------
+        URL: str
+            The URL of the site
+        Returns
+        ----------
+        str
+            The id of the site
+        '''
         return URL.split('/')[4]
 
-    # save your crawled files into json
     def write_to_file_as_json(self):
+        '''
+        Save the crawled files into json
+        '''
         pass
 
-    # load your crawled files from json
     def read_from_file_as_json(self):
+        '''
+        Read the crawled files from json
+        '''
         pass
 
-    # make a get request to a url
+    
     def crawl(self,URL):
+        '''
+        Make a get request to the URL and return the response
+
+        Parameters
+        ----------
+        URL: str
+            The URL of the site
+        Returns
+        ----------
+        requests.models.Response
+            The response of the get request
+        '''
         pass
 
-    # extract the id's of top 250 pages 
     def extract_top_250(self):
+        '''
+        Extract the top 250 movies from the top 250 page and use them as seed for the crawler to start crawling.
+        '''
         pass
 
     def get_imdb_instance(self):
@@ -61,79 +99,326 @@ class IMDB_crawler:
         }
     
 
-    # crawl all the pages until crawling threshold is reached
     def start_crawling(self):
+        '''
+        Start crawling the movies until the crawling threshold is reached.
+        '''
         pass
 
-    # Crawl and extract the movie info
     def crawl_page_info(self, URL):
+        '''
+        Main Logic of the crawler. It crawls the page and extracts the information of the movie and then saves it.
+
+        Parameters
+        ----------
+        URL: str
+            The URL of the site
+        '''
         pass
 
-    # Extract movie info and save it
     def extract_movie_info(self,res,movie,URL):
+        '''
+        Extract the information of the movie from the response and save it in the movie instance.
+
+        Parameters
+        ----------
+        res: requests.models.Response
+            The response of the get request
+        movie: dict
+            The instance of the movie
+        URL: str
+            The URL of the site
+        '''
         pass
 
     # Get the link to summary page of movie for example the summary page of movie
     # https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1 is the page
     # https://www.imdb.com/title/tt0111161/plotsummary/?ref_=tt_stry_pl
     def get_summary_link(url):
+        '''
+        Get the link to the summary page of the movie
+        Example:
+        https://www.imdb.com/title/tt0111161/ is the page
+        https://www.imdb.com/title/tt0111161/plotsummary is the summary page
+
+        Parameters
+        ----------
+        url: str
+            The URL of the site
+        Returns
+        ----------
+        str
+            The URL of the summary page
+        '''
         pass
 
     # Get the link to summary page of movie for example the summary page of movie
     # https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1 is the page
     # https://www.imdb.com/title/tt0111161/reviews?ref_=tt_urv
     def get_review_link(url):
-        return '/'.join(url.split('/')[:-1]) + '/reviews/'
+        '''
+        Get the link to the review page of the movie
+        Example:
+        https://www.imdb.com/title/tt0111161/ is the page
+        https://www.imdb.com/title/tt0111161/reviews is the review page
+        '''
+        pass
 
     def get_title(soup):
+        '''
+        Get the title of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        str
+            The title of the movie
+        
+        '''
         pass
 
     def get_first_page_summary(soup):
+        '''
+        Get the first page summary of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        str
+            The first page summary of the movie
+        '''
         pass
 
     def get_director(soup):
+        '''
+        Get the directors of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The directors of the movie
+        '''
         pass
 
     def get_stars(soup):
+        '''
+        Get the stars of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The stars of the movie
+        '''
         pass
 
     def get_writers(soup):
+        '''
+        Get the writers of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The writers of the movie
+        '''
         pass
 
     def get_related_links(soup):
+        '''
+        Get the related links of the movie from the More like this section of the page from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The related links of the movie
+        '''
         pass
 
     def get_summary(soup):
+        '''
+        Get the summary of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The summary of the movie
+        '''
         pass
 
     def get_synposis(soup):
+        '''
+        Get the synposis of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The synposis of the movie
+        '''
         pass
 
     def get_reviews_with_scores(soup):
+        '''
+        Get the reviews of the movie from the soup
+        reviews structure: [[review,score]]
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[List[str]]
+            The reviews of the movie
+        '''
         pass
     
     def get_genres(soup):
+        '''
+        Get the genres of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The genres of the movie
+        '''
         pass
     
     def get_rating(soup):
+        '''
+        Get the rating of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        str
+            The rating of the movie
+        '''
         pass
     
     def get_mpaa(soup):
+        '''
+        Get the MPAA of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        str
+            The MPAA of the movie
+        '''
         pass
     
     def get_release_year(soup):
+        '''
+        Get the release year of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        str
+            The release year of the movie
+        '''
         pass
 
     def get_languages(soup):
+        '''
+        Get the languages of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The languages of the movie
+        '''
         pass
 
     def get_countries_of_origin(soup):
+        '''
+        Get the countries of origin of the movie from the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        List[str]
+            The countries of origin of the movie
+        '''
         pass
 
     def get_budget(soup):
+        '''
+        Get the budget of the movie from box office section of the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        str
+            The budget of the movie
+        '''
         pass
     
     def get_gross_worldwide(soup):
+        '''
+        Get the gross worldwide of the movie from box office section of the soup
+
+        Parameters
+        ----------
+        soup: BeautifulSoup
+            The soup of the page
+        Returns
+        ----------
+        str
+            The gross worldwide of the movie
+        '''
         pass
 
 def main():
