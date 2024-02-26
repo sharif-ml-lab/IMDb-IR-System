@@ -5,6 +5,14 @@ This module contains files and classes responsible for doing the main tasks of t
 **Attention:**
 Inputs, outputs and logic of each function is explained in the comments of each function. So, **Please read** the comments and the docstrings of each class and method to understand the logic and the requirements of each part.
 
+## Installing dependencies
+It is recommended that you make a virtual environment and install the required packages in it. To do so, you can run the following commands:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
 ## 1. [Crawler](https://github.com/sharif-ml-lab/IMDb-IR-System/blob/main/Logic/core/crawler.py)
 
 In the beginning, we need to crawl our required data and create a dataset for our needs. For this sake, we implement a [crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py). The structure and functions required for this part, are explained in the `crawler.py` file.
