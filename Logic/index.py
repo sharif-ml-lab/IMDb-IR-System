@@ -38,6 +38,7 @@ class Index:
             The index of the documents based on the document ID.
         """
 
+        # TODO
         pass
 
     def index_stars(self):
@@ -50,6 +51,7 @@ class Index:
             The index of the documents based on the stars.
         """
 
+        #         TODO
         pass
 
     def index_genres(self):
@@ -62,6 +64,7 @@ class Index:
             The index of the documents based on the genres.
         """
 
+        #         TODO
         pass
 
     def index_summaries(self):
@@ -74,6 +77,7 @@ class Index:
             The index of the documents based on the summaries.
         """
 
+        #         TODO
         pass
 
     def get_posting_list(self, word: str, index_type: str):
@@ -93,6 +97,7 @@ class Index:
             posting list
         """
 
+        #         TODO
         pass
 
     def add_document_to_index(self, document: dict):
@@ -105,6 +110,7 @@ class Index:
             Document to add to all the indexes
         """
 
+        #         TODO
         pass
 
     def remove_document_from_index(self, document_id: str):
@@ -117,6 +123,7 @@ class Index:
             ID of the document to remove from all the indexes
         """
 
+        #         TODO
         pass
 
     def check_add_remove_is_correct(self):
@@ -125,7 +132,7 @@ class Index:
         """
 
         dummy_document = {
-            'id':'100',
+            'id': '100',
             'stars': ['Tim', 'Tom'],
             'genres': ['Drama', 'Comedy'],
             'summaries': ['good']
@@ -139,26 +146,31 @@ class Index:
             print('Add is incorrect, document')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['Tim']).difference(set(index_before_add[Indexes.STARS.value]['Tim']))
+        if (set(index_after_add[Indexes.STARS.value]['Tim']).difference(
+                set(index_before_add[Indexes.STARS.value]['Tim']))
                 != {dummy_document['id']}):
             print('Add is incorrect, Tim')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['Tom']).difference(set(index_before_add[Indexes.STARS.value]['Tom']))
+        if (set(index_after_add[Indexes.STARS.value]['Tom']).difference(
+                set(index_before_add[Indexes.STARS.value]['Tom']))
                 != {dummy_document['id']}):
             print('Add is incorrect, Tom')
             return
-        if (set(index_after_add[Indexes.GENRES.value]['Drama']).difference(set(index_before_add[Indexes.GENRES.value]['Drama']))
+        if (set(index_after_add[Indexes.GENRES.value]['Drama']).difference(
+                set(index_before_add[Indexes.GENRES.value]['Drama']))
                 != {dummy_document['id']}):
             print('Add is incorrect, Drama')
             return
 
-        if (set(index_after_add[Indexes.GENRES.value]['Comedy']).difference(set(index_before_add[Indexes.GENRES.value]['Comedy']))
+        if (set(index_after_add[Indexes.GENRES.value]['Comedy']).difference(
+                set(index_before_add[Indexes.GENRES.value]['Comedy']))
                 != {dummy_document['id']}):
             print('Add is incorrect, Comedy')
             return
 
-        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(set(index_before_add[Indexes.SUMMARIES.value]['good']))
+        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(
+                set(index_before_add[Indexes.SUMMARIES.value]['good']))
                 != {dummy_document['id']}):
             print('Add is incorrect, good')
             return
@@ -185,6 +197,7 @@ class Index:
             type of index we want to store (documents, stars, genres, summaries)
         """
 
+        #         TODO
         pass
 
     def load_index(self, path: str):
@@ -197,6 +210,7 @@ class Index:
             Path to load the file
         """
 
+        #         TODO
         pass
 
     def check_if_index_loaded_correctly(self, index_type: str, loaded_index: dict):
@@ -257,7 +271,7 @@ class Index:
 
         # check by getting the posting list of the word
         start = time.time()
-        # based on your implementation, you may need to change the following line
+        # TODO: based on your implementation, you may need to change the following line
         posting_list = self.get_posting_list(check_word, index_type)
 
         end = time.time()
@@ -280,3 +294,6 @@ class Index:
         else:
             print("Indexing is wrong")
             return False
+
+
+# TODO: Run the class with needed parameters, then run check methods and finally report the results of check methods
