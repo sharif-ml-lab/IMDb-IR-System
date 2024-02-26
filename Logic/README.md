@@ -1,16 +1,9 @@
 
-# Phase 1
-One of the ways to compare movies and understand which one is a better choice for you, is through websites with this purpose and using appropriate information retrieval methods.
-
-In this phase of project, we begin our journey towards building an information retrieval system for [IMDb](https://www.imdb.com/) website. In this phase, we crawl the required datas from [IMDb](https://www.imdb.com/) and do some preprocessing on them. [IMDb](https://www.imdb.com/) has one of the reachest datasets of movies (with their ratings, comments, actors and etc.).
-
-This phase will be in 2 parts. First, you need to only implement the parts that are mentioned in **Part1**. Then the second part and required data will be given to you.
+# Logic Module
+This module contains files and classes responsible for doing the main tasks of the project. The explanations of each class and what it does is provided below (and will be completed as the project goes on).
 
 **Attention:**
-Inputs, outputs and logic of each function is explained in the comments of each function.
-
-# Part 1
-This part is consisting of 4 sub-parts.
+Inputs, outputs and logic of each function is explained in the comments of each function. So, **Please read** the comments and the docstrings of each class and method to understand the logic and the requirements of each part.
 
 ## 1. [Crawler](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/crawler.py)
 
@@ -36,5 +29,3 @@ You should run this method, **for each of the 4 indexing methods and for 2 diffe
 Report the results to us.
 
 - **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!
-
-# Part 2
