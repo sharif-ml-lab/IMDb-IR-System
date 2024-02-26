@@ -141,9 +141,6 @@ class IMDB_crawler:
          # TODO
         pass
 
-    # Get the link to summary page of movie for example the summary page of movie
-    # https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1 is the page
-    # https://www.imdb.com/title/tt0111161/plotsummary/?ref_=tt_stry_pl
     def get_summary_link(url):
         '''
         Get the link to the summary page of the movie
@@ -163,9 +160,6 @@ class IMDB_crawler:
          # TODO
         pass
 
-    # Get the link to summary page of movie for example the summary page of movie
-    # https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1 is the page
-    # https://www.imdb.com/title/tt0111161/reviews?ref_=tt_urv
     def get_review_link(url):
         '''
         Get the link to the review page of the movie
