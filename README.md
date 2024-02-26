@@ -1,6 +1,8 @@
 # MIR-2024-Project
 This is the repository for Modern Information Retrieval Course, Instructed by Dr. Mahdieh Soleymani Baghshah at Sharif University of Technology.
 
+<img src="./IMDB_Logo.png" alt="IMDb Logo" width="100%" height="auto" />
+
 ## What is this project about?
 One of the ways to compare movies and understand which one is a better choice for you, is through websites with this purpose and using appropriate information retrieval methods.
 
