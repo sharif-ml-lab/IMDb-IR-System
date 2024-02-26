@@ -25,8 +25,8 @@ We provided you `MinHashLSH` class. This class is responsible for doing near dup
 This class is responsible for doing preprocessings required on the input data. The input the crawled data and the output is the data without extra info.
 
 ## 4. [Indexing](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/part%201/index.py)
-This class is responsile for building index. Its input is preprocessed data and the output is indices required for searching. This section will be used in next phases and the functions will be used for information retrieval.
-**Note** that in this class, `check_if_indexing_is_good` method is used to test your indexing and you can call it to understand how well your indexing is.
+This class is responsible for building index. Its input is preprocessed data and the output is indexes required for searching. This section will be used in next phases and the functions will be used for information retrieval.
+**Note** that in this class, `check_if_indexing_is_good` method is used to test your indexing, and you can call it to understand how well your indexing is.
 
 - You should run this method, for each of the 4 indexing methods and for 2 different words and compare if your indexing is better or not.
 - **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!

@@ -85,7 +85,7 @@ class Index:
         word: str
             word we want to check
         index_type: str
-            type of index we want to check (stars, genres, summaries, reviews)
+            type of index we want to check (document, stars, genres, summaries)
 
         Return
         ----------
@@ -182,7 +182,7 @@ class Index:
         path : str
             Path to store the file
         index_type: str
-            type of index we want to store (stars, genres, summaries, reviews)
+            type of index we want to store (document, stars, genres, summaries)
         """
 
         pass
@@ -206,7 +206,7 @@ class Index:
         Parameters
         ----------
         index_type : str
-            Type of index to check (stars, genres, summaries, reviews)
+            Type of index to check (document, stars, genres, summaries)
         loaded_index : dict
             The loaded index
 
@@ -226,7 +226,7 @@ class Index:
         Parameters
         ----------
         index_type : str
-            Type of index to check (stars, genres, summaries, reviews)
+            Type of index to check (document, stars, genres, summaries)
         check_word : str
             The word to check in the index
 
