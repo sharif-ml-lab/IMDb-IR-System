@@ -1,4 +1,15 @@
 import time
+import os
+import json
+from enum import Enum
+import copy
+
+
+class Indexes(Enum):
+    DOCUMENTS = 'documents'
+    STARS = 'stars'
+    GENRES = 'genres'
+    SUMMARIES = 'summaries'
 
 
 class Index:
@@ -6,7 +17,28 @@ class Index:
         """
         Create a class for indexing.
         """
+
         self.preprocessed_documents = preprocessed_documents
+
+        self.index = {
+            Indexes.DOCUMENTS.value: self.index_documents(),
+            Indexes.STARS.value: self.index_stars(),
+            Indexes.GENRES.value: self.index_genres(),
+            Indexes.SUMMARIES.value: self.index_summaries(),
+        }
+
+    def index_documents(self):
+        """
+        Index the documents based on the document ID. In other words, create a dictionary
+        where the key is the document ID and the value is the document.
+
+        Returns
+        ----------
+        dict
+            The index of the documents based on the document ID.
+        """
+
+        pass
 
     def index_stars(self):
         """
@@ -17,7 +49,8 @@ class Index:
         dict
             The index of the documents based on the stars.
         """
-        return
+
+        pass
 
     def index_genres(self):
         """
@@ -28,7 +61,8 @@ class Index:
         dict
             The index of the documents based on the genres.
         """
-        return
+
+        pass
 
     def index_summaries(self):
         """
@@ -39,18 +73,8 @@ class Index:
         dict
             The index of the documents based on the summaries.
         """
-        return
 
-    def index_reviews(self):
-        """
-        Index the documents based on the reviews.
-
-        Returns
-        ----------
-        dict
-            The index of the documents based on the reviews.
-        """
-        return
+        pass
 
     def get_posting_list(self, word: str, index_type: str):
         """
@@ -68,7 +92,8 @@ class Index:
         dict
             posting list
         """
-        return
+
+        pass
 
     def add_document_to_index(self, document: dict):
         """
@@ -78,23 +103,75 @@ class Index:
         ----------
         document : dict
             Document to add to all the indexes
-
         """
 
         pass
 
-    def remove_document_from_index(self, document_id: int):
+    def remove_document_from_index(self, document_id: str):
         """
         Remove a document from all the indexes
 
         Parameters
         ----------
-        document_id : int
+        document_id : str
             ID of the document to remove from all the indexes
-
         """
 
         pass
+
+    def check_add_remove_is_correct(self):
+        """
+        Check if the add and remove is correct
+        """
+
+        dummy_document = {
+            'id':'100',
+            'stars': ['Tim', 'Tom'],
+            'genres': ['Drama', 'Comedy'],
+            'summaries': ['good']
+        }
+
+        index_before_add = copy.deepcopy(self.index)
+        self.add_document_to_index(dummy_document)
+        index_after_add = copy.deepcopy(self.index)
+
+        if index_after_add[Indexes.DOCUMENTS.value]['100'] != dummy_document:
+            print('Add is incorrect, document')
+            return
+
+        if (set(index_after_add[Indexes.STARS.value]['Tim']).difference(set(index_before_add[Indexes.STARS.value]['Tim']))
+                != {dummy_document['id']}):
+            print('Add is incorrect, Tim')
+            return
+
+        if (set(index_after_add[Indexes.STARS.value]['Tom']).difference(set(index_before_add[Indexes.STARS.value]['Tom']))
+                != {dummy_document['id']}):
+            print('Add is incorrect, Tom')
+            return
+        if (set(index_after_add[Indexes.GENRES.value]['Drama']).difference(set(index_before_add[Indexes.GENRES.value]['Drama']))
+                != {dummy_document['id']}):
+            print('Add is incorrect, Drama')
+            return
+
+        if (set(index_after_add[Indexes.GENRES.value]['Comedy']).difference(set(index_before_add[Indexes.GENRES.value]['Comedy']))
+                != {dummy_document['id']}):
+            print('Add is incorrect, Comedy')
+            return
+
+        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(set(index_before_add[Indexes.SUMMARIES.value]['good']))
+                != {dummy_document['id']}):
+            print('Add is incorrect, good')
+            return
+
+        print('Add is correct')
+
+        self.remove_document_from_index('100')
+        index_after_remove = copy.deepcopy(self.index)
+
+        if index_after_remove == index_before_add:
+            print('Remove is correct')
+        else:
+            print('Remove is incorrect')
 
     def store_index(self, path: str, index_type: str):
         """
@@ -106,7 +183,6 @@ class Index:
             Path to store the file
         index_type: str
             type of index we want to store (stars, genres, summaries, reviews)
-
         """
 
         pass
@@ -119,12 +195,30 @@ class Index:
         ----------
         path : str
             Path to load the file
-
         """
 
         pass
 
-    def check_if_indexing_is_good(self, index_type, check_word="emotionally"):
+    def check_if_index_loaded_correctly(self, index_type: str, loaded_index: dict):
+        """
+        Check if the index is loaded correctly
+
+        Parameters
+        ----------
+        index_type : str
+            Type of index to check (stars, genres, summaries, reviews)
+        loaded_index : dict
+            The loaded index
+
+        Returns
+        ----------
+        bool
+            True if index is loaded correctly, False otherwise
+        """
+
+        return self.index[index_type] == loaded_index
+
+    def check_if_indexing_is_good(self, index_type: str, check_word: str = 'good'):
         """
         Checks if the indexing is good. Do not change this function. You can use this
         function to check if your indexing is correct.
@@ -146,13 +240,17 @@ class Index:
         start = time.time()
         docs = []
         for document in self.preprocessed_documents:
-            for summary in document["summaries"]:
-                if check_word in summary:
-                    docs.append(document["id"])
+            if index_type not in document or document[index_type] is None:
+                continue
 
-                    # if we have found 3 documents with the word, we can break
-                    if len(docs) == 3:
-                        break
+            for field in document[index_type]:
+                if check_word in field:
+                    docs.append(document['id'])
+                    break
+
+            # if we have found 3 documents with the word, we can break
+            if len(docs) == 3:
+                break
 
         end = time.time()
         brute_force_time = end - start
@@ -168,6 +266,8 @@ class Index:
         print("Brute force time: ", brute_force_time)
         print("Implemented time: ", implemented_time)
 
+        print(docs)
+        print(posting_list)
         if set(docs).issubset(set(posting_list)):
             print("Indexing is correct")
 
