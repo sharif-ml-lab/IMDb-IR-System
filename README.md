@@ -1,5 +1,5 @@
 # MIR-2024-Project
-<img src="./IMDB_Logo.png" alt="IMDb Logo" width="100%" height="auto" />
+<img src="./IMDB_Logo.jpeg" alt="IMDb Logo" width="100%" height="auto" />
 This is the repository for Modern Information Retrieval Course, Instructed by Dr. Mahdieh Soleymani Baghshah at Sharif University of Technology.
 
 ## What is this project about?
