@@ -24,6 +24,7 @@ class IMDB_crawler:
         crawling_threshold: int 
             The number of pages to crawl
         '''
+         # TODO
         pass
 
     def get_id_from_URL(self, URL):
@@ -40,18 +41,21 @@ class IMDB_crawler:
         str
             The id of the site
         '''
+         # TODO
         return URL.split('/')[4]
 
     def write_to_file_as_json(self):
         '''
         Save the crawled files into json
         '''
+         # TODO
         pass
 
     def read_from_file_as_json(self):
         '''
         Read the crawled files from json
         '''
+         # TODO
         pass
 
     
@@ -68,15 +72,18 @@ class IMDB_crawler:
         requests.models.Response
             The response of the get request
         '''
+         # TODO
         pass
 
     def extract_top_250(self):
         '''
         Extract the top 250 movies from the top 250 page and use them as seed for the crawler to start crawling.
         '''
+         # TODO
         pass
 
     def get_imdb_instance(self):
+         # TODO
         return {
             'id': None, # str
             'title': None, # str
@@ -103,6 +110,7 @@ class IMDB_crawler:
         '''
         Start crawling the movies until the crawling threshold is reached.
         '''
+         # TODO
         pass
 
     def crawl_page_info(self, URL):
@@ -114,6 +122,7 @@ class IMDB_crawler:
         URL: str
             The URL of the site
         '''
+         # TODO
         pass
 
     def extract_movie_info(self,res,movie,URL):
@@ -129,6 +138,7 @@ class IMDB_crawler:
         URL: str
             The URL of the site
         '''
+         # TODO
         pass
 
     # Get the link to summary page of movie for example the summary page of movie
@@ -150,6 +160,7 @@ class IMDB_crawler:
         str
             The URL of the summary page
         '''
+         # TODO
         pass
 
     # Get the link to summary page of movie for example the summary page of movie
@@ -162,6 +173,7 @@ class IMDB_crawler:
         https://www.imdb.com/title/tt0111161/ is the page
         https://www.imdb.com/title/tt0111161/reviews is the review page
         '''
+         # TODO
         pass
 
     def get_title(soup):
@@ -178,6 +190,7 @@ class IMDB_crawler:
             The title of the movie
         
         '''
+         # TODO
         pass
 
     def get_first_page_summary(soup):
@@ -192,7 +205,8 @@ class IMDB_crawler:
         ----------
         str
             The first page summary of the movie
-        '''
+        ''' 
+        # TODO
         pass
 
     def get_director(soup):
@@ -208,6 +222,7 @@ class IMDB_crawler:
         List[str]
             The directors of the movie
         '''
+         # TODO
         pass
 
     def get_stars(soup):
@@ -223,6 +238,7 @@ class IMDB_crawler:
         List[str]
             The stars of the movie
         '''
+         # TODO
         pass
 
     def get_writers(soup):
@@ -238,6 +254,7 @@ class IMDB_crawler:
         List[str]
             The writers of the movie
         '''
+         # TODO
         pass
 
     def get_related_links(soup):
@@ -253,6 +270,7 @@ class IMDB_crawler:
         List[str]
             The related links of the movie
         '''
+         # TODO
         pass
 
     def get_summary(soup):
@@ -268,6 +286,7 @@ class IMDB_crawler:
         List[str]
             The summary of the movie
         '''
+         # TODO
         pass
 
     def get_synposis(soup):
@@ -283,6 +302,7 @@ class IMDB_crawler:
         List[str]
             The synposis of the movie
         '''
+         # TODO
         pass
 
     def get_reviews_with_scores(soup):
@@ -299,6 +319,7 @@ class IMDB_crawler:
         List[List[str]]
             The reviews of the movie
         '''
+         # TODO
         pass
     
     def get_genres(soup):
@@ -314,6 +335,7 @@ class IMDB_crawler:
         List[str]
             The genres of the movie
         '''
+         # TODO
         pass
     
     def get_rating(soup):
@@ -329,6 +351,7 @@ class IMDB_crawler:
         str
             The rating of the movie
         '''
+         # TODO
         pass
     
     def get_mpaa(soup):
@@ -344,6 +367,7 @@ class IMDB_crawler:
         str
             The MPAA of the movie
         '''
+         # TODO
         pass
     
     def get_release_year(soup):
@@ -359,6 +383,7 @@ class IMDB_crawler:
         str
             The release year of the movie
         '''
+         # TODO
         pass
 
     def get_languages(soup):
@@ -374,6 +399,7 @@ class IMDB_crawler:
         List[str]
             The languages of the movie
         '''
+         # TODO
         pass
 
     def get_countries_of_origin(soup):
@@ -389,6 +415,7 @@ class IMDB_crawler:
         List[str]
             The countries of origin of the movie
         '''
+         # TODO
         pass
 
     def get_budget(soup):
@@ -404,6 +431,7 @@ class IMDB_crawler:
         str
             The budget of the movie
         '''
+         # TODO
         pass
     
     def get_gross_worldwide(soup):
@@ -419,6 +447,7 @@ class IMDB_crawler:
         str
             The gross worldwide of the movie
         '''
+         # TODO
         pass
 
 def main():

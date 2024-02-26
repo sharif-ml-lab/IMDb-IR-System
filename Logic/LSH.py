@@ -31,6 +31,7 @@ class MinHashLSH:
         set
             A set of shingles.
         """
+         # TODO
         return
 
     def build_characteristic_matrix(self):
@@ -42,6 +43,7 @@ class MinHashLSH:
         numpy.ndarray
             The binary characteristic matrix.
         """
+         # TODO
         return
 
     def min_hash_signature(self):
@@ -53,6 +55,7 @@ class MinHashLSH:
         numpy.ndarray
             The Min-Hash signatures matrix.
         """
+         # TODO
         return
 
     def lsh_buckets(self, signature, bands=10, rows_per_band=10):
@@ -73,6 +76,7 @@ class MinHashLSH:
         dict
             A dictionary mapping bucket IDs to lists of document indices.
         """
+         # TODO
         return
 
     def perform_lsh(self):
@@ -84,4 +88,5 @@ class MinHashLSH:
         dict
             A dictionary mapping bucket IDs to lists of document indices.
         """
+         # TODO
         return

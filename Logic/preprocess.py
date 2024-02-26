@@ -9,9 +9,9 @@ class Preprocessor:
         Parameters
         ----------
         documents : list
-            The list of documents to be preprocessed.
+            The list of documents to be preprocessed, path to stop words, or other parameters.
         """
-
+        # TODO
         self.documents = documents
 
     def preprocess(self):
@@ -23,6 +23,7 @@ class Preprocessor:
         str
             The preprocessed documents.
         """
+         # TODO
         return
 
     def normalize(self, text: str):
@@ -39,6 +40,7 @@ class Preprocessor:
         str
             The normalized text.
         """
+        # TODO
         return
 
     def remove_links(self, text: str):
@@ -55,6 +57,7 @@ class Preprocessor:
         str
             The text with links removed.
         """
+        # TODO
         return
 
     def remove_punctuations(self, text: str):
@@ -71,6 +74,7 @@ class Preprocessor:
         str
             The text with punctuations removed.
         """
+        # TODO
         return
 
     def tokenize(self, text: str):
@@ -87,6 +91,7 @@ class Preprocessor:
         list
             The list of words.
         """
+        # TODO
         return
 
     def remove_stopwords(self, text: str):
@@ -103,5 +108,6 @@ class Preprocessor:
         list
             The list of words with stopwords removed.
         """
+        # TODO
         return
 
