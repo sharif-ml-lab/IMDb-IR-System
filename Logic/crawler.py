@@ -52,7 +52,7 @@ class IMDB_crawler:
             'writers': None, # List[str]
             'stars': None, # List[str]
             'related_links': None, # List[str]
-            'geners': None, # List[str]
+            'genres': None, # List[str]
             'languages': None, # List[str]
             'countries_of_origin': None, # List[str]
             'summaries': None, # List[str]
@@ -112,7 +112,7 @@ class IMDB_crawler:
     def get_reviews_with_scores(soup):
         pass
     
-    def get_geners(soup):
+    def get_genres(soup):
         pass
     
     def get_rating(soup):

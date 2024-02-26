@@ -33,7 +33,7 @@ expected_fields = {
     "writers": List[str],
     "stars": List[str],
     "related_links": List[str],
-    "geners": List[str],
+    "genres": List[str],
     "languages": List[str],
     "countries_of_origin": List[str],
     "summaries": List[str],
