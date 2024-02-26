@@ -206,8 +206,11 @@ class IMDbCrawler:
         str
             The URL of the summary page
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get summary link")
 
     def get_review_link(url):
         """
@@ -216,8 +219,11 @@ class IMDbCrawler:
         https://www.imdb.com/title/tt0111161/ is the page
         https://www.imdb.com/title/tt0111161/reviews is the review page
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get review link")
 
     def get_title(soup):
         """
@@ -233,8 +239,11 @@ class IMDbCrawler:
             The title of the movie
 
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get title")
 
     def get_first_page_summary(soup):
         """
@@ -249,8 +258,11 @@ class IMDbCrawler:
         str
             The first page summary of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get first page summary")
 
     def get_director(soup):
         """
@@ -265,8 +277,11 @@ class IMDbCrawler:
         List[str]
             The directors of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get director")
 
     def get_stars(soup):
         """
@@ -281,8 +296,11 @@ class IMDbCrawler:
         List[str]
             The stars of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get stars")
 
     def get_writers(soup):
         """
@@ -297,8 +315,11 @@ class IMDbCrawler:
         List[str]
             The writers of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get writers")
 
     def get_related_links(soup):
         """
@@ -313,8 +334,11 @@ class IMDbCrawler:
         List[str]
             The related links of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get related links")
 
     def get_summary(soup):
         """
@@ -329,8 +353,11 @@ class IMDbCrawler:
         List[str]
             The summary of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get summary")
 
     def get_synposis(soup):
         """
@@ -345,8 +372,11 @@ class IMDbCrawler:
         List[str]
             The synposis of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get synposis")
 
     def get_reviews_with_scores(soup):
         """
@@ -362,8 +392,11 @@ class IMDbCrawler:
         List[List[str]]
             The reviews of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get reviews")
 
     def get_genres(soup):
         """
@@ -378,8 +411,11 @@ class IMDbCrawler:
         List[str]
             The genres of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("Failed to get generes")
 
     def get_rating(soup):
         """
@@ -394,8 +430,11 @@ class IMDbCrawler:
         str
             The rating of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get rating")
 
     def get_mpaa(soup):
         """
@@ -410,8 +449,11 @@ class IMDbCrawler:
         str
             The MPAA of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get mpaa")
 
     def get_release_year(soup):
         """
@@ -426,8 +468,11 @@ class IMDbCrawler:
         str
             The release year of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get release year")
 
     def get_languages(soup):
         """
@@ -442,8 +487,12 @@ class IMDbCrawler:
         List[str]
             The languages of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get languages")
+            return None
 
     def get_countries_of_origin(soup):
         """
@@ -458,8 +507,11 @@ class IMDbCrawler:
         List[str]
             The countries of origin of the movie
         """
-        # TODO
-        pass
+        try:
+            # TODO
+            pass
+        except:
+            print("failed to get countries of origin")
 
     def get_budget(soup):
         """
@@ -478,8 +530,7 @@ class IMDbCrawler:
             # TODO
             pass
         except:
-            print("failed to get countries of origin")
-            return None
+            print("failed to get budget")
 
     def get_gross_worldwide(soup):
         """
@@ -499,7 +550,6 @@ class IMDbCrawler:
             pass
         except:
             print("failed to get gross worldwide")
-            return None
 
 
 def main():
