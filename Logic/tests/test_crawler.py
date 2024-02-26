@@ -41,6 +41,5 @@ expected_fields = {
     "reviews": List[List[str]],
 }
 
-# json_file_path = 'path/to/your/json/file.json'
 json_file_path = "../IMDB_crawled.json"
 check_field_types(json_file_path, expected_fields)
