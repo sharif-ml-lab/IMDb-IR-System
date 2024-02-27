@@ -13,6 +13,7 @@ class Preprocessor:
         """
         # TODO
         self.documents = documents
+        self.stopwords = []
 
     def preprocess(self):
         """

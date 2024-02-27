@@ -17,6 +17,8 @@ We provided you `MinHashLSH` class. This class is responsible for doing near dup
 ## 3. [Preprocess](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/core/preprocess.py)
 This class is responsible for doing preprocessings required on the input data. The input the crawled data and the output is the data without extra info.
 
+Using prebuilt libraries for stopwords is an option, but it can be slow to process large amounts of text. For faster performance, we have prepared a `stopword.txt` file containing common stopwords that you can use instead. The stopwords file allows preprocessing to be completed more efficiently by removing common, non-informative words from the text before further analysis.
+
 ## 4. [Indexing](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/core/index.py)
 This class is responsible for building index. Its input is preprocessed data and the output is indexes required for searching. This section will be used in next phases and the functions will be used for information retrieval.
 
