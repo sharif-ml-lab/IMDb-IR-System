@@ -94,9 +94,34 @@ class MinHashLSH:
         return
 
     def jaccard_score(self, first_set, second_set):
+    	"""
+        Calculate jaccard score for two sets.
+
+        Parameters
+        ----------
+        first_set : set
+            Set of first shingled document.
+        second_set : set
+            Set of second shingled document.
+
+        Returns
+        ----------
+        float
+            Jaccard score.
+        """
         return len(first_set.intersection(second_set)) / len(first_set.union(second_set))
 
     def jaccard_similarity_test(self, buckets, all_documents):
+    	"""
+        Test your near duplicate detection code based on jaccard similarity.
+
+        Parameters
+        ----------
+        buckets : dict
+            A dictionary mapping bucket IDs to lists of document indices.
+        all_documents : list
+            The input documents for similarity analysis.
+        """
         correct_near_duplicates = 0
         all_near_duplicates = 0
 
