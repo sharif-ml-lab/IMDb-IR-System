@@ -31,3 +31,7 @@ You should run this method, **for each of the 4 indexing methods and for 2 diffe
 Report the results to us.
 
 - **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!
+
+## 5. [Utils](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/utils.py)
+
+This file contains functions that is needed by UI to do some of the important functionalities. For now, you should complete the `clean_text` function that is used by UI to do the pre-processing operations that you implemented in `Preprocessor` class, on the input query by user.  You can **test** your implementation by running the UI, and giving different inputs and see that how is it being corrected (or actually, being cleaned! so it can be used better as we proceed in the project).
