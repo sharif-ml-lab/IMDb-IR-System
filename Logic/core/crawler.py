@@ -182,7 +182,7 @@ class IMDbCrawler:
         movie['writers'] = None
         movie['stars'] = None
         movie['related_links'] = None
-        movie['geners'] = None
+        movie['genres'] = None
         movie['languages'] = None
         movie['countries_of_origin'] = None
         movie['rating'] = None
