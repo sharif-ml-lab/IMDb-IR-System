@@ -141,8 +141,8 @@ class Index:
 
         dummy_document = {
             'id': '100',
-            'stars': ['Tim', 'Tom'],
-            'genres': ['Drama', 'Comedy'],
+            'stars': ['tim', 'henry'],
+            'genres': ['drama', 'crime'],
             'summaries': ['good']
         }
 
@@ -154,31 +154,26 @@ class Index:
             print('Add is incorrect, document')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['Tim']).difference(
-                set(index_before_add[Indexes.STARS.value]['Tim']))
+        if (set(index_after_add[Indexes.STARS.value]['tim']).difference(set(index_before_add[Indexes.STARS.value]['tim']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Tim')
+            print('Add is incorrect, tim')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['Tom']).difference(
-                set(index_before_add[Indexes.STARS.value]['Tom']))
+        if (set(index_after_add[Indexes.STARS.value]['henry']).difference(set(index_before_add[Indexes.STARS.value]['henry']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Tom')
+            print('Add is incorrect, henry')
             return
-        if (set(index_after_add[Indexes.GENRES.value]['Drama']).difference(
-                set(index_before_add[Indexes.GENRES.value]['Drama']))
+        if (set(index_after_add[Indexes.GENRES.value]['drama']).difference(set(index_before_add[Indexes.GENRES.value]['drama']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Drama')
+            print('Add is incorrect, drama')
             return
 
-        if (set(index_after_add[Indexes.GENRES.value]['Comedy']).difference(
-                set(index_before_add[Indexes.GENRES.value]['Comedy']))
+        if (set(index_after_add[Indexes.GENRES.value]['crime']).difference(set(index_before_add[Indexes.GENRES.value]['crime']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Comedy')
+            print('Add is incorrect, crime')
             return
 
-        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(
-                set(index_before_add[Indexes.SUMMARIES.value]['good']))
+        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(set(index_before_add[Indexes.SUMMARIES.value]['good']))
                 != {dummy_document['id']}):
             print('Add is incorrect, good')
             return
