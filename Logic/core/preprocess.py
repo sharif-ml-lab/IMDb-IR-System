@@ -13,6 +13,7 @@ class Preprocessor:
         """
         # TODO
         self.documents = documents
+        self.stopwords = []
 
     def preprocess(self):
         """
@@ -57,6 +58,7 @@ class Preprocessor:
         str
             The text with links removed.
         """
+        patterns = [r'\S*http\S*', r'\S*www\S*', r'\S+\.ir\S*', r'\S+\.com\S*', r'\S+\.org\S*', r'\S*@\S*']
         # TODO
         return
 

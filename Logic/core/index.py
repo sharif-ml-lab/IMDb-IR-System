@@ -37,9 +37,10 @@ class Index:
         dict
             The index of the documents based on the document ID.
         """
-
+        current_index = {}
         # TODO
-        pass
+
+        return current_index
 
     def index_stars(self):
         """
@@ -76,9 +77,10 @@ class Index:
         dict
             The index of the documents based on the summaries.
         """
-
+        current_index = {}
         #         TODO
-        pass
+
+        return current_index
 
     def get_posting_list(self, word: str, index_type: str):
         """
@@ -96,9 +98,11 @@ class Index:
         dict
             posting list
         """
-
-        #         TODO
-        pass
+        try:
+            #         TODO
+            pass
+        except:
+            return []
 
     def add_document_to_index(self, document: dict):
         """
@@ -196,6 +200,11 @@ class Index:
         index_type: str
             type of index we want to store (documents, stars, genres, summaries)
         """
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        if index_type not in self.index:
+            raise ValueError('Invalid index type')
 
         #         TODO
         pass
@@ -294,6 +303,5 @@ class Index:
         else:
             print("Indexing is wrong")
             return False
-
 
 # TODO: Run the class with needed parameters, then run check methods and finally report the results of check methods
