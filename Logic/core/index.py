@@ -81,6 +81,7 @@ class Index:
             The index of the documents based on the summaries. You should also store each terms' tf in each document.
             So the index type is: {term: {document_id: tf}}
         """
+
         current_index = {}
         #         TODO
 
@@ -102,6 +103,7 @@ class Index:
         list
             posting list of the word (you should return the list of document IDs that contain the word and ignore the tf)
         """
+
         try:
             #         TODO
             pass
@@ -199,6 +201,7 @@ class Index:
         index_type: str
             type of index we want to store (documents, stars, genres, summaries)
         """
+
         if not os.path.exists(path):
             os.makedirs(path)
 
