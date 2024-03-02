@@ -1,8 +1,15 @@
 import time
 import os
 import json
+from enum import Enum
 import copy
-from indexes_enum import Indexes
+
+
+class Indexes(Enum):
+    DOCUMENTS = 'documents'
+    STARS = 'stars'
+    GENRES = 'genres'
+    SUMMARIES = 'summaries'
 
 
 class Index:
@@ -30,9 +37,8 @@ class Index:
         dict
             The index of the documents based on the document ID.
         """
-
         current_index = {}
-        #         TODO
+        # TODO
 
         return current_index
 
@@ -43,8 +49,7 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the stars. You should also store each terms' tf in each document.
-            So the index type is: {term: {document_id: tf}}
+            The index of the documents based on the stars.
         """
 
         #         TODO
@@ -57,8 +62,7 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the genres. You should also store each terms' tf in each document.
-            So the index type is: {term: {document_id: tf}}
+            The index of the documents based on the genres.
         """
 
         #         TODO
@@ -71,10 +75,8 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the summaries. You should also store each terms' tf in each document.
-            So the index type is: {term: {document_id: tf}}
+            The index of the documents based on the summaries.
         """
-
         current_index = {}
         #         TODO
 
@@ -93,10 +95,9 @@ class Index:
 
         Return
         ----------
-        list
-            posting list of the word (you should return the list of document IDs that contain the word and ignore the tf)
+        dict
+            posting list
         """
-
         try:
             #         TODO
             pass
@@ -136,8 +137,8 @@ class Index:
 
         dummy_document = {
             'id': '100',
-            'stars': ['tim', 'henry'],
-            'genres': ['drama', 'crime'],
+            'stars': ['Tim', 'Tom'],
+            'genres': ['Drama', 'Comedy'],
             'summaries': ['good']
         }
 
@@ -149,26 +150,31 @@ class Index:
             print('Add is incorrect, document')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['tim']).difference(set(index_before_add[Indexes.STARS.value]['tim']))
+        if (set(index_after_add[Indexes.STARS.value]['Tim']).difference(
+                set(index_before_add[Indexes.STARS.value]['Tim']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, tim')
+            print('Add is incorrect, Tim')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['henry']).difference(set(index_before_add[Indexes.STARS.value]['henry']))
+        if (set(index_after_add[Indexes.STARS.value]['Tom']).difference(
+                set(index_before_add[Indexes.STARS.value]['Tom']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, henry')
+            print('Add is incorrect, Tom')
             return
-        if (set(index_after_add[Indexes.GENRES.value]['drama']).difference(set(index_before_add[Indexes.GENRES.value]['drama']))
+        if (set(index_after_add[Indexes.GENRES.value]['Drama']).difference(
+                set(index_before_add[Indexes.GENRES.value]['Drama']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, drama')
-            return
-
-        if (set(index_after_add[Indexes.GENRES.value]['crime']).difference(set(index_before_add[Indexes.GENRES.value]['crime']))
-                != {dummy_document['id']}):
-            print('Add is incorrect, crime')
+            print('Add is incorrect, Drama')
             return
 
-        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(set(index_before_add[Indexes.SUMMARIES.value]['good']))
+        if (set(index_after_add[Indexes.GENRES.value]['Comedy']).difference(
+                set(index_before_add[Indexes.GENRES.value]['Comedy']))
+                != {dummy_document['id']}):
+            print('Add is incorrect, Comedy')
+            return
+
+        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(
+                set(index_before_add[Indexes.SUMMARIES.value]['good']))
                 != {dummy_document['id']}):
             print('Add is incorrect, good')
             return
@@ -183,7 +189,7 @@ class Index:
         else:
             print('Remove is incorrect')
 
-    def store_index(self, path: str, index_name: str = None):
+    def store_index(self, path: str, index_type: str):
         """
         Stores the index in a file (such as a JSON file)
 
@@ -191,17 +197,16 @@ class Index:
         ----------
         path : str
             Path to store the file
-        index_name: str
-            name of index we want to store (documents, stars, genres, summaries)
+        index_type: str
+            type of index we want to store (documents, stars, genres, summaries)
         """
-
         if not os.path.exists(path):
             os.makedirs(path)
 
-        if index_name not in self.index:
-            raise ValueError('Invalid index name')
+        if index_type not in self.index:
+            raise ValueError('Invalid index type')
 
-        # TODO
+        #         TODO
         pass
 
     def load_index(self, path: str):
@@ -281,20 +286,22 @@ class Index:
         end = time.time()
         implemented_time = end - start
 
-        print('Brute force time: ', brute_force_time)
-        print('Implemented time: ', implemented_time)
+        print("Brute force time: ", brute_force_time)
+        print("Implemented time: ", implemented_time)
 
+        print(docs)
+        print(posting_list)
         if set(docs).issubset(set(posting_list)):
-            print('Indexing is correct')
+            print("Indexing is correct")
 
             if implemented_time < brute_force_time:
-                print('Indexing is good')
+                print("Indexing is good")
                 return True
             else:
-                print('Indexing is bad')
+                print("Indexing is bad")
                 return False
         else:
-            print('Indexing is wrong')
+            print("Indexing is wrong")
             return False
 
 # TODO: Run the class with needed parameters, then run check methods and finally report the results of check methods
