@@ -37,8 +37,9 @@ class Index:
         dict
             The index of the documents based on the document ID.
         """
+
         current_index = {}
-        # TODO
+        #         TODO
 
         return current_index
 
@@ -49,7 +50,8 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the stars.
+            The index of the documents based on the stars. You should also store each terms' tf in each document.
+            So the index type is: {term: {document_id: tf}}
         """
 
         #         TODO
@@ -62,7 +64,8 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the genres.
+            The index of the documents based on the genres. You should also store each terms' tf in each document.
+            So the index type is: {term: {document_id: tf}}
         """
 
         #         TODO
@@ -75,7 +78,8 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the summaries.
+            The index of the documents based on the summaries. You should also store each terms' tf in each document.
+            So the index type is: {term: {document_id: tf}}
         """
         current_index = {}
         #         TODO
@@ -95,8 +99,8 @@ class Index:
 
         Return
         ----------
-        dict
-            posting list
+        list
+            posting list of the word (you should return the list of document IDs that contain the word and ignore the tf)
         """
         try:
             #         TODO
@@ -286,22 +290,20 @@ class Index:
         end = time.time()
         implemented_time = end - start
 
-        print("Brute force time: ", brute_force_time)
-        print("Implemented time: ", implemented_time)
+        print('Brute force time: ', brute_force_time)
+        print('Implemented time: ', implemented_time)
 
-        print(docs)
-        print(posting_list)
         if set(docs).issubset(set(posting_list)):
-            print("Indexing is correct")
+            print('Indexing is correct')
 
             if implemented_time < brute_force_time:
-                print("Indexing is good")
+                print('Indexing is good')
                 return True
             else:
-                print("Indexing is bad")
+                print('Indexing is bad')
                 return False
         else:
-            print("Indexing is wrong")
+            print('Indexing is wrong')
             return False
 
 # TODO: Run the class with needed parameters, then run check methods and finally report the results of check methods
