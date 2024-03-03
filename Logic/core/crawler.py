@@ -110,7 +110,7 @@ class IMDbCrawler:
             'languages': None,  # List[str]
             'countries_of_origin': None,  # List[str]
             'summaries': None,  # List[str]
-            'synposis': None,  # List[str]
+            'synopsis': None,  # List[str]
             'reviews': None,  # List[List[str]]
         }
 
@@ -187,7 +187,7 @@ class IMDbCrawler:
         movie['countries_of_origin'] = None
         movie['rating'] = None
         movie['summaries'] = None
-        movie['synposis'] = None
+        movie['synopsis'] = None
         movie['reviews'] = None
 
     def get_summary_link(url):
@@ -359,9 +359,9 @@ class IMDbCrawler:
         except:
             print("failed to get summary")
 
-    def get_synposis(soup):
+    def get_synopsis(soup):
         """
-        Get the synposis of the movie from the soup
+        Get the synopsis of the movie from the soup
 
         Parameters
         ----------
@@ -370,13 +370,13 @@ class IMDbCrawler:
         Returns
         ----------
         List[str]
-            The synposis of the movie
+            The synopsis of the movie
         """
         try:
             # TODO
             pass
         except:
-            print("failed to get synposis")
+            print("failed to get synopsis")
 
     def get_reviews_with_scores(soup):
         """
