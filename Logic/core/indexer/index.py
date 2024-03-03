@@ -37,8 +37,9 @@ class Index:
         dict
             The index of the documents based on the document ID.
         """
+
         current_index = {}
-        # TODO
+        #         TODO
 
         return current_index
 
@@ -49,7 +50,8 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the stars.
+            The index of the documents based on the stars. You should also store each terms' tf in each document.
+            So the index type is: {term: {document_id: tf}}
         """
 
         #         TODO
@@ -62,7 +64,8 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the genres.
+            The index of the documents based on the genres. You should also store each terms' tf in each document.
+            So the index type is: {term: {document_id: tf}}
         """
 
         #         TODO
@@ -75,8 +78,10 @@ class Index:
         Returns
         ----------
         dict
-            The index of the documents based on the summaries.
+            The index of the documents based on the summaries. You should also store each terms' tf in each document.
+            So the index type is: {term: {document_id: tf}}
         """
+
         current_index = {}
         #         TODO
 
@@ -95,9 +100,10 @@ class Index:
 
         Return
         ----------
-        dict
-            posting list
+        list
+            posting list of the word (you should return the list of document IDs that contain the word and ignore the tf)
         """
+
         try:
             #         TODO
             pass
@@ -137,8 +143,8 @@ class Index:
 
         dummy_document = {
             'id': '100',
-            'stars': ['Tim', 'Tom'],
-            'genres': ['Drama', 'Comedy'],
+            'stars': ['tim', 'henry'],
+            'genres': ['drama', 'crime'],
             'summaries': ['good']
         }
 
@@ -150,31 +156,26 @@ class Index:
             print('Add is incorrect, document')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['Tim']).difference(
-                set(index_before_add[Indexes.STARS.value]['Tim']))
+        if (set(index_after_add[Indexes.STARS.value]['tim']).difference(set(index_before_add[Indexes.STARS.value]['tim']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Tim')
+            print('Add is incorrect, tim')
             return
 
-        if (set(index_after_add[Indexes.STARS.value]['Tom']).difference(
-                set(index_before_add[Indexes.STARS.value]['Tom']))
+        if (set(index_after_add[Indexes.STARS.value]['henry']).difference(set(index_before_add[Indexes.STARS.value]['henry']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Tom')
+            print('Add is incorrect, henry')
             return
-        if (set(index_after_add[Indexes.GENRES.value]['Drama']).difference(
-                set(index_before_add[Indexes.GENRES.value]['Drama']))
+        if (set(index_after_add[Indexes.GENRES.value]['drama']).difference(set(index_before_add[Indexes.GENRES.value]['drama']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Drama')
+            print('Add is incorrect, drama')
             return
 
-        if (set(index_after_add[Indexes.GENRES.value]['Comedy']).difference(
-                set(index_before_add[Indexes.GENRES.value]['Comedy']))
+        if (set(index_after_add[Indexes.GENRES.value]['crime']).difference(set(index_before_add[Indexes.GENRES.value]['crime']))
                 != {dummy_document['id']}):
-            print('Add is incorrect, Comedy')
+            print('Add is incorrect, crime')
             return
 
-        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(
-                set(index_before_add[Indexes.SUMMARIES.value]['good']))
+        if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(set(index_before_add[Indexes.SUMMARIES.value]['good']))
                 != {dummy_document['id']}):
             print('Add is incorrect, good')
             return
@@ -200,6 +201,7 @@ class Index:
         index_type: str
             type of index we want to store (documents, stars, genres, summaries)
         """
+
         if not os.path.exists(path):
             os.makedirs(path)
 
@@ -286,22 +288,20 @@ class Index:
         end = time.time()
         implemented_time = end - start
 
-        print("Brute force time: ", brute_force_time)
-        print("Implemented time: ", implemented_time)
+        print('Brute force time: ', brute_force_time)
+        print('Implemented time: ', implemented_time)
 
-        print(docs)
-        print(posting_list)
         if set(docs).issubset(set(posting_list)):
-            print("Indexing is correct")
+            print('Indexing is correct')
 
             if implemented_time < brute_force_time:
-                print("Indexing is good")
+                print('Indexing is good')
                 return True
             else:
-                print("Indexing is bad")
+                print('Indexing is bad')
                 return False
         else:
-            print("Indexing is wrong")
+            print('Indexing is wrong')
             return False
 
 # TODO: Run the class with needed parameters, then run check methods and finally report the results of check methods
