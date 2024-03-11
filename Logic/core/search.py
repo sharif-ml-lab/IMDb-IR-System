@@ -189,3 +189,6 @@ def get_average_document_field_length(where):
 
     # TODO
     return
+
+# TODO: Run the search function for two different queries and for each index (2 queries * 3 indexes = 6 results)
+# TODO: Finally report the results (upload the results in Quera)
