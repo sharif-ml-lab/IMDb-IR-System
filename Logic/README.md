@@ -41,3 +41,18 @@ In the snippet module, extract a good summary from the document. To achieve this
 ## 7. [Utils](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/utils.py)
 
 This file contains functions that is needed by UI to do some of the important functionalities. For now, you should complete the `clean_text` function that is used by UI to do the pre-processing operations that you implemented in `Preprocessor` class, on the input query by user.  You can **test** your implementation by running the UI, and giving different inputs and see that how is it being corrected (or actually, being cleaned! so it can be used better as we proceed in the project).
+
+## 8. [Evaluation](https://github.com/sharif-ml-lab/MIR-2024-Project/blob/Phase_1/Logic/evaluation.py)
+This file contains code to evaluate the performance of an information retrieval or ranking system. There are several common evaluation metrics that can be implemented to systematically score a system's ability to retrieve and rank relevant results. The metrics calculated here are `precision`, `recall`, `F1 score`, `mean average precision (MAP)`, `normalized discounted cumulative gain (NDCG)`, and `mean reciprocal rank (MRR)`.
+
+Each metric makes use of the actual relevant items and the predicted ranking to calculate an overall score. A higher score indicates better performance for that particular aspect of retrieval or ranking.
+
+ - Precision measures the percentage of predicted items that are relevant. 
+ - Recall measures the percentage of relevant items that were correctly predicted. 
+ - The F1 score combines precision and recall into a single measure. 
+- MAP considers the rank of the relevant items, rewarding systems that rank relevant documents higher. 
+- NDCG applies greater weight to hits at the top of the ranking. 
+- MRR looks at the position of the first relevant document in the predicted list. 
+
+Together, these metrics provide a more complete picture of how well the system is able to accurately retrieve and highly rank relevant information.
+
