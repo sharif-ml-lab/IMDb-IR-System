@@ -3,6 +3,9 @@ from typing import List
 
 class Evaluation:
 
+    def __init__(self, name: str):
+            self.name = name
+
     def calculate_precision(self, actual: List[List[str]], predicted: List[List[str]]) -> float:
         """
         Calculates the precision of the predicted results
@@ -201,13 +204,38 @@ class Evaluation:
 
         return MRR
     
-    def print_evaluation(self, actual: List[List[str]], predicted: List[List[str]]):
-        # TODO: Call evaluation functions here and report the results
-        print(f"precision = {self.calculate_precision(actual, predicted)}")
-        print(f"recall = {self.calculate_recall(actual, predicted)}")
-        print(f"F1 = {self.calculate_F1(actual, predicted)}")
-        print(f"MAP = {self.calculate_MAP(actual, predicted)}")
-        print(f"NDCG = {self.cacluate_NDCG(actual, predicted)}")
-        print(f"MRR = {self.cacluate_MRR(actual, predicted)}")
+
+    def print_evaluation(self, precision, recall, f1, map, ndcg, mrr):
+        """
+        Prints the evaluation metrics
+        """
+        print(f"name = {self.name}")
+
+        #TODO: Print the evaluation metrics
+      
+
+    def visualize_evaluation(self, precision, recall, f1, map, ndcg, mrr):
+        """
+        Use Wandb to log the evaluation metrics
+        """
+        
+        #TODO: Log the evaluation metrics using Wandb
+
+
+    def calculate_evaluation(self, actual: List[List[str]], predicted: List[List[str]]):
+        """
+        call all functions to calculate evaluation metrics
+        """
+        precision = self.calculate_precision(actual, predicted)
+        recall = self.calculate_recall(actual, predicted)
+        f1 = self.calculate_F1(actual, predicted)
+        map_score = self.calculate_MAP(actual, predicted)
+        ndcg = self.cacluate_NDCG(actual, predicted)
+        mrr = self.cacluate_MRR(actual, predicted)
+
+        #call print and viualize functions
+        self.print_evaluation(precision, recall, f1, map_score, ndcg, mrr)
+        self.visualize_evaluation(precision, recall, f1, map_score, ndcg, mrr)
+
 
 

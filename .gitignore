@@ -159,3 +159,6 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
+wandb/offline-run-20240313_132123-yt89m049/run-yt89m049.wandb
+wandb/offline-run-20240313_132123-yt89m049/files/wandb-metadata.json
+wandb/offline-run-20240313_132123-yt89m049/files/wandb-summary.json
