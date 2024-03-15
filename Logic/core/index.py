@@ -191,12 +191,17 @@ class Index:
         ----------
         path : str
             Path to store the file
-        index_type: str
+        index_type: str or None
             type of index we want to store (documents, stars, genres, summaries)
+            if None store tiered index
         """
 
         if not os.path.exists(path):
             os.makedirs(path)
+
+        if index_type is None:
+            # TODO
+            pass
 
         if index_type not in self.index:
             raise ValueError('Invalid index type')
