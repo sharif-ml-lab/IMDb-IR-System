@@ -183,7 +183,7 @@ class Index:
         else:
             print('Remove is incorrect')
 
-    def store_index(self, path: str, index_type: str):
+    def store_index(self, path: str, index_type: str = None):
         """
         Stores the index in a file (such as a JSON file)
 
