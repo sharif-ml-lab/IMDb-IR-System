@@ -1,15 +1,8 @@
 import time
 import os
 import json
-from enum import Enum
 import copy
-
-
-class Indexes(Enum):
-    DOCUMENTS = 'documents'
-    STARS = 'stars'
-    GENRES = 'genres'
-    SUMMARIES = 'summaries'
+from indexes_enum import Indexes
 
 
 class Index:
