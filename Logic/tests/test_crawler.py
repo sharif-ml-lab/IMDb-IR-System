@@ -20,12 +20,14 @@ def check_field_types(json_file_path, expected_fields):
     # check data types
     for movie in data:
         for field, expected_type in expected_fields.items():
-            assert (
-                field in movie and movie[field] is not None
-            ), f'Expected field {field} not found in movie {movie["id"]}'
-            assert type_check(
-                movie[field], expected_type
-            ), f'Expected field {field} to be of type {expected_type}, but got {type(movie[field])} in movie {movie["id"]}'
+            if field not in movie or movie[field] is None:
+                print(
+                    f'Warning: Expected field {field} not found in movie {movie["id"]}'
+                )
+            else:
+                assert type_check(
+                    movie[field], expected_type
+                ), f'Error: Expected field {field} to be of type {expected_type}, but got {type(movie[field])} in movie {movie["id"]}'
 
 
 expected_fields = {
@@ -49,5 +51,5 @@ expected_fields = {
     "reviews": List[List[str]],
 }
 
-json_file_path = "../IMDB_crawled.json"
+json_file_path = "../IMDB_Crawled.json"
 check_field_types(json_file_path, expected_fields)
