@@ -1,6 +1,7 @@
 from typing import Dict, List
 from core.search import SearchEngine
 from core.spell_correction import SpellCorrection
+from core.snippet import Snippet
 from core.indexes_enum import Indexes, Index_types
 import json
 
@@ -63,9 +64,15 @@ def search(
     Retrieved documents with snippet
     """
     weights = ...  # TODO
-    return search_engine.search(
+    results = search_engine.search(
         query, method, weights, max_results=max_result_count, safe_ranking=True
     )
+    summaries = ... # TODO: Extract main summary of each result (summaries variable is a list of strings)
+    snippet_obj = Snippet()
+    for summary in summaries:
+    	snippet, not_exist = snippet_obj.find_snippet(summary, query)
+    	# TODO: Add returned values to your results
+    return results
 
 
 def get_movie_by_id(id: str, movies_dataset: List[Dict[str, str]]) -> Dict[str, str]:
