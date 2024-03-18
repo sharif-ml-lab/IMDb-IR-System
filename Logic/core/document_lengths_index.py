@@ -1,24 +1,28 @@
 import json
-from indexes_enum import Indexes
-
+from indexes_enum import Indexes,Index_types
+from index_reader import Index_reader
 
 class DocumentLengthsIndex:
-    def __init__(self, documents_index):
+    def __init__(self,path='index/'):
         """
-        Initializes the DocumentLengthsIndex.
+        Initializes the DocumentLengthsIndex class.
 
         Parameters
         ----------
-        documents_index : dict
-            A dictionary of indexes for the documents.
+        path : str
+            The path to the directory where the indexes are stored.
+
         """
 
-        self.documents_index = documents_index
+        self.documents_index = Index_reader(path, index_name=Indexes.DOCUMENTS).index
         self.document_length_index = {
-            Indexes.STARS.value: self.get_documents_length(Indexes.STARS.value),
-            Indexes.GENRES.value: self.get_documents_length(Indexes.GENRES.value),
-            Indexes.SUMMARIES.value: self.get_documents_length(Indexes.SUMMARIES.value)
+            Indexes.STARS: self.get_documents_length(Indexes.STARS.value),
+            Indexes.GENRES: self.get_documents_length(Indexes.GENRES.value),
+            Indexes.SUMMARIES: self.get_documents_length(Indexes.SUMMARIES.value)
         }
+        self.store_document_lengths_index(path, Indexes.STARS)
+        self.store_document_lengths_index(path, Indexes.GENRES)
+        self.store_document_lengths_index(path, Indexes.SUMMARIES)
 
     def get_documents_length(self, where):
         """
@@ -36,8 +40,24 @@ class DocumentLengthsIndex:
             the document's length in that field (where).
         """
 
-        # TODO: Implement this method
-        return current_index
+        # TODO:
+    
+    def store_document_lengths_index(self, path , index_name):
+        """
+        Stores the document lengths index to a file.
 
+        Parameters
+        ----------
+        path : str
+            The path to the directory where the indexes are stored.
+        index_name : Indexes
+            The name of the index to store.
+        """
+        path = path + index_name.value + '_' + Index_types.DOCUMENT_LENGTH.value + '_index.json'
+        with open(path, 'w') as file:
+            json.dump(self.document_length_index[index_name], file, indent=4)
+    
 
-# TODO: Run the class and report 2 documents with their lengths from each index
+if __name__ == '__main__':
+    document_lengths_index = DocumentLengthsIndex()
+    print('Document lengths index stored successfully.')

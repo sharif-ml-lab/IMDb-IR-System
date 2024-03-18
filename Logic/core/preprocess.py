@@ -15,7 +15,7 @@ class Preprocessor:
         self.documents = documents
         self.stopwords = []
 
-    def preprocess(self):
+def preprocess(self):
         """
         Preprocess the text using the methods in the class.
 
