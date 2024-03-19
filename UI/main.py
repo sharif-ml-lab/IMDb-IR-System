@@ -6,6 +6,9 @@ from Logic import utils
 import time
 from enum import Enum
 import random
+from Logic.snippet import Snippet
+
+snippet_obj = Snippet()
 
 
 class color(Enum):
@@ -13,6 +16,21 @@ class color(Enum):
     GREEN = "#00FF00"
     BLUE = "#0000FF"
     YELLOW = "#FFFF00"
+    WHITE = "#FFFFFF"
+    CYAN = "#00FFFF"
+    MAGENTA = "#FF00FF"
+
+
+def get_summary_with_snippet(movie_info, query):
+    summary = movie_info["first_page_summary"]
+    snippet, not_exist_words = snippet_obj.find_snippet(summary, query)
+    if not not_exist_words:
+        keyword = snippet.split("***")[1]
+        summary = summary.replace(
+            keyword,
+            f"<b><font size='4' color={random.choice(list(color)).value}>{keyword}</font></b>",
+        )
+    return summary
 
 
 def search_time(start, end):
@@ -27,7 +45,7 @@ def search_handling(
     search_method,
 ):
     if search_button:
-        corrected_query = utils.correct_text(search_term, utils.bigram_index)
+        corrected_query = utils.correct_text(search_term, utils.movies_dataset)
 
         if corrected_query != search_term:
             st.warning(f"Your search terms were corrected to: {corrected_query}")
@@ -57,7 +75,10 @@ def search_handling(
                     st.title(info["title"])
                     st.markdown(f"[Link to movie]({info['URL']})")
                     st.write(f"Relevance Score: {result[i][1]}")
-                    st.write(info["first_page_summary"])
+                    st.markdown(
+                        f"<b><font size = '4'>Summary:</font></b> {get_summary_with_snippet(info, search_term)}",
+                        unsafe_allow_html=True,
+                    )
 
                 with st.container():
                     st.markdown("**Directors:**")
