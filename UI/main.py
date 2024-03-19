@@ -30,11 +30,11 @@ def get_summary_with_snippet(movie_info, query):
             current_word = snippet[i]
             if current_word.startswith("***") and current_word.endswith("***"):
                 current_word_without_star = current_word[3:-3]
-                snippet[i] = f"<b><font size='4' color={random.choice(list(color)).value}>{current_word_without_star}</font></b>"
-        snippet = " ".join(snippet)
-    else:
-        snippet = summary
-    return snippet
+                summary = summary.lower().replace(
+                    current_word_without_star,
+                    f"<b><font size='4' color={random.choice(list(color)).value}>{current_word_without_star}</font></b>",
+                )
+    return summary
 
 
 def search_time(start, end):
