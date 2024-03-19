@@ -25,15 +25,15 @@ def get_summary_with_snippet(movie_info, query):
     summary = movie_info["first_page_summary"]
     snippet, not_exist_words = snippet_obj.find_snippet(summary, query)
     if "***" in snippet:
-    	snippet = snippet.split()
-    	for i in range(len(snippet)):
-    		current_word = snippet[i]
-    		if current_word.startswith("***") and current_word.endswith("***"):
-    			current_word_without_star = current_word[3:-3]
-    			snippet[i] = f"<b><font size='4' color={random.choice(list(color)).value}>{current_word_without_star}</font></b>"
-    	snippet = " ".join(snippet)
+        snippet = snippet.split()
+        for i in range(len(snippet)):
+            current_word = snippet[i]
+            if current_word.startswith("***") and current_word.endswith("***"):
+                current_word_without_star = current_word[3:-3]
+                snippet[i] = f"<b><font size='4' color={random.choice(list(color)).value}>{current_word_without_star}</font></b>"
+        snippet = " ".join(snippet)
     else:
-    	snippet = summary
+        snippet = summary
     return snippet
 
 
