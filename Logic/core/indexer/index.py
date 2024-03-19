@@ -1,15 +1,8 @@
 import time
 import os
 import json
-from enum import Enum
 import copy
-
-
-class Indexes(Enum):
-    DOCUMENTS = 'documents'
-    STARS = 'stars'
-    GENRES = 'genres'
-    SUMMARIES = 'summaries'
+from indexes_enum import Indexes
 
 
 class Index:
@@ -190,7 +183,7 @@ class Index:
         else:
             print('Remove is incorrect')
 
-    def store_index(self, path: str, index_type: str):
+    def store_index(self, path: str, index_type: str = None):
         """
         Stores the index in a file (such as a JSON file)
 
@@ -198,12 +191,17 @@ class Index:
         ----------
         path : str
             Path to store the file
-        index_type: str
+        index_type: str or None
             type of index we want to store (documents, stars, genres, summaries)
+            if None store tiered index
         """
 
         if not os.path.exists(path):
             os.makedirs(path)
+
+        if index_type is None:
+            # TODO
+            pass
 
         if index_type not in self.index:
             raise ValueError('Invalid index type')

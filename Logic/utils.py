@@ -1,29 +1,15 @@
 from typing import Dict, List
-from .core.preprocess import Preprocessor
+from core.search import SearchEngine
+from core.spell_correction import SpellCorrection
+from core.snippet import Snippet
+from core.indexes_enum import Indexes, Index_types
+import json
 
-bigram_index = None
-movies_dataset = None
-preprocessor = ... # TODO
+movies_dataset = None  # TODO
+search_engine = SearchEngine()
 
-def clean_query(query: str) -> str:
-    """
-    Cleans the given query using preprocessor
 
-    Parameters
-    ----------
-    query: str
-        The query text
-    
-    Returns
-    str
-        The cleaned and pre-processed form of the given query
-    """
-    # TODO
-    return query
-
-def correct_text(
-    text: str, bigram_index: Dict[str, List[str]], similar_words_limit: int = 20
-) -> str:
+def correct_text(text: str, all_documents: List[str]) -> str:
     """
     Correct the give query text, if it is misspelled using Jacard similarity
 
@@ -31,24 +17,26 @@ def correct_text(
     ---------
     text: str
         The query text
+    all_documents : list of str
+        The input documents.
 
     Returns
     str
         The corrected form of the given text
     """
-    cleaned_text = clean_query(text)
-    # ...
-    return cleaned_text
+    # TODO: You can add any preprocessing steps here, if needed!
+    spell_correction_obj = SpellCorrection(all_documents)
+    text = spell_correction_obj.spell_check(text)
+    return text
 
 
 def search(
-    title_query: str,
-    abstract_query: str,
+    query: str,
     max_result_count: int,
     method: str = "ltn-lnn",
-    weight: float = 0.5,
+    weights: list = [0.3, 0.3, 0.4],
     should_print=False,
-    preferred_field: str = None,
+    preferred_genre: str = None,
 ):
     """
     Finds relevant documents to query
@@ -64,16 +52,19 @@ def search(
     where: when mode ='detailed', when we want search query
             in title or text not both of them at the same time.
 
-    method: 'ltn-lnn' or 'ltc-lnc' or 'okapi25'
+    method: 'ltn.lnn' or 'ltc.lnc' or 'OkapiBM25'
 
-    preferred_field: A list containing preference rates for each field. If None, the preference rates are equal.
+    preferred_genre: A list containing preference rates for each genre. If None, the preference rates are equal.
 
     Returns
     ----------------------------------------------------------------------------------------------------
     list
     Retrieved documents with snippet
     """
-    return ["1243523", "6753495", "2342348"]
+    weights = ...  # TODO
+    return search_engine.search(
+        query, method, weights, max_results=max_result_count, safe_ranking=True
+    )
 
 
 def get_movie_by_id(id: str, movies_dataset: List[Dict[str, str]]) -> Dict[str, str]:
@@ -93,12 +84,22 @@ def get_movie_by_id(id: str, movies_dataset: List[Dict[str, str]]) -> Dict[str, 
     dict
         The movie with the given id
     """
+    result = movies_dataset.get(
+        id,
+        {
+            "Title": "This is movie's title",
+            "Summary": "This is a summary",
+            "URL": "https://www.imdb.com/title/tt0111161/",
+            "Cast": ["Morgan Freeman", "Tim Robbins"],
+            "Genres": ["Drama", "Crime"],
+            "Image_URL": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
+        },
+    )
 
-    return {
-        "Title": "This is movie's title",
-        "Summary": "This is a summary",
-        "URL": "https://www.imdb.com/title/tt0111161/",
-        "Cast": ["Morgan Freeman", "Tim Robbins"],
-        "Genres": ["Drama", "Crime"],
-        "Image_URL": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
-    }
+    result["Image_URL"] = (
+        "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg"  # a default picture for selected movies
+    )
+    result["URL"] = (
+        f"https://www.imdb.com/title/{result['id']}"  # The url pattern of IMDb movies
+    )
+    return result
