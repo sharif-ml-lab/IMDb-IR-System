@@ -55,7 +55,7 @@ class SearchEngine:
         """
 
         preprocessor = Preprocessor([query])
-        query = preprocessor.preprocess().split()
+        query = preprocessor.preprocess()[0].split()
 
         scores = {}
         if safe_ranking:
