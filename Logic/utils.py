@@ -5,14 +5,11 @@ from core.snippet import Snippet
 from core.indexes_enum import Indexes, Index_types
 import json
 
-bigram_index = None
 movies_dataset = None  # TODO
 search_engine = SearchEngine()
 
 
-def correct_text(
-    text: str, all_documents: List[str]
-) -> str:
+def correct_text(text: str, all_documents: List[str]) -> str:
     """
     Correct the give query text, if it is misspelled using Jacard similarity
 
@@ -64,15 +61,9 @@ def search(
     Retrieved documents with snippet
     """
     weights = ...  # TODO
-    results = search_engine.search(
+    return search_engine.search(
         query, method, weights, max_results=max_result_count, safe_ranking=True
     )
-    summaries = ... # TODO: Extract main summary of each result (summaries variable is a list of strings)
-    snippet_obj = Snippet()
-    for summary in summaries:
-    	snippet, not_exist = snippet_obj.find_snippet(summary, query)
-    	# TODO: Add returned values to your results
-    return results
 
 
 def get_movie_by_id(id: str, movies_dataset: List[Dict[str, str]]) -> Dict[str, str]:
