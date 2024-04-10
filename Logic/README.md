@@ -59,3 +59,5 @@ Each metric makes use of the actual relevant items and the predicted ranking to 
 
 Together, these metrics provide a more complete picture of how well the system is able to accurately retrieve and highly rank relevant information.
 
+## 10. [Scorer](./core/scorer.py)
+Please refer to the docstrings in the `scorer.py` for complete explanation of each functionality and what you should complete.
