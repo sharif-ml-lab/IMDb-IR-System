@@ -31,18 +31,6 @@ You should run this method, **for each of the 4 indexing methods and for 2 diffe
 Report the results to us.
 
 - **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!
-## 4. [Indexing](./core/indexer/index.py)
-This class is responsible for building index. Its input is preprocessed data and the output is indexes required for searching. This section will be used in next phases and the functions will be used for information retrieval.
-
-- `check_add_remove_is_correct` method is used to test if your add and remove methods are correct or not. You should run this method and see if your add and remove methods are correct.
-Run it and **report** the results to us.
-- `check_if_index_loaded_correctly` method is used to test if your index is loaded correctly or not. You should run this method and see if your index is loaded correctly.
-Run it and **report** the results to us.
-- `check_if_indexing_is_good` method is used to test your indexing, and you can call it to understand how well your indexing is.
-You should run this method, **for each of the 4 indexing methods and for 2 different words** and compare if your indexing is better or not.
-Report the results to us.
-
-- **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!
 
 ## 5. [Search](./core/search.py)
 in this part you have to work on implementing the search feature, which is the most important part of the retrieval process. To accomplish this, you need to create search functions and a scorer that will score each document based on the input query. Keep in mind that you may need to index additional information that was not previously indexed. Make sure to carefully review the structures and functions documentation of the added files.
