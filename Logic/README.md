@@ -31,18 +31,33 @@ You should run this method, **for each of the 4 indexing methods and for 2 diffe
 Report the results to us.
 
 - **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!
+## 4. [Indexing](./core/indexer/index.py)
+This class is responsible for building index. Its input is preprocessed data and the output is indexes required for searching. This section will be used in next phases and the functions will be used for information retrieval.
 
-## 5. [Spell Correction](./core/spell_correction.py)
+- `check_add_remove_is_correct` method is used to test if your add and remove methods are correct or not. You should run this method and see if your add and remove methods are correct.
+Run it and **report** the results to us.
+- `check_if_index_loaded_correctly` method is used to test if your index is loaded correctly or not. You should run this method and see if your index is loaded correctly.
+Run it and **report** the results to us.
+- `check_if_indexing_is_good` method is used to test your indexing, and you can call it to understand how well your indexing is.
+You should run this method, **for each of the 4 indexing methods and for 2 different words** and compare if your indexing is better or not.
+Report the results to us.
+
+- **Note** that one or many of the methods (or signatures of methods) in this class may need to be changed based on your implementations. Feel free to do so!
+
+## 5. [Search](./core/search.py)
+in this part you have to work on implementing the search feature, which is the most important part of the retrieval process. To accomplish this, you need to create search functions and a scorer that will score each document based on the input query. Keep in mind that you may need to index additional information that was not previously indexed. Make sure to carefully review the structures and functions documentation of the added files.
+
+## 6. [Spell Correction](./core/spell_correction.py)
 In this file, you have a class for the spell correction task. You must implement the shingling and Jaccard similarity approach for this task, aiming to correct misspelled words in the query. Additionally, integrate the Term Frequency (TF) of the token into your candidate selection. For instance, if you input `whle`, both `while` and `whale` should be considered as candidates with the same score. However, it is more likely that the user intended to enter `while`. Therefore, enhance your spell correction module by adding a normalized TF score. Achieve this by dividing the TF of the top 5 candidates by the maximum TF of the top 5 candidates and multiplying this normalized TF by the Jaccard score. In the UI component of your project, present these probable corrections to the user in case there are any mistakes in the query.
 
-## 6. [Snippet](./core/snippet.py)
+## 7. [Snippet](./core/snippet.py)
 In the snippet module, extract a good summary from the document. To achieve this, focus on non-stop word tokens from the query. For each token, locate the token or its variations in the document. Display "n" tokens before and after each occurrence of the token in the document. Merge these windows with '...' to create the snippet. Also put query tokens in the summary inside three stars without any space between stars and the word inside them; for example if token2 is present in the query, the returned snippet should be like "token1 \*\*\*token2\*\*\* token3". But you should find these windows carefully, for example if you have token1 in the doc in 2 places and 3 tokens before the second token1, is token2 of the query, you must consider the second window instead of the first one. Additionally, identify tokens in the query that are absent in the document and return them.
 
-## 7. [Utils](./utils.py)
+## 8. [Utils](./utils.py)
 
 This file contains functions that is needed by UI to do some of the important functionalities. For now, you should complete the `clean_text` function that is used by UI to do the pre-processing operations that you implemented in `Preprocessor` class, on the input query by user.  You can **test** your implementation by running the UI, and giving different inputs and see that how is it being corrected (or actually, being cleaned! so it can be used better as we proceed in the project).
 
-## 8. [Evaluation](./core/utility/evaluation.py)
+## 9. [Evaluation](./core/utility/evaluation.py)
 This file contains code to evaluate the performance of an information retrieval or ranking system. There are several common evaluation metrics that can be implemented to systematically score a system's ability to retrieve and rank relevant results. The metrics calculated here are `precision`, `recall`, `F1 score`, `mean average precision (MAP)`, `normalized discounted cumulative gain (NDCG)`, and `mean reciprocal rank (MRR)`.
 
 Each metric makes use of the actual relevant items and the predicted ranking to calculate an overall score. A higher score indicates better performance for that particular aspect of retrieval or ranking.
