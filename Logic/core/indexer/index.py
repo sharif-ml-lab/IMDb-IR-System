@@ -262,7 +262,7 @@ class Index:
                 continue
 
             for field in document[index_type]:
-                if check_word in field:
+                if check_word == field:
                     docs.append(document['id'])
                     break
 
