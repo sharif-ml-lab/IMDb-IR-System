@@ -149,29 +149,62 @@ class Index:
             print('Add is incorrect, document')
             return
 
+        if not index_before_add[Indexes.STARS.value].__contains__('tim'):
+            index_before_add[Indexes.STARS.value].setdefault('tim', {})
+
         if (set(index_after_add[Indexes.STARS.value]['tim']).difference(set(index_before_add[Indexes.STARS.value]['tim']))
                 != {dummy_document['id']}):
             print('Add is incorrect, tim')
             return
 
+        if not index_before_add[Indexes.STARS.value].__contains__('henry'):
+            index_before_add[Indexes.STARS.value].setdefault('henry', {})
+
         if (set(index_after_add[Indexes.STARS.value]['henry']).difference(set(index_before_add[Indexes.STARS.value]['henry']))
                 != {dummy_document['id']}):
             print('Add is incorrect, henry')
             return
+
+        if not index_before_add[Indexes.GENRES.value].__contains__('drama'):
+            index_before_add[Indexes.GENRES.value].setdefault('drama', {})
+
         if (set(index_after_add[Indexes.GENRES.value]['drama']).difference(set(index_before_add[Indexes.GENRES.value]['drama']))
                 != {dummy_document['id']}):
             print('Add is incorrect, drama')
             return
+
+        if not index_before_add[Indexes.GENRES.value].__contains__('crime'):
+            index_before_add[Indexes.GENRES.value].setdefault('crime', {})
 
         if (set(index_after_add[Indexes.GENRES.value]['crime']).difference(set(index_before_add[Indexes.GENRES.value]['crime']))
                 != {dummy_document['id']}):
             print('Add is incorrect, crime')
             return
 
+        if not index_before_add[Indexes.SUMMARIES.value].__contains__('good'):
+            index_before_add[Indexes.SUMMARIES.value].setdefault('good', {})
+
         if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(set(index_before_add[Indexes.SUMMARIES.value]['good']))
                 != {dummy_document['id']}):
             print('Add is incorrect, good')
             return
+
+        # Change the index_before_remove to its initial form if needed
+
+        if len(index_before_add[Indexes.STARS.value]['tim']) == 0:
+            del index_before_add[Indexes.STARS.value]['tim']
+
+        if len(index_before_add[Indexes.STARS.value]['henry']) == 0:
+            del index_before_add[Indexes.STARS.value]['henry']
+
+        if len(index_before_add[Indexes.GENRES.value]['drama']) == 0:
+            del index_before_add[Indexes.GENRES.value]['drama']
+
+        if len(index_before_add[Indexes.GENRES.value]['crime']) == 0:
+            del index_before_add[Indexes.GENRES.value]['crime']
+
+        if len(index_before_add[Indexes.SUMMARIES.value]['good']) == 0:
+            del index_before_add[Indexes.SUMMARIES.value]['good']
 
         print('Add is correct')
 
