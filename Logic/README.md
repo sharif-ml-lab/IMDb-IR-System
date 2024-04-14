@@ -64,10 +64,10 @@ Please refer to the docstrings in the `scorer.py` for complete explanation of ea
 
 # Phase 2
 
-## [Tokenizer](./core/language_model/tokenizer.py)
+## 1. [Tokenizer](./core/language_model/tokenizer.py)
 
 In this section, you should implement `Tokenizer` class, which is responsible for creating tokens from your text (query/data) and then, you will use this module in different models that you implement (alike Unigram) in this Phase. Please refer to docstrings in `tokenizer.py` for more info.
 
-## [Unigram](./core/language_model/unigram.py)
+## 2. [Unigram](./core/language_model/unigram.py)
 
 In this section, you should implement `UnigramCounter` and `UnigramModel` classes. First one is responsible for counting number of unigrams in a sample text (your query/data) and the second one is responsible for creating unigram model with the given input data (and the count from `UnigramCounter`). Please refer to `unigram.py` docstrings for more info on each function.
