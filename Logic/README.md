@@ -5,16 +5,16 @@ This module contains files and classes responsible for doing the main tasks of t
 **Attention:**
 Inputs, outputs and logic of each function is explained in the comments of each function. So, **Please read** the comments and the docstrings of each class and method to understand the logic and the requirements of each part.
 
-## 1. [Crawler](./core/crawler.py)
+## 1. [Crawler](./core/utility/crawler.py)
 
 In the beginning, we need to crawl our required data and create a dataset for our needs. For this sake, we implement a [crawler](./core/crawler.py). The structure and functions required for this part, are explained in the `crawler.py` file.
 
 For **Testing** the correctness of your implementation for crawler part, you can run `tests/test_crawler.py` and see if you crawled correctly. Feel free to change `json_file_path` variable to meet the path of your crawled data.
 
-## 2. [Near-duplicate page detecion](./core/LSH.py)
+## 2. [Near-duplicate page detecion](./core/indexer/LSH.py)
 We provided you `MinHashLSH` class. This class is responsible for doing near duplicate detection. As you know, this section consists of 3 sub-sections. First, you need to shingle documents. Then, after characteristic matrix, using mini-hashing technique, improve near duplicate detection. Finally, you need to use LSH so that you can find movies that are suspicious to being duplicate. **Note** that you are only allowed to use `perform_lsh` function outside of your class and other methods only inside the class. **Another Note** is that in your crawled data, you have one section named `first_page_summary` and another section named `summaries`. The first one is a String and the second one is a list of Strings and note that you should work with the second one and by combining those Strings make a summary of the movie and do LSH on the set of summaries. The final output of this class should be a dictionary where the keys are the hashes of the buckets, and the corresponding values should be lists of document IDs, representing the indices of those summaries in the main list of all summaries. We have provided you with a file containing some fake movies in JSON format. Specifically for the Locality-Sensitive Hashing (LSH) part, please integrate this additional data into your main dataset and proceed with LSH. It's important to note that the file includes 20 movies, and each pair of consecutive movies is considered a near duplicate. For instance, the first and second movies, the third and fourth movies, and so on, are near duplicates. Verify your code to account for this characteristic. However, it is crucial to emphasize that after this stage, you must remove all fake movies from your corpus and refrain from utilizing them in further steps. There is a method in the class called `jaccard_similarity_test`. You can assess your results using this method by passing the bucket dictionary and the documents containing all the summaries, where the indexes correspond to the summaries in the buckets.
 
-## 3. [Preprocess](./core/preprocess.py)
+## 3. [Preprocess](./core/utility/preprocess.py)
 This class is responsible for doing preprocessings required on the input data. The input the crawled data and the output is the data without extra info.
 
 Using prebuilt libraries for stopwords is an option, but it can be slow to process large amounts of text. For faster performance, we have prepared a `stopword.txt` file containing common stopwords that you can use instead. The stopwords file allows preprocessing to be completed more efficiently by removing common, non-informative words from the text before further analysis.
@@ -35,10 +35,10 @@ Report the results to us.
 ## 5. [Search](./core/search.py)
 in this part you have to work on implementing the search feature, which is the most important part of the retrieval process. To accomplish this, you need to create search functions and a scorer that will score each document based on the input query. Keep in mind that you may need to index additional information that was not previously indexed. Make sure to carefully review the structures and functions documentation of the added files.
 
-## 6. [Spell Correction](./core/spell_correction.py)
+## 6. [Spell Correction](./core/utility/spell_correction.py)
 In this file, you have a class for the spell correction task. You must implement the shingling and Jaccard similarity approach for this task, aiming to correct misspelled words in the query. Additionally, integrate the Term Frequency (TF) of the token into your candidate selection. For instance, if you input `whle`, both `while` and `whale` should be considered as candidates with the same score. However, it is more likely that the user intended to enter `while`. Therefore, enhance your spell correction module by adding a normalized TF score. Achieve this by dividing the TF of the top 5 candidates by the maximum TF of the top 5 candidates and multiplying this normalized TF by the Jaccard score. In the UI component of your project, present these probable corrections to the user in case there are any mistakes in the query.
 
-## 7. [Snippet](./core/snippet.py)
+## 7. [Snippet](./core/utility/snippet.py)
 In the snippet module, extract a good summary from the document. To achieve this, focus on non-stop word tokens from the query. For each token, locate the token or its variations in the document. Display "n" tokens before and after each occurrence of the token in the document. Merge these windows with '...' to create the snippet. Also put query tokens in the summary inside three stars without any space between stars and the word inside them; for example if token2 is present in the query, the returned snippet should be like "token1 \*\*\*token2\*\*\* token3". But you should find these windows carefully, for example if you have token1 in the doc in 2 places and 3 tokens before the second token1, is token2 of the query, you must consider the second window instead of the first one. Additionally, identify tokens in the query that are absent in the document and return them.
 
 ## 8. [Utils](./utils.py)
@@ -61,3 +61,13 @@ Together, these metrics provide a more complete picture of how well the system i
 
 ## 10. [Scorer](./core/scorer.py)
 Please refer to the docstrings in the `scorer.py` for complete explanation of each functionality and what you should complete.
+
+# Phase 2
+
+## [Tokenizer](./core/language_model/tokenizer.py)
+
+In this section, you should implement `Tokenizer` class, which is responsible for creating tokens from your text (query/data) and then, you will use this module in different models that you implement (alike Unigram) in this Phase. Please refer to docstrings in `tokenizer.py` for more info.
+
+## [Unigram](./core/language_model/unigram.py)
+
+In this section, you should implement `UnigramCounter` and `UnigramModel` classes. First one is responsible for counting number of unigrams in a sample text (your query/data) and the second one is responsible for creating unigram model with the given input data (and the count from `UnigramCounter`). Please refer to `unigram.py` docstrings for more info on each function.
