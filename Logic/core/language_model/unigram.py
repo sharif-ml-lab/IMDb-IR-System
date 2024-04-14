@@ -101,10 +101,10 @@ class UnigramModel:
 
 
 if __name__ == '__main__':
-    #TODO: You should do these steps:
+    # TODO: You should do these steps:
     # 1. Load the dataset (e.g. using pd.read_csv)
     # 2. Tokenize the dataset properly (using your Tokenizer class)
     # 3. Create `UnigramCounter` and `UnigramModel` for your data
     # 4. Create model and train
-    # 5. 
+    # 5. ... To be Completed ...
     pass
