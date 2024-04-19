@@ -12,7 +12,7 @@ class Index_reader:
         index_name : Indexes
             The name of the index to read.
         index_type : Index_types
-            The type of the index to read.
+            The type of the index to read.  
         """
         self.path = path
         self.index_name = index_name
@@ -29,13 +29,12 @@ class Index_reader:
             The index.
         """
         absolute_path = self.path + self.index_name.value
-
+        
         if self.index_type != None:
             absolute_path = absolute_path + "_" + self.index_type.value
 
         absolute_path = absolute_path + "_index.json"
-
+        
         with open(absolute_path, 'r') as file:
             return json.load(file)
-
-
+        
