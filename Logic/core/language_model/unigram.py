@@ -5,13 +5,13 @@ import nltk
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from tokenizer import Tokenizer
+from .tokenizer import Tokenizer
 
 nltk.download("punkt")
 
 
 def set_style(plt):
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-v0_8")
     plt.rcParams["legend.numpoints"] = 1
     plt.rcParams["axes.labelsize"] = 20
     plt.rcParams["axes.titlesize"] = 20
@@ -35,7 +35,7 @@ def savefig(fig, filenaشme, **kwargs):
     fig.savefig(f"../viz/{filename}", bbox_inches="tight", **kwargs)
 
 
-plt = set_style(plt)
+# plt = set_style(plt)
 
 
 class UnigramCounter:

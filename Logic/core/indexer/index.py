@@ -2,7 +2,7 @@ import time
 import os
 import json
 import copy
-from indexes_enum import Indexes
+from .indexes_enum import Indexes
 
 
 class Index:

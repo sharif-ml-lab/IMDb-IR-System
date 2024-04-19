@@ -6,7 +6,7 @@ from Logic import utils
 import time
 from enum import Enum
 import random
-from Logic.core.snippet import Snippet
+from Logic.core.utility.snippet import Snippet
 
 snippet_obj = Snippet(
     number_of_words_on_each_side=5
