@@ -79,17 +79,10 @@ class LinkAnalyzer:
         return a_s, h_s
 
 if __name__ == "__main__":
-    path = './Phase_1/index/'
-    document_index = Index_reader(path, Indexes.DOCUMENTS)
+    # You can use this section to run and test the results of your link analyzer
+    corpus = []    # TODO: it shoud be your crawled data
+    root_set = []   # TODO: it shoud be a subset of your corpus
 
-    corpus = []
-    root_set = []
-    for movie_id, movie_detail in document_index.index.items():
-        movie_title = movie_detail["title"]
-        stars = movie_detail["stars"]
-        corpus.append({"id": movie_id, "title": movie_title, "stars": stars})
-
-    root_set = corpus
     analyzer = LinkAnalyzer(root_set=root_set)
     analyzer.expand_graph(corpus=corpus)
     actors, movies = analyzer.hits(max_result=5)
