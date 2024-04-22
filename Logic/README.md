@@ -50,12 +50,17 @@ This file contains code to evaluate the performance of an information retrieval 
 
 Each metric makes use of the actual relevant items and the predicted ranking to calculate an overall score. A higher score indicates better performance for that particular aspect of retrieval or ranking.
 
- - Precision measures the percentage of predicted items that are relevant. 
- - Recall measures the percentage of relevant items that were correctly predicted. 
- - The F1 score combines precision and recall into a single measure. 
-- MAP considers the rank of the relevant items, rewarding systems that rank relevant documents higher. 
-- NDCG applies greater weight to hits at the top of the ranking. 
-- MRR looks at the position of the first relevant document in the predicted list. 
+ - Precision measures the percentage of predicted items that are relevant.
+ - Recall measures the percentage of relevant items that were correctly predicted.
+ - The F1 score combines precision and recall into a single measure.
+- MAP considers the rank of the relevant items, rewarding systems that rank relevant documents higher.
+- NDCG applies greater weight to hits at the top of the ranking.
+- MRR looks at the position of the first relevant document in the predicted list.
 
 Together, these metrics provide a more complete picture of how well the system is able to accurately retrieve and highly rank relevant information.
 
+## 9. [Link Analysis](./core/link_analysis/analyzer.py)
+
+This section involves analyzing the link between actors and movies using the Hits algorithm, and thereafter determining which actors and movies received the most scores based on the algorithm. We do this step-by-step in the `analyzer.py`. The first step is to initialize the parameters of your link analyzer, such as the list of hubs and authorities and the links graph from the given root set. You may need preprocessing for this, so you can pass these to the `initiate_params` function and call it in your code. Graphs derived from the root set can be expanded before the Hits algorithm is run. For this purpose, `expand_graph` is defined. You can read the link analysis slide for a better understanding. At the end, run the algorithm by calling the `hits` function and output ten actors and movies with the highest scores.
+
+**Note**: To implement the Hits algorithm, you need to implement a graph. For this, you can get help from the `LinkGraph` class in the `graph.py`. In this class, a template is placed for your implementation. You are free to modify this class in any way you like.
