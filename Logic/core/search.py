@@ -65,7 +65,7 @@ class SearchEngine:
             If False, the search engine will search in tiered index.
         max_results : int
             The maximum number of results to return. If None, all results are returned.
-        smoothing_method : str
+        smoothing_method : str (bayes | naive | mixture)
             The method used for smoothing the probabilities in the unigram model.
         alpha : float, optional
             The parameter used in bayesian smoothing method. Defaults to 0.5.
@@ -173,7 +173,7 @@ class SearchEngine:
         ----------
         query : str
             The query to search for.
-        smoothing_method : str
+        smoothing_method : str (bayes | naive | mixture)
             The method used for smoothing the probabilities in the unigram model.
         weights : dict
             A dictionary mapping each field (e.g., 'stars', 'genres', 'summaries') to its weight in the final score. Fields with a weight of 0 are ignored.
