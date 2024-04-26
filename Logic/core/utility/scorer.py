@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Scorer:
     def __init__(self, index, number_of_documents):
         """
@@ -17,7 +18,7 @@ class Scorer:
         self.idf = {}
         self.N = number_of_documents
 
-    def get_list_of_documents(self,query):
+    def get_list_of_documents(self, query):
         """
         Returns a list of documents that contain at least one of the terms in the query.
 
@@ -84,8 +85,7 @@ class Scorer:
             A dictionary of the term frequencies of the terms in the query.
         """
 
-        #TODO
-
+        # TODO
 
     def compute_scores_with_vector_space_model(self, query, method):
         """
@@ -107,7 +107,9 @@ class Scorer:
         # TODO
         pass
 
-    def get_vector_space_model_score(self, query, query_tfs, document_id, document_method, query_method):
+    def get_vector_space_model_score(
+        self, query, query_tfs, document_id, document_method, query_method
+    ):
         """
         Returns the Vector Space Model score of a document for a query.
 
@@ -130,10 +132,12 @@ class Scorer:
             The Vector Space Model score of the document for the query.
         """
 
-        #TODO
+        # TODO
         pass
 
-    def compute_socres_with_okapi_bm25(self, query, average_document_field_length, document_lengths):
+    def compute_socres_with_okapi_bm25(
+        self, query, average_document_field_length, document_lengths
+    ):
         """
         compute scores with okapi bm25
 
@@ -156,7 +160,9 @@ class Scorer:
         # TODO
         pass
 
-    def get_okapi_bm25_score(self, query, document_id, average_document_field_length, document_lengths):
+    def get_okapi_bm25_score(
+        self, query, document_id, average_document_field_length, document_lengths
+    ):
         """
         Returns the Okapi BM25 score of a document for a query.
 
@@ -181,7 +187,9 @@ class Scorer:
         # TODO
         pass
 
-    def compute_scores_with_unigram_model(self, query, smoothing_method, document_lengths = None, alpha = 0.5, lamda = 0.5):
+    def compute_scores_with_unigram_model(
+        self, query, smoothing_method, document_lengths=None, alpha=0.5, lamda=0.5
+    ):
         """
         Calculates the scores for each document based on the unigram model.
 
@@ -206,10 +214,12 @@ class Scorer:
             A dictionary of the document IDs and their scores.
         """
 
-        #TODO
+        # TODO
         pass
 
-    def compute_score_with_unigram_model(self, query, document_id, smoothing_method, document_lengths, alpha, lamda):
+    def compute_score_with_unigram_model(
+        self, query, document_id, smoothing_method, document_lengths, alpha, lamda
+    ):
         """
         Calculates the scores for each document based on the unigram model.
 
@@ -236,5 +246,5 @@ class Scorer:
             The Unigram score of the document for the query.
         """
 
-        #TODO
+        # TODO
         pass
