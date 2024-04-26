@@ -5,11 +5,14 @@ Subpackages
 -----------
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 4
 
    Logic.core
 
-Logic.utils
+Submodules
+----------
+
+Logic.utils module
 ------------------
 
 .. automodule:: Logic.utils
@@ -17,3 +20,10 @@ Logic.utils
    :undoc-members:
    :show-inheritance:
 
+Module contents
+---------------
+
+.. automodule:: Logic
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,6 +1,8 @@
 Logic.core.utility package
 ==========================
 
+Submodules
+----------
 
 Logic.core.utility.crawler module
 ---------------------------------
@@ -50,3 +52,10 @@ Logic.core.utility.spell\_correction module
    :undoc-members:
    :show-inheritance:
 
+Module contents
+---------------
+
+.. automodule:: Logic.core.utility
+   :members:
+   :undoc-members:
+   :show-inheritance:

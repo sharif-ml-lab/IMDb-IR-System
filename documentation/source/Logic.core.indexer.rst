@@ -1,6 +1,8 @@
 Logic.core.indexer package
 ==========================
 
+Submodules
+----------
 
 Logic.core.indexer.LSH module
 -----------------------------
@@ -58,4 +60,10 @@ Logic.core.indexer.tiered\_index module
    :undoc-members:
    :show-inheritance:
 
+Module contents
+---------------
 
+.. automodule:: Logic.core.indexer
+   :members:
+   :undoc-members:
+   :show-inheritance:
