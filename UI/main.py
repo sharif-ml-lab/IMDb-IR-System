@@ -6,11 +6,9 @@ from Logic import utils
 import time
 from enum import Enum
 import random
-from Logic.core.utility.snippet import Snippet
+from Logic.Phase_1.snippet import Snippet
 
-snippet_obj = Snippet(
-    number_of_words_on_each_side=5
-)  # You can change this parameter, if needed.
+snippet_obj = Snippet()
 
 
 class color(Enum):
@@ -49,9 +47,12 @@ def search_handling(
     search_max_num,
     search_weights,
     search_method,
+    unigram_smoothing,
+    alpha,
+    lamda,
 ):
     if search_button:
-        corrected_query = utils.correct_text(search_term, utils.movies_dataset)
+        corrected_query = utils.correct_text(search_term, utils.all_documents)
 
         if corrected_query != search_term:
             st.warning(f"Your search terms were corrected to: {corrected_query}")
@@ -65,6 +66,9 @@ def search_handling(
                 search_max_num,
                 search_method,
                 search_weights,
+                unigram_smoothing=unigram_smoothing,
+                alpha=alpha,
+                lamda=lamda,
             )
             print(f"Result: {result}")
             end_time = time.time()
@@ -124,7 +128,6 @@ def main():
     )
 
     search_term = st.text_input("Seacrh Term")
-    # search_summary_terms = st.text_input("Search in summary of movie")
     with st.expander("Advanced Search"):
         search_max_num = st.number_input(
             "Maximum number of results", min_value=5, max_value=100, value=10, step=5
@@ -155,9 +158,39 @@ def main():
 
         search_weights = [weight_stars, weight_genres, weight_summary]
         search_method = st.selectbox(
-            "Search method",
-            ("ltn.lnn", "ltc.lnc", "OkapiBM25"),
+            "Search method", ("ltn.lnn", "ltc.lnc", "OkapiBM25", "unigram")
         )
+
+        unigram_smoothing = None
+        alpha, lamda = None, None
+        if search_method == "unigram":
+            unigram_smoothing = st.selectbox(
+                "Smoothing method",
+                ("naive", "bayes", "mixture"),
+            )
+            if unigram_smoothing == "bayes":
+                alpha = st.slider(
+                    "Alpha",
+                    min_value=0.0,
+                    max_value=1.0,
+                    value=0.5,
+                    step=0.1,
+                )
+            if unigram_smoothing == "mixture":
+                alpha = st.slider(
+                    "Alpha",
+                    min_value=0.0,
+                    max_value=1.0,
+                    value=0.5,
+                    step=0.1,
+                )
+                lamda = st.slider(
+                    "Lambda",
+                    min_value=0.0,
+                    max_value=1.0,
+                    value=0.5,
+                    step=0.1,
+                )
 
     search_button = st.button("Search!")
 
@@ -167,6 +200,9 @@ def main():
         search_max_num,
         search_weights,
         search_method,
+        unigram_smoothing,
+        alpha,
+        lamda,
     )
 
 
