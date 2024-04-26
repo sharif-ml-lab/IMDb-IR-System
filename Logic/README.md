@@ -50,24 +50,30 @@ This file contains code to evaluate the performance of an information retrieval 
 
 Each metric makes use of the actual relevant items and the predicted ranking to calculate an overall score. A higher score indicates better performance for that particular aspect of retrieval or ranking.
 
- - Precision measures the percentage of predicted items that are relevant. 
- - Recall measures the percentage of relevant items that were correctly predicted. 
- - The F1 score combines precision and recall into a single measure. 
-- MAP considers the rank of the relevant items, rewarding systems that rank relevant documents higher. 
-- NDCG applies greater weight to hits at the top of the ranking. 
-- MRR looks at the position of the first relevant document in the predicted list. 
+ - Precision measures the percentage of predicted items that are relevant.
+ - Recall measures the percentage of relevant items that were correctly predicted.
+ - The F1 score combines precision and recall into a single measure.
+- MAP considers the rank of the relevant items, rewarding systems that rank relevant documents higher.
+- NDCG applies greater weight to hits at the top of the ranking.
+- MRR looks at the position of the first relevant document in the predicted list.
 
 Together, these metrics provide a more complete picture of how well the system is able to accurately retrieve and highly rank relevant information.
 
-## 10. [Scorer](./core/scorer.py)
+## 10. [Scorer](./core/utility/scorer.py)
 Please refer to the docstrings in the `scorer.py` for complete explanation of each functionality and what you should complete.
 
 # Phase 2
 
-## 1. [Tokenizer](./core/language_model/tokenizer.py)
+## 1. Extending [Search](./core/search.py)
 
-In this section, you should implement `Tokenizer` class, which is responsible for creating tokens from your text (query/data) and then, you will use this module in different models that you implement (alike Unigram) in this Phase. Please refer to docstrings in `tokenizer.py` for more info.
+In this section, you should implement the `find_scores_with_unigram_model` function in the `Search` class, where it is responsible for finding document scores based on the Unigram Model. You can use the new prototype functions that we have added to [Scorer](./core/scorer.py) to calculate these scores.
 
-## 2. [Unigram](./core/language_model/unigram.py)
+## 2. Extending [Scorer](./core/utility/scorer.py)
 
-In this section, you should implement `UnigramCounter` and `UnigramModel` classes. First one is responsible for counting number of unigrams in a sample text (your query/data) and the second one is responsible for creating unigram model with the given input data (and the count from `UnigramCounter`). Please refer to `unigram.py` docstrings for more info on each function.
+In this section, you should implement the `compute_scores_with_unigram_model` and `compute_score_with_unigram_model` functions in the `Scorer` class. These functions are responsible for creating document scores based on the unigram model to be used in [Search](./core/search.py) and computing the best match documents for a given query.
+
+## 3. [Link Analysis](./core/link_analysis/analyzer.py)
+
+This section involves analyzing the link between actors and movies using the Hits algorithm, and thereafter determining which actors and movies received the most scores based on the algorithm. We do this step-by-step in the `analyzer.py`. The first step is to initialize the parameters of your link analyzer, such as the list of hubs and authorities and the links graph from the given root set. You may need preprocessing for this, so you can pass these to the `initiate_params` function and call it in your code. Graphs derived from the root set can be expanded before the Hits algorithm is run. For this purpose, `expand_graph` is defined. You can read the link analysis slide for a better understanding. At the end, run the algorithm by calling the `hits` function and output ten actors and movies with the highest scores.
+
+**Note**: To implement the Hits algorithm, you need to implement a graph. For this, you can get help from the `LinkGraph` class in the `graph.py`. In this class, a template is placed for your implementation. You are free to modify this class in any way you like.
