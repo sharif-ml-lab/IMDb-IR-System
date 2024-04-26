@@ -1,6 +1,8 @@
 UI package
 ==========
 
+Submodules
+----------
 
 UI.main module
 --------------
@@ -9,4 +11,11 @@ UI.main module
    :members:
    :undoc-members:
    :show-inheritance:
-   :private-members:
+
+Module contents
+---------------
+
+.. automodule:: UI
+   :members:
+   :undoc-members:
+   :show-inheritance:

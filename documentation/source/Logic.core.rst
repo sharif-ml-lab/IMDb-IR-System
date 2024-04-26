@@ -8,9 +8,11 @@ Subpackages
    :maxdepth: 4
 
    Logic.core.indexer
+   Logic.core.link_analysis
    Logic.core.utility
-   Logic.core.language_model
 
+Submodules
+----------
 
 Logic.core.search module
 ------------------------
@@ -20,3 +22,10 @@ Logic.core.search module
    :undoc-members:
    :show-inheritance:
 
+Module contents
+---------------
+
+.. automodule:: Logic.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
