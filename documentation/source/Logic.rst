@@ -9,9 +9,6 @@ Subpackages
 
    Logic.core
 
-Submodules
-----------
-
 Logic.utils module
 ------------------
 
@@ -20,10 +17,4 @@ Logic.utils module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: Logic
-   :members:
-   :undoc-members:
-   :show-inheritance:
