@@ -1,9 +1,6 @@
 Logic.core.link\_analysis package
 =================================
 
-Submodules
-----------
-
 Logic.core.link\_analysis.analyzer module
 -----------------------------------------
 
@@ -16,14 +13,6 @@ Logic.core.link\_analysis.graph module
 --------------------------------------
 
 .. automodule:: Logic.core.link_analysis.graph
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: Logic.core.link_analysis
    :members:
    :undoc-members:
    :show-inheritance:
