@@ -66,7 +66,7 @@ Please refer to the docstrings in the `scorer.py` for complete explanation of ea
 
 ## 1. Extending [Search](./core/search.py)
 
-In this section, you should implement the `find_scores_with_unigram_model` function in the `Search` class, where it is responsible for finding document scores based on the Unigram Model. You can use the new prototype functions that we have added to [Scorer](./core/scorer.py) to calculate these scores.
+In this section, you should implement the `find_scores_with_unigram_model` function in the `Search` class, where it is responsible for finding document scores based on the Unigram Model. You can use the new prototype functions that we have added to [Scorer](./core/utility/scorer.py) to calculate these scores.
 
 ## 2. Extending [Scorer](./core/utility/scorer.py)
 
