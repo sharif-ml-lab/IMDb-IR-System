@@ -129,6 +129,11 @@ class Index:
         #         TODO
         pass
 
+    def delete_dummy_keys(self, index_before_add, index, key):
+        if len(index_before_add[index][key]) == 0:
+            del index_before_add[index][key]
+
+
     def check_add_remove_is_correct(self):
         """
         Check if the add and remove is correct
@@ -191,20 +196,11 @@ class Index:
 
         # Change the index_before_remove to its initial form if needed
 
-        if len(index_before_add[Indexes.STARS.value]['tim']) == 0:
-            del index_before_add[Indexes.STARS.value]['tim']
-
-        if len(index_before_add[Indexes.STARS.value]['henry']) == 0:
-            del index_before_add[Indexes.STARS.value]['henry']
-
-        if len(index_before_add[Indexes.GENRES.value]['drama']) == 0:
-            del index_before_add[Indexes.GENRES.value]['drama']
-
-        if len(index_before_add[Indexes.GENRES.value]['crime']) == 0:
-            del index_before_add[Indexes.GENRES.value]['crime']
-
-        if len(index_before_add[Indexes.SUMMARIES.value]['good']) == 0:
-            del index_before_add[Indexes.SUMMARIES.value]['good']
+        self.delete_dummy_keys(index_before_add, Indexes.STARS.value, 'tim')
+        self.delete_dummy_keys(index_before_add, Indexes.STARS.value, 'henry')
+        self.delete_dummy_keys(index_before_add, Indexes.GENRES.value, 'drama')
+        self.delete_dummy_keys(index_before_add, Indexes.GENRES.value, 'crime')
+        self.delete_dummy_keys(index_before_add, Indexes.SUMMARIES.value, 'good')
 
         print('Add is correct')
 
