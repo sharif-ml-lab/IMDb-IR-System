@@ -77,3 +77,12 @@ In this section, you should implement the `compute_scores_with_unigram_model` an
 This section involves analyzing the link between actors and movies using the Hits algorithm, and thereafter determining which actors and movies received the most scores based on the algorithm. We do this step-by-step in the `analyzer.py`. The first step is to initialize the parameters of your link analyzer, such as the list of hubs and authorities and the links graph from the given root set. You may need preprocessing for this, so you can pass these to the `initiate_params` function and call it in your code. Graphs derived from the root set can be expanded before the Hits algorithm is run. For this purpose, `expand_graph` is defined. You can read the link analysis slide for a better understanding. At the end, run the algorithm by calling the `hits` function and output ten actors and movies with the highest scores.
 
 **Note**: To implement the Hits algorithm, you need to implement a graph. For this, you can get help from the `LinkGraph` class in the `graph.py`. In this class, a template is placed for your implementation. You are free to modify this class in any way you like.
+
+## 4. [Word Embedding](./core/word_embedding/README.md)
+Please refer to the specific [Readme file](./core/word_embedding/README.md) for the explanation of the word embedding part.
+
+## 5. [Classification](./core/classification/README.md)
+Please refer to the specific [Readme file](./core/classification/README.md) for the explanation of the classification part.
+
+## 6. [Clustering](./core/clustering/README.md)
+Please refer to the specific [Readme file](./core/clustering/README.md) for the explanation of the clustering part.
