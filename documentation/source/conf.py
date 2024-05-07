@@ -46,6 +46,7 @@ autodoc_mock_imports = [
     "matplotlib",
     "seaborn",
     "fasttext",
+    "networkx",
 ]
 
 python_use_unqualified_type_names = True
