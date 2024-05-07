@@ -11,4 +11,4 @@ sphinx
 myst_parser
 sphinx-book-theme
 networkx
-fasttext==0.9.1
+# fasttext
