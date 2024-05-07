@@ -9,7 +9,7 @@ from scipy.cluster.hierarchy import dendrogram, linkage
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import KMeans
 from collections import Counter
-import clustering_metrics
+from .clustering_metrics import *
 
 
 class ClusteringUtils:
@@ -18,14 +18,14 @@ class ClusteringUtils:
         """
         Clusters input vectors using the K-means method.
 
-        Parameters:
+        Parameters
         -----------
         emb_vecs: List
             A list of vectors to be clustered.
         n_clusters: int
             The number of clusters to form.
 
-        Returns:
+        Returns
         --------
         Tuple[List, List]
             Two lists:
@@ -38,14 +38,14 @@ class ClusteringUtils:
         """
         Finds the most frequent words in a list of documents.
 
-        Parameters:
+        Parameters
         -----------
         documents: List[str]
             A list of documents, where each document is a string representing a list of words.
         top_n: int, optional
             The number of most frequent words to return. Default is 10.
 
-        Returns:
+        Returns
         --------
         List[Tuple[str, int]]
             A list of tuples, where each tuple contains a word and its frequency, sorted in descending order of frequency.
@@ -61,14 +61,14 @@ class ClusteringUtils:
 
         The K-means algorithm works by iteratively updating the cluster centroids and reassigning data points to the closest centroid until convergence or a maximum number of iterations is reached. This function uses a random initialization of the centroids and runs the algorithm for a maximum of 100 iterations.
 
-        Parameters:
+        Parameters
         -----------
         emb_vecs: List
             A list of vectors to be clustered.
         n_clusters: int
             The number of clusters to form.
 
-        Returns:
+        Returns
         --------
         Tuple[List, List, float]
             Three elements:
@@ -82,12 +82,12 @@ class ClusteringUtils:
         """
         Clusters input vectors using the hierarchical clustering method with single linkage.
 
-        Parameters:
+        Parameters
         -----------
         emb_vecs: List
             A list of vectors to be clustered.
 
-        Returns:
+        Returns
         --------
         List
             A list containing the cluster index for each input vector.
@@ -98,12 +98,12 @@ class ClusteringUtils:
         """
         Clusters input vectors using the hierarchical clustering method with complete linkage.
 
-        Parameters:
+        Parameters
         -----------
         emb_vecs: List
             A list of vectors to be clustered.
 
-        Returns:
+        Returns
         --------
         List
             A list containing the cluster index for each input vector.
@@ -114,12 +114,12 @@ class ClusteringUtils:
         """
         Clusters input vectors using the hierarchical clustering method with average linkage.
 
-        Parameters:
+        Parameters
         -----------
         emb_vecs: List
             A list of vectors to be clustered.
 
-        Returns:
+        Returns
         --------
         List
             A list containing the cluster index for each input vector.
@@ -130,12 +130,12 @@ class ClusteringUtils:
         """
         Clusters input vectors using the hierarchical clustering method with Ward's method.
 
-        Parameters:
+        Parameters
         -----------
         emb_vecs: List
             A list of vectors to be clustered.
 
-        Returns:
+        Returns
         --------
         List
             A list containing the cluster index for each input vector.
@@ -155,7 +155,7 @@ class ClusteringUtils:
         5. Log the scatter plot as an image to the wandb run, allowing visualization of the clustering results.
         6. Close the plot display window to conserve system resources (optional).
 
-        Parameters:
+        Parameters
         -----------
         data: np.ndarray
             The input data to perform K-means clustering on.
@@ -166,7 +166,7 @@ class ClusteringUtils:
         run_name: str
             The name of the wandb run to log the clustering visualization.
 
-        Returns:
+        Returns
         --------
         None
         """
@@ -199,7 +199,7 @@ class ClusteringUtils:
         5. Log the dendrogram plot as an image to the wandb run.
         6. Close the plot display window to conserve system resources.
 
-        Parameters:
+        Parameters
         -----------
         data: np.ndarray
             The input data to perform hierarchical clustering on.
@@ -210,7 +210,7 @@ class ClusteringUtils:
         run_name: str
             The name of the wandb run to log the dendrogram plot.
 
-        Returns:
+        Returns
         --------
         None
         """
@@ -227,7 +227,7 @@ class ClusteringUtils:
         """ This function, using implemented metrics in clustering_metrics, calculates and plots both purity scores and silhouette scores for various numbers of clusters.
         Then using wandb plots the respective scores (each with a different color) for each k value.
 
-        Parameters:
+        Parameters
         -----------
         embeddings : List
             A list of vectors representing the data points.
@@ -241,7 +241,7 @@ class ClusteringUtils:
         run_name : str
             Your wandb run name. If None, the plot will not be logged to wandb. Default is None.
 
-        Returns:
+        Returns
         --------
         None
         """
@@ -276,7 +276,7 @@ class ClusteringUtils:
         3. Create a line plot of WCSS values against the number of clusters (K).
         4. Log the plot to Weights & Biases (wandb) for visualization and tracking.
 
-        Parameters:
+        Parameters
         -----------
         embeddings: List
             A list of vectors representing the data points to be clustered.
@@ -287,7 +287,7 @@ class ClusteringUtils:
         run_name: str
             The name of the wandb run to log the elbow method plot.
 
-        Returns:
+        Returns
         --------
         None
         """
