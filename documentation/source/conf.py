@@ -47,6 +47,7 @@ autodoc_mock_imports = [
     "seaborn",
     "fasttext",
     "networkx",
+    "tqdm",
 ]
 
 python_use_unqualified_type_names = True
