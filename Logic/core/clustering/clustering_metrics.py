@@ -15,14 +15,14 @@ class ClusteringMetrics:
         """
         Calculate the average silhouette score for the given cluster assignments.
 
-        Parameters:
+        Parameters
         -----------
         embeddings: List
             A list of vectors representing the data points.
         cluster_labels: List
             A list of cluster assignments for each data point.
 
-        Returns:
+        Returns
         --------
         float
             The average silhouette score, ranging from -1 to 1, where a higher value indicates better clustering.
@@ -33,14 +33,14 @@ class ClusteringMetrics:
         """
         Calculate the purity score for the given cluster assignments and ground truth labels.
 
-        Parameters:
+        Parameters
         -----------
         true_labels: List
             A list of ground truth labels for each data point (Genres).
         cluster_labels: List
             A list of cluster assignments for each data point.
 
-        Returns:
+        Returns
         --------
         float
             The purity score, ranging from 0 to 1, where a higher value indicates better clustering.
@@ -51,14 +51,14 @@ class ClusteringMetrics:
         """
         Calculate the adjusted Rand index for the given cluster assignments and ground truth labels.
 
-        Parameters:
+        Parameters
         -----------
         true_labels: List
             A list of ground truth labels for each data point (Genres).
         cluster_labels: List
             A list of cluster assignments for each data point.
 
-        Returns:
+        Returns
         --------
         float
             The adjusted Rand index, ranging from -1 to 1, where a higher value indicates better clustering.

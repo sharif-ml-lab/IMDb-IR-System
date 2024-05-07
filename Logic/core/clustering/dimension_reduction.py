@@ -12,11 +12,13 @@ class DimensionReduction:
         """
         Performs dimensional reduction using PCA with n components left behind.
 
-        Args:
+        Parameters
+        ----------
             embeddings (list): A list of embeddings of documents.
             n_components (int): Number of components to keep.
 
-        Returns:
+        Returns
+        -------
             list: A list of reduced embeddings.
         """
         pass
@@ -25,10 +27,12 @@ class DimensionReduction:
         """
         Converts each raw embedding vector to a 2D vector.
 
-        Args:
+        Parameters
+        ----------
             emb_vecs (list): A list of vectors.
 
-        Returns:
+        Returns
+        --------
             list: A list of 2D vectors.
         """
         pass
@@ -46,7 +50,7 @@ class DimensionReduction:
         3. Create a scatter plot of the 2D embeddings using matplotlib.
         4. Log the scatter plot as an image to the wandb run, allowing visualization of the t-SNE embeddings.
 
-        Parameters:
+        Parameters
         -----------
         data: np.ndarray
             The input data to perform t-SNE dimensionality reduction on.
@@ -55,7 +59,7 @@ class DimensionReduction:
         run_name: str
             The name of the wandb run to log the t-SNE scatter plot.
 
-        Returns:
+        Returns
         --------
         None
         """
@@ -89,7 +93,7 @@ class DimensionReduction:
         4. Log the plot as an image to the wandb run, allowing visualization of the explained variance by components.
 
 
-        Parameters:
+        Parameters
         -----------
         data: np.ndarray
             The input data for which the explained variance by components will be computed and plotted.
@@ -98,7 +102,7 @@ class DimensionReduction:
         run_name: str
             The name of the wandb run to log the explained variance plot.
 
-        Returns:
+        Returns
         --------
         None
         """

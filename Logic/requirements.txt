@@ -11,3 +11,4 @@ sphinx
 myst_parser
 sphinx-book-theme
 networkx
+fasttext
