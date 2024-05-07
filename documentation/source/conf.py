@@ -48,6 +48,8 @@ autodoc_mock_imports = [
     "fasttext",
     "networkx",
     "tqdm",
+    "torch",
+    "wandb",
 ]
 
 python_use_unqualified_type_names = True
