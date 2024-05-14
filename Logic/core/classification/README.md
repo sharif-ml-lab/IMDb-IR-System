@@ -2,7 +2,7 @@
 
 This package contains the code for the classification phase of the project.
 The classification phase is responsible for classifying the comment data into two classes: positive and negative.
-you have to train the models on the training data and then use the trained model to classify the comment data which you crawled in the first phase.
+you have to train the models on the training data and then use the trained model to classify the comment data which you crawled in the first phase. You can access the training data using [this link](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews/code).
 
 ## Classes
 
