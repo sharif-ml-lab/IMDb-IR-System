@@ -144,7 +144,7 @@ def search_handling(
                 search_max_num,
                 search_method,
                 search_weights,
-                unigram_smoothing=unigram_smoothing,
+                smoothing_method = unigram_smoothing,
                 alpha=alpha,
                 lamda=lamda,
             )
