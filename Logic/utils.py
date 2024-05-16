@@ -38,6 +38,9 @@ def search(
     weights: list = [0.3, 0.3, 0.4],
     should_print=False,
     preferred_genre: str = None,
+    unigram_smoothing = "naive", 
+    alpha=0.5, 
+    lamda=0.5, 
 ):
     """
     Finds relevant documents to query
