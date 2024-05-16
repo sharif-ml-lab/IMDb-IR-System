@@ -38,7 +38,7 @@ def search(
     weights: list = [0.3, 0.3, 0.4],
     should_print=False,
     preferred_genre: str = None,
-    unigram_smoothing = "naive", 
+    smoothing_method = None, 
     alpha=0.5, 
     lamda=0.5, 
 ):
