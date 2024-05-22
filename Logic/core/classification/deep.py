@@ -70,7 +70,7 @@ class DeepModelClassifier(BasicClassifier):
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         self.device = 'mps' if torch.backends.mps.is_available else 'cpu'
         self.device = 'cuda' if torch.cuda.is_available() else self.device
-        self.model.to(self.device)
+        self.model = self.model.to(self.device)
         print(f"Using device: {self.device}")
 
     def fit(self, x, y):
