@@ -86,3 +86,10 @@ Please refer to the specific [Readme file](./core/classification/README.md) for 
 
 ## 6. [Clustering](./core/clustering/README.md)
 Please refer to the specific [Readme file](./core/clustering/README.md) for the explanation of the clustering part.
+
+# Phase 3
+## 1. BERT Fine-tuning
+Please refer to the specific [Readme file](./core/finetuner/README.md) and also docstrings and comments in python files (`.py`) for the explanation of the BERT fine-tuning part.
+
+## 2. RAG (Retrieval Augmented Generation)
+Please refer to the specific [Readme file](./core/rag/README.md) and also explanations which are provided in the **notebook**.
