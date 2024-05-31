@@ -129,6 +129,15 @@ class Index:
         #         TODO
         pass
 
+    def delete_dummy_keys(self, index_before_add, index, key):
+        if len(index_before_add[index][key]) == 0:
+            del index_before_add[index][key]
+
+    def check_if_key_exists(self, index_before_add, index, key):
+        if not index_before_add[index].__contains__(key):
+            index_before_add[index].setdefault(key, {})
+
+
     def check_add_remove_is_correct(self):
         """
         Check if the add and remove is correct
@@ -149,29 +158,49 @@ class Index:
             print('Add is incorrect, document')
             return
 
+
+        self.check_if_key_exists(index_before_add, Indexes.STARS.value, 'tim')
+
         if (set(index_after_add[Indexes.STARS.value]['tim']).difference(set(index_before_add[Indexes.STARS.value]['tim']))
                 != {dummy_document['id']}):
             print('Add is incorrect, tim')
             return
 
+        self.check_if_key_exists(index_before_add, Indexes.STARS.value, 'henry')
+
         if (set(index_after_add[Indexes.STARS.value]['henry']).difference(set(index_before_add[Indexes.STARS.value]['henry']))
                 != {dummy_document['id']}):
             print('Add is incorrect, henry')
             return
+
+        self.check_if_key_exists(index_before_add, Indexes.GENRES.value, 'drama')
+
         if (set(index_after_add[Indexes.GENRES.value]['drama']).difference(set(index_before_add[Indexes.GENRES.value]['drama']))
                 != {dummy_document['id']}):
             print('Add is incorrect, drama')
             return
+
+        self.check_if_key_exists(index_before_add, Indexes.GENRES.value, 'crime')
 
         if (set(index_after_add[Indexes.GENRES.value]['crime']).difference(set(index_before_add[Indexes.GENRES.value]['crime']))
                 != {dummy_document['id']}):
             print('Add is incorrect, crime')
             return
 
+        self.check_if_key_exists(index_before_add, Indexes.SUMMARIES.value, 'good')
+
         if (set(index_after_add[Indexes.SUMMARIES.value]['good']).difference(set(index_before_add[Indexes.SUMMARIES.value]['good']))
                 != {dummy_document['id']}):
             print('Add is incorrect, good')
             return
+
+        # Change the index_before_remove to its initial form if needed
+
+        self.delete_dummy_keys(index_before_add, Indexes.STARS.value, 'tim')
+        self.delete_dummy_keys(index_before_add, Indexes.STARS.value, 'henry')
+        self.delete_dummy_keys(index_before_add, Indexes.GENRES.value, 'drama')
+        self.delete_dummy_keys(index_before_add, Indexes.GENRES.value, 'crime')
+        self.delete_dummy_keys(index_before_add, Indexes.SUMMARIES.value, 'good')
 
         print('Add is correct')
 
