@@ -93,3 +93,6 @@ Please refer to the specific [Readme file](./core/finetuner/README.md) and also 
 
 ## 2. RAG (Retrieval Augmented Generation)
 Please refer to the specific [Readme file](./core/rag/README.md) and also explanations which are provided in the **notebook**.
+
+## 3. Recommender Systems
+Please refer to the explanations provided inside [this notebook](./core/recommender_system/Recommender-system.ipynb).
