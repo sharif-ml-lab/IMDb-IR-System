@@ -37,8 +37,7 @@ class MLPModel(nn.Module):
             nn.ReLU(),
             nn.Linear(128, 32),
             nn.ReLU(),
-            nn.Linear(32, num_classes),
-            nn.Softmax(dim=1)
+            nn.Linear(32, num_classes)
         )
 
     def forward(self, xb):
