@@ -1,0 +1,1131 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logic.core.indexer package &#8212; IMDb-IR-System  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Logic.core.indexer';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Logic.core.link_analysis package" href="Logic.core.link_analysis.html" />
+    <link rel="prev" title="Logic.core.clustering package" href="Logic.core.clustering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/IMDB_Logo.jpeg" class="logo__image only-light" alt="IMDb-IR-System  documentation - Home"/>
+    <script>document.write(`<img src="_static/IMDB_Logo.jpeg" class="logo__image only-dark" alt="IMDb-IR-System  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Logic.html">Logic package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="Logic.core.html">Logic.core package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html">Logic.core.classification package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.clustering.html">Logic.core.clustering package</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Logic.core.indexer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.link_analysis.html">Logic.core.link_analysis package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html">Logic.core.utility package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.word_embedding.html">Logic.core.word_embedding package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="UI.html">UI package</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sharif-ml-lab/IMDb-IR-System" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Logic.core.indexer.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Logic.core.indexer package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.LSH">Logic.core.indexer.LSH module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH"><code class="docutils literal notranslate"><span class="pre">MinHashLSH</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.build_characteristic_matrix"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.build_characteristic_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.jaccard_score"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.jaccard_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.jaccard_similarity_test"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.jaccard_similarity_test()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.lsh_buckets"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.lsh_buckets()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.min_hash_signature"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.min_hash_signature()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.perform_lsh"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.perform_lsh()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.shingle_document"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.shingle_document()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.document_lengths_index">Logic.core.indexer.document_lengths_index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.get_documents_length"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex.get_documents_length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.store_document_lengths_index"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex.store_document_lengths_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.index">Logic.core.indexer.index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index"><code class="docutils literal notranslate"><span class="pre">Index</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.add_document_to_index"><code class="docutils literal notranslate"><span class="pre">Index.add_document_to_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_add_remove_is_correct"><code class="docutils literal notranslate"><span class="pre">Index.check_add_remove_is_correct()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_if_index_loaded_correctly"><code class="docutils literal notranslate"><span class="pre">Index.check_if_index_loaded_correctly()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_if_indexing_is_good"><code class="docutils literal notranslate"><span class="pre">Index.check_if_indexing_is_good()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_if_key_exists"><code class="docutils literal notranslate"><span class="pre">Index.check_if_key_exists()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.delete_dummy_keys"><code class="docutils literal notranslate"><span class="pre">Index.delete_dummy_keys()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.get_posting_list"><code class="docutils literal notranslate"><span class="pre">Index.get_posting_list()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_documents"><code class="docutils literal notranslate"><span class="pre">Index.index_documents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_genres"><code class="docutils literal notranslate"><span class="pre">Index.index_genres()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_stars"><code class="docutils literal notranslate"><span class="pre">Index.index_stars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_summaries"><code class="docutils literal notranslate"><span class="pre">Index.index_summaries()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.load_index"><code class="docutils literal notranslate"><span class="pre">Index.load_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.remove_document_from_index"><code class="docutils literal notranslate"><span class="pre">Index.remove_document_from_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.store_index"><code class="docutils literal notranslate"><span class="pre">Index.store_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.index_reader">Logic.core.indexer.index_reader module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index_reader.Index_reader"><code class="docutils literal notranslate"><span class="pre">Index_reader</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index_reader.Index_reader.get_index"><code class="docutils literal notranslate"><span class="pre">Index_reader.get_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.indexes_enum">Logic.core.indexer.indexes_enum module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types"><code class="docutils literal notranslate"><span class="pre">Index_types</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types.DOCUMENT_LENGTH"><code class="docutils literal notranslate"><span class="pre">Index_types.DOCUMENT_LENGTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types.METADATA"><code class="docutils literal notranslate"><span class="pre">Index_types.METADATA</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types.TIERED"><code class="docutils literal notranslate"><span class="pre">Index_types.TIERED</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes"><code class="docutils literal notranslate"><span class="pre">Indexes</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.DOCUMENTS"><code class="docutils literal notranslate"><span class="pre">Indexes.DOCUMENTS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.GENRES"><code class="docutils literal notranslate"><span class="pre">Indexes.GENRES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.STARS"><code class="docutils literal notranslate"><span class="pre">Indexes.STARS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.SUMMARIES"><code class="docutils literal notranslate"><span class="pre">Indexes.SUMMARIES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.metadata_index">Logic.core.indexer.metadata_index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.create_metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index.create_metadata_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.get_average_document_field_length"><code class="docutils literal notranslate"><span class="pre">Metadata_index.get_average_document_field_length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.read_documents"><code class="docutils literal notranslate"><span class="pre">Metadata_index.read_documents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.store_metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index.store_metadata_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.tiered_index">Logic.core.indexer.tiered_index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.tiered_index.Tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.tiered_index.Tiered_index.convert_to_tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index.convert_to_tiered_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.tiered_index.Tiered_index.store_tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index.store_tiered_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="logic-core-indexer-package">
+<h1>Logic.core.indexer package<a class="headerlink" href="#logic-core-indexer-package" title="Link to this heading">#</a></h1>
+<section id="module-Logic.core.indexer.LSH">
+<span id="logic-core-indexer-lsh-module"></span><h2>Logic.core.indexer.LSH module<a class="headerlink" href="#module-Logic.core.indexer.LSH" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MinHashLSH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_hashes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH.build_characteristic_matrix">
+<span class="sig-name descname"><span class="pre">build_characteristic_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH.build_characteristic_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Build the characteristic matrix representing the presence of shingles in documents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The binary characteristic matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>ndarray</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH.jaccard_score">
+<span class="sig-name descname"><span class="pre">jaccard_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH.jaccard_score" title="Link to this definition">#</a></dt>
+<dd><p>Calculate jaccard score for two sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><em>set</em></a>) – Set of first shingled document.</p></li>
+<li><p><strong>second_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><em>set</em></a>) – Set of second shingled document.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Jaccard score.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH.jaccard_similarity_test">
+<span class="sig-name descname"><span class="pre">jaccard_similarity_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buckets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_documents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH.jaccard_similarity_test" title="Link to this definition">#</a></dt>
+<dd><p>Test your near duplicate detection code based on jaccard similarity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buckets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – A dictionary mapping bucket IDs to lists of document indices.</p></li>
+<li><p><strong>all_documents</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – The input documents for similarity analysis.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH.lsh_buckets">
+<span class="sig-name descname"><span class="pre">lsh_buckets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows_per_band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH.lsh_buckets" title="Link to this definition">#</a></dt>
+<dd><p>Group documents into Locality-Sensitive Hashing (LSH) buckets based on Min-Hash signatures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signature</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>ndarray</em></a>) – Min-Hash signatures for documents.</p></li>
+<li><p><strong>bands</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of bands for LSH.</p></li>
+<li><p><strong>rows_per_band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of rows per band.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary mapping bucket IDs to lists of document indices.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH.min_hash_signature">
+<span class="sig-name descname"><span class="pre">min_hash_signature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH.min_hash_signature" title="Link to this definition">#</a></dt>
+<dd><p>Perform Min-Hashing to generate hash signatures for documents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The Min-Hash signatures matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>ndarray</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH.perform_lsh">
+<span class="sig-name descname"><span class="pre">perform_lsh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH.perform_lsh" title="Link to this definition">#</a></dt>
+<dd><p>Perform the entire Locality-Sensitive Hashing (LSH) process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dictionary mapping bucket IDs to lists of document indices.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.LSH.MinHashLSH.shingle_document">
+<span class="sig-name descname"><span class="pre">shingle_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.LSH.MinHashLSH.shingle_document" title="Link to this definition">#</a></dt>
+<dd><p>Convert a document into a set of shingles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>document</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The input document.</p></li>
+<li><p><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The size of each shingle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A set of shingles.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><em>set</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.indexer.document_lengths_index">
+<span id="logic-core-indexer-document-lengths-index-module"></span><h2>Logic.core.indexer.document_lengths_index module<a class="headerlink" href="#module-Logic.core.indexer.document_lengths_index" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.document_lengths_index.DocumentLengthsIndex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DocumentLengthsIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'index/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.get_documents_length">
+<span class="sig-name descname"><span class="pre">get_documents_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">where</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.get_documents_length" title="Link to this definition">#</a></dt>
+<dd><p>Gets the documents’ length for the specified field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>where</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The field to get the document lengths for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of the document lengths. The keys are the document IDs, and the values are
+the document’s length in that field (where).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.store_document_lengths_index">
+<span class="sig-name descname"><span class="pre">store_document_lengths_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.store_document_lengths_index" title="Link to this definition">#</a></dt>
+<dd><p>Stores the document lengths index to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The path to the directory where the indexes are stored.</p></li>
+<li><p><strong>index_name</strong> (<a class="reference internal" href="#Logic.core.indexer.indexes_enum.Indexes" title="Logic.core.indexer.indexes_enum.Indexes"><em>Indexes</em></a>) – The name of the index to store.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.indexer.index">
+<span id="logic-core-indexer-index-module"></span><h2>Logic.core.indexer.index module<a class="headerlink" href="#module-Logic.core.indexer.index" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessed_documents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.add_document_to_index">
+<span class="sig-name descname"><span class="pre">add_document_to_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.add_document_to_index" title="Link to this definition">#</a></dt>
+<dd><p>Add a document to all the indexes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>document</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – Document to add to all the indexes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.check_add_remove_is_correct">
+<span class="sig-name descname"><span class="pre">check_add_remove_is_correct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.check_add_remove_is_correct" title="Link to this definition">#</a></dt>
+<dd><p>Check if the add and remove is correct</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.check_if_index_loaded_correctly">
+<span class="sig-name descname"><span class="pre">check_if_index_loaded_correctly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">loaded_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.check_if_index_loaded_correctly" title="Link to this definition">#</a></dt>
+<dd><p>Check if the index is loaded correctly</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Type of index to check (documents, stars, genres, summaries)</p></li>
+<li><p><strong>loaded_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The loaded index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if index is loaded correctly, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.check_if_indexing_is_good">
+<span class="sig-name descname"><span class="pre">check_if_indexing_is_good</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'good'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.check_if_indexing_is_good" title="Link to this definition">#</a></dt>
+<dd><p>Checks if the indexing is good. Do not change this function. You can use this
+function to check if your indexing is correct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Type of index to check (documents, stars, genres, summaries)</p></li>
+<li><p><strong>check_word</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The word to check in the index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if indexing is good, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.check_if_key_exists">
+<span class="sig-name descname"><span class="pre">check_if_key_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_before_add</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.check_if_key_exists" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.delete_dummy_keys">
+<span class="sig-name descname"><span class="pre">delete_dummy_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_before_add</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.delete_dummy_keys" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.get_posting_list">
+<span class="sig-name descname"><span class="pre">get_posting_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.get_posting_list" title="Link to this definition">#</a></dt>
+<dd><p>get posting_list of a word</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – word we want to check</p></li>
+<li><p><strong>index_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – type of index we want to check (documents, stars, genres, summaries)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>posting list of the word (you should return the list of document IDs that contain the word and ignore the tf)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.index_documents">
+<span class="sig-name descname"><span class="pre">index_documents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.index_documents" title="Link to this definition">#</a></dt>
+<dd><p>Index the documents based on the document ID. In other words, create a dictionary
+where the key is the document ID and the value is the document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The index of the documents based on the document ID.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.index_genres">
+<span class="sig-name descname"><span class="pre">index_genres</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.index_genres" title="Link to this definition">#</a></dt>
+<dd><p>Index the documents based on the genres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The index of the documents based on the genres. You should also store each terms’ tf in each document.
+So the index type is: {term: {document_id: tf}}</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.index_stars">
+<span class="sig-name descname"><span class="pre">index_stars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.index_stars" title="Link to this definition">#</a></dt>
+<dd><p>Index the documents based on the stars.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The index of the documents based on the stars. You should also store each terms’ tf in each document.
+So the index type is: {term: {document_id: tf}}</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.index_summaries">
+<span class="sig-name descname"><span class="pre">index_summaries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.index_summaries" title="Link to this definition">#</a></dt>
+<dd><p>Index the documents based on the summaries (not first_page_summary).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The index of the documents based on the summaries. You should also store each terms’ tf in each document.
+So the index type is: {term: {document_id: tf}}</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.load_index">
+<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.load_index" title="Link to this definition">#</a></dt>
+<dd><p>Loads the index from a file (such as a JSON file)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Path to load the file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.remove_document_from_index">
+<span class="sig-name descname"><span class="pre">remove_document_from_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.remove_document_from_index" title="Link to this definition">#</a></dt>
+<dd><p>Remove a document from all the indexes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>document_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – ID of the document to remove from all the indexes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index.Index.store_index">
+<span class="sig-name descname"><span class="pre">store_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index.Index.store_index" title="Link to this definition">#</a></dt>
+<dd><p>Stores the index in a file (such as a JSON file)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Path to store the file</p></li>
+<li><p><strong>index_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – name of index we want to store (documents, stars, genres, summaries)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.indexer.index_reader">
+<span id="logic-core-indexer-index-reader-module"></span><h2>Logic.core.indexer.index_reader module<a class="headerlink" href="#module-Logic.core.indexer.index_reader" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.index_reader.Index_reader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Index_reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Logic.core.indexer.indexes_enum.Indexes" title="Logic.core.indexer.indexes_enum.Indexes"><span class="pre">Indexes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Logic.core.indexer.indexes_enum.Index_types" title="Logic.core.indexer.indexes_enum.Index_types"><span class="pre">Index_types</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index_reader.Index_reader" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.index_reader.Index_reader.get_index">
+<span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.index_reader.Index_reader.get_index" title="Link to this definition">#</a></dt>
+<dd><p>Gets the index from the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The index.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.indexer.indexes_enum">
+<span id="logic-core-indexer-indexes-enum-module"></span><h2>Logic.core.indexer.indexes_enum module<a class="headerlink" href="#module-Logic.core.indexer.indexes_enum" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Index_types">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Index_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Index_types" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Index_types.DOCUMENT_LENGTH">
+<span class="sig-name descname"><span class="pre">DOCUMENT_LENGTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'document_length'</span></em><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Index_types.DOCUMENT_LENGTH" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Index_types.METADATA">
+<span class="sig-name descname"><span class="pre">METADATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'metadata'</span></em><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Index_types.METADATA" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Index_types.TIERED">
+<span class="sig-name descname"><span class="pre">TIERED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tiered'</span></em><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Index_types.TIERED" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Indexes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Indexes" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Indexes.DOCUMENTS">
+<span class="sig-name descname"><span class="pre">DOCUMENTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'documents'</span></em><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Indexes.DOCUMENTS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Indexes.GENRES">
+<span class="sig-name descname"><span class="pre">GENRES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'genres'</span></em><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Indexes.GENRES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Indexes.STARS">
+<span class="sig-name descname"><span class="pre">STARS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'stars'</span></em><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Indexes.STARS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.indexer.indexes_enum.Indexes.SUMMARIES">
+<span class="sig-name descname"><span class="pre">SUMMARIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'summaries'</span></em><a class="headerlink" href="#Logic.core.indexer.indexes_enum.Indexes.SUMMARIES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.indexer.metadata_index">
+<span id="logic-core-indexer-metadata-index-module"></span><h2>Logic.core.indexer.metadata_index module<a class="headerlink" href="#module-Logic.core.indexer.metadata_index" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.metadata_index.Metadata_index">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Metadata_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'index/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.metadata_index.Metadata_index" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.metadata_index.Metadata_index.create_metadata_index">
+<span class="sig-name descname"><span class="pre">create_metadata_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.metadata_index.Metadata_index.create_metadata_index" title="Link to this definition">#</a></dt>
+<dd><p>Creates the metadata index.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.metadata_index.Metadata_index.get_average_document_field_length">
+<span class="sig-name descname"><span class="pre">get_average_document_field_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">where</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.metadata_index.Metadata_index.get_average_document_field_length" title="Link to this definition">#</a></dt>
+<dd><p>Returns the sum of the field lengths of all documents in the index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>where</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The field to get the document lengths for.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.metadata_index.Metadata_index.read_documents">
+<span class="sig-name descname"><span class="pre">read_documents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.metadata_index.Metadata_index.read_documents" title="Link to this definition">#</a></dt>
+<dd><p>Reads the documents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.metadata_index.Metadata_index.store_metadata_index">
+<span class="sig-name descname"><span class="pre">store_metadata_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.metadata_index.Metadata_index.store_metadata_index" title="Link to this definition">#</a></dt>
+<dd><p>Stores the metadata index to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The path to the directory where the indexes are stored.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.indexer.tiered_index">
+<span id="logic-core-indexer-tiered-index-module"></span><h2>Logic.core.indexer.tiered_index module<a class="headerlink" href="#module-Logic.core.indexer.tiered_index" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.indexer.tiered_index.Tiered_index">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Tiered_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'index/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.tiered_index.Tiered_index" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.tiered_index.Tiered_index.convert_to_tiered_index">
+<span class="sig-name descname"><span class="pre">convert_to_tiered_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_tier_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tier_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.tiered_index.Tiered_index.convert_to_tiered_index" title="Link to this definition">#</a></dt>
+<dd><p>Convert the current index to a tiered index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first_tier_threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The threshold for the first tier</p></li>
+<li><p><strong>second_tier_threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The threshold for the second tier</p></li>
+<li><p><strong>index_name</strong> (<a class="reference internal" href="#Logic.core.indexer.indexes_enum.Indexes" title="Logic.core.indexer.indexes_enum.Indexes"><em>Indexes</em></a>) – The name of the index to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>The tiered index with structure of
+{</p>
+<blockquote>
+<div><p>”first_tier”: dict,
+“second_tier”: dict,
+“third_tier”: dict</p>
+</div></blockquote>
+<p>}</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.indexer.tiered_index.Tiered_index.store_tiered_index">
+<span class="sig-name descname"><span class="pre">store_tiered_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.indexer.tiered_index.Tiered_index.store_tiered_index" title="Link to this definition">#</a></dt>
+<dd><p>Stores the tiered index to a file.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Logic.core.clustering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Logic.core.clustering package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Logic.core.link_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Logic.core.link_analysis package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.LSH">Logic.core.indexer.LSH module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH"><code class="docutils literal notranslate"><span class="pre">MinHashLSH</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.build_characteristic_matrix"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.build_characteristic_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.jaccard_score"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.jaccard_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.jaccard_similarity_test"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.jaccard_similarity_test()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.lsh_buckets"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.lsh_buckets()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.min_hash_signature"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.min_hash_signature()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.perform_lsh"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.perform_lsh()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.LSH.MinHashLSH.shingle_document"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.shingle_document()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.document_lengths_index">Logic.core.indexer.document_lengths_index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.get_documents_length"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex.get_documents_length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.store_document_lengths_index"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex.store_document_lengths_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.index">Logic.core.indexer.index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index"><code class="docutils literal notranslate"><span class="pre">Index</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.add_document_to_index"><code class="docutils literal notranslate"><span class="pre">Index.add_document_to_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_add_remove_is_correct"><code class="docutils literal notranslate"><span class="pre">Index.check_add_remove_is_correct()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_if_index_loaded_correctly"><code class="docutils literal notranslate"><span class="pre">Index.check_if_index_loaded_correctly()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_if_indexing_is_good"><code class="docutils literal notranslate"><span class="pre">Index.check_if_indexing_is_good()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.check_if_key_exists"><code class="docutils literal notranslate"><span class="pre">Index.check_if_key_exists()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.delete_dummy_keys"><code class="docutils literal notranslate"><span class="pre">Index.delete_dummy_keys()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.get_posting_list"><code class="docutils literal notranslate"><span class="pre">Index.get_posting_list()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_documents"><code class="docutils literal notranslate"><span class="pre">Index.index_documents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_genres"><code class="docutils literal notranslate"><span class="pre">Index.index_genres()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_stars"><code class="docutils literal notranslate"><span class="pre">Index.index_stars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.index_summaries"><code class="docutils literal notranslate"><span class="pre">Index.index_summaries()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.load_index"><code class="docutils literal notranslate"><span class="pre">Index.load_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.remove_document_from_index"><code class="docutils literal notranslate"><span class="pre">Index.remove_document_from_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index.Index.store_index"><code class="docutils literal notranslate"><span class="pre">Index.store_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.index_reader">Logic.core.indexer.index_reader module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index_reader.Index_reader"><code class="docutils literal notranslate"><span class="pre">Index_reader</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.index_reader.Index_reader.get_index"><code class="docutils literal notranslate"><span class="pre">Index_reader.get_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.indexes_enum">Logic.core.indexer.indexes_enum module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types"><code class="docutils literal notranslate"><span class="pre">Index_types</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types.DOCUMENT_LENGTH"><code class="docutils literal notranslate"><span class="pre">Index_types.DOCUMENT_LENGTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types.METADATA"><code class="docutils literal notranslate"><span class="pre">Index_types.METADATA</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Index_types.TIERED"><code class="docutils literal notranslate"><span class="pre">Index_types.TIERED</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes"><code class="docutils literal notranslate"><span class="pre">Indexes</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.DOCUMENTS"><code class="docutils literal notranslate"><span class="pre">Indexes.DOCUMENTS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.GENRES"><code class="docutils literal notranslate"><span class="pre">Indexes.GENRES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.STARS"><code class="docutils literal notranslate"><span class="pre">Indexes.STARS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.indexes_enum.Indexes.SUMMARIES"><code class="docutils literal notranslate"><span class="pre">Indexes.SUMMARIES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.metadata_index">Logic.core.indexer.metadata_index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.create_metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index.create_metadata_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.get_average_document_field_length"><code class="docutils literal notranslate"><span class="pre">Metadata_index.get_average_document_field_length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.read_documents"><code class="docutils literal notranslate"><span class="pre">Metadata_index.read_documents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.metadata_index.Metadata_index.store_metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index.store_metadata_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.indexer.tiered_index">Logic.core.indexer.tiered_index module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.tiered_index.Tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.tiered_index.Tiered_index.convert_to_tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index.convert_to_tiered_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.indexer.tiered_index.Tiered_index.store_tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index.store_tiered_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AmirHossein Razlighi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, MIR Course team @ CE at Sharif University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

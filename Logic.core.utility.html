@@ -1,0 +1,1807 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logic.core.utility package &#8212; IMDb-IR-System  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Logic.core.utility';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Logic.core.word_embedding package" href="Logic.core.word_embedding.html" />
+    <link rel="prev" title="Logic.core.link_analysis package" href="Logic.core.link_analysis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/IMDB_Logo.jpeg" class="logo__image only-light" alt="IMDb-IR-System  documentation - Home"/>
+    <script>document.write(`<img src="_static/IMDB_Logo.jpeg" class="logo__image only-dark" alt="IMDb-IR-System  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Logic.html">Logic package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="Logic.core.html">Logic.core package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html">Logic.core.classification package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.clustering.html">Logic.core.clustering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html">Logic.core.indexer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.link_analysis.html">Logic.core.link_analysis package</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Logic.core.utility package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.word_embedding.html">Logic.core.word_embedding package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="UI.html">UI package</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sharif-ml-lab/IMDb-IR-System" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Logic.core.utility.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Logic.core.utility package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.crawler">Logic.core.utility.crawler module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.crawl"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.crawl()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.crawl_page_info"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.crawl_page_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.extract_movie_info"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.extract_movie_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.extract_top_250"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.extract_top_250()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_budget"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_budget()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_countries_of_origin"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_countries_of_origin()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_director"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_director()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_first_page_summary"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_first_page_summary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_genres"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_genres()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_gross_worldwide"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_gross_worldwide()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_id_from_URL"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_id_from_URL()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_imdb_instance"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_imdb_instance()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_languages"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_languages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_mpaa"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_mpaa()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_rating"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_rating()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_related_links"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_related_links()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_release_year"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_release_year()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_review_link"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_review_link()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_reviews_with_scores"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_reviews_with_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_stars"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_stars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_summary"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_summary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_summary_link"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_summary_link()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_synopsis"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_synopsis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_title"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_title()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_writers"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_writers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.headers"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.headers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.read_from_file_as_json"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.read_from_file_as_json()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.start_crawling"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.start_crawling()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.top_250_URL"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.top_250_URL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.write_to_file_as_json"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.write_to_file_as_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.evaluation">Logic.core.utility.evaluation module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_DCG"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_DCG()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_MRR"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_MRR()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_NDCG"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_NDCG()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_RR"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_RR()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_AP"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_AP()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_F1"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_F1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_MAP"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_MAP()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_evaluation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_precision"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_precision()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_recall"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_recall()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.log_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.log_evaluation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.print_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.print_evaluation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.preprocess">Logic.core.utility.preprocess module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor"><code class="docutils literal notranslate"><span class="pre">Preprocessor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.normalize"><code class="docutils literal notranslate"><span class="pre">Preprocessor.normalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.preprocess"><code class="docutils literal notranslate"><span class="pre">Preprocessor.preprocess()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.remove_links"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_links()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.remove_punctuations"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_punctuations()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.remove_stopwords"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_stopwords()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.tokenize"><code class="docutils literal notranslate"><span class="pre">Preprocessor.tokenize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.scorer">Logic.core.utility.scorer module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer"><code class="docutils literal notranslate"><span class="pre">Scorer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_score_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_score_with_unigram_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_scores_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_scores_with_unigram_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_scores_with_vector_space_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_scores_with_vector_space_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_socres_with_okapi_bm25"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_socres_with_okapi_bm25()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_idf"><code class="docutils literal notranslate"><span class="pre">Scorer.get_idf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_list_of_documents"><code class="docutils literal notranslate"><span class="pre">Scorer.get_list_of_documents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_okapi_bm25_score"><code class="docutils literal notranslate"><span class="pre">Scorer.get_okapi_bm25_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_query_tfs"><code class="docutils literal notranslate"><span class="pre">Scorer.get_query_tfs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_vector_space_model_score"><code class="docutils literal notranslate"><span class="pre">Scorer.get_vector_space_model_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.snippet">Logic.core.utility.snippet module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.snippet.Snippet"><code class="docutils literal notranslate"><span class="pre">Snippet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.snippet.Snippet.find_snippet"><code class="docutils literal notranslate"><span class="pre">Snippet.find_snippet()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.snippet.Snippet.remove_stop_words_from_query"><code class="docutils literal notranslate"><span class="pre">Snippet.remove_stop_words_from_query()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.spell_correction">Logic.core.utility.spell_correction module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection"><code class="docutils literal notranslate"><span class="pre">SpellCorrection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.find_nearest_words"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.find_nearest_words()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.jaccard_score"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.jaccard_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.shingle_word"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.shingle_word()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.shingling_and_counting"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.shingling_and_counting()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.spell_check"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.spell_check()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="logic-core-utility-package">
+<h1>Logic.core.utility package<a class="headerlink" href="#logic-core-utility-package" title="Link to this heading">#</a></h1>
+<section id="module-Logic.core.utility.crawler">
+<span id="logic-core-utility-crawler-module"></span><h2>Logic.core.utility.crawler module<a class="headerlink" href="#module-Logic.core.utility.crawler" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IMDbCrawler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crawling_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>put your own user agent in the headers</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.crawl">
+<span class="sig-name descname"><span class="pre">crawl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.crawl" title="Link to this definition">#</a></dt>
+<dd><p>Make a get request to the URL and return the response</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>URL</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The URL of the site</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The response of the get request</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>requests.models.Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.crawl_page_info">
+<span class="sig-name descname"><span class="pre">crawl_page_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.crawl_page_info" title="Link to this definition">#</a></dt>
+<dd><p>Main Logic of the crawler. It crawls the page and extracts the information of the movie.
+Use related links of a movie to crawl more movies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>URL</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The URL of the site</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.extract_movie_info">
+<span class="sig-name descname"><span class="pre">extract_movie_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">res</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">movie</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">URL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.extract_movie_info" title="Link to this definition">#</a></dt>
+<dd><p>Extract the information of the movie from the response and save it in the movie instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>res</strong> (<em>requests.models.Response</em>) – The response of the get request</p></li>
+<li><p><strong>movie</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The instance of the movie</p></li>
+<li><p><strong>URL</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The URL of the site</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.extract_top_250">
+<span class="sig-name descname"><span class="pre">extract_top_250</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.extract_top_250" title="Link to this definition">#</a></dt>
+<dd><p>Extract the top 250 movies from the top 250 page and use them as seed for the crawler to start crawling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_budget">
+<span class="sig-name descname"><span class="pre">get_budget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_budget" title="Link to this definition">#</a></dt>
+<dd><p>Get the budget of the movie from box office section of the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The budget of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_countries_of_origin">
+<span class="sig-name descname"><span class="pre">get_countries_of_origin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_countries_of_origin" title="Link to this definition">#</a></dt>
+<dd><p>Get the countries of origin of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The countries of origin of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_director">
+<span class="sig-name descname"><span class="pre">get_director</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_director" title="Link to this definition">#</a></dt>
+<dd><p>Get the directors of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The directors of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_first_page_summary">
+<span class="sig-name descname"><span class="pre">get_first_page_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_first_page_summary" title="Link to this definition">#</a></dt>
+<dd><p>Get the first page summary of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The first page summary of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_genres">
+<span class="sig-name descname"><span class="pre">get_genres</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_genres" title="Link to this definition">#</a></dt>
+<dd><p>Get the genres of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The genres of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_gross_worldwide">
+<span class="sig-name descname"><span class="pre">get_gross_worldwide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_gross_worldwide" title="Link to this definition">#</a></dt>
+<dd><p>Get the gross worldwide of the movie from box office section of the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The gross worldwide of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_id_from_URL">
+<span class="sig-name descname"><span class="pre">get_id_from_URL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_id_from_URL" title="Link to this definition">#</a></dt>
+<dd><p>Get the id from the URL of the site. The id is what comes exactly after title.
+for example the id for the movie <a class="reference external" href="https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1">https://www.imdb.com/title/tt0111161/?ref_=chttp_t_1</a> is tt0111161.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>URL</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The URL of the site</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The id of the site</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_imdb_instance">
+<span class="sig-name descname"><span class="pre">get_imdb_instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_imdb_instance" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_languages">
+<span class="sig-name descname"><span class="pre">get_languages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_languages" title="Link to this definition">#</a></dt>
+<dd><p>Get the languages of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The languages of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_mpaa">
+<span class="sig-name descname"><span class="pre">get_mpaa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_mpaa" title="Link to this definition">#</a></dt>
+<dd><p>Get the MPAA of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The MPAA of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_rating">
+<span class="sig-name descname"><span class="pre">get_rating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_rating" title="Link to this definition">#</a></dt>
+<dd><p>Get the rating of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The rating of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_related_links">
+<span class="sig-name descname"><span class="pre">get_related_links</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_related_links" title="Link to this definition">#</a></dt>
+<dd><p>Get the related links of the movie from the More like this section of the page from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The related links of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_release_year">
+<span class="sig-name descname"><span class="pre">get_release_year</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_release_year" title="Link to this definition">#</a></dt>
+<dd><p>Get the release year of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The release year of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_review_link">
+<span class="sig-name descname"><span class="pre">get_review_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_review_link" title="Link to this definition">#</a></dt>
+<dd><p>Get the link to the review page of the movie
+Example:
+<a class="reference external" href="https://www.imdb.com/title/tt0111161/">https://www.imdb.com/title/tt0111161/</a> is the page
+<a class="reference external" href="https://www.imdb.com/title/tt0111161/reviews">https://www.imdb.com/title/tt0111161/reviews</a> is the review page</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_reviews_with_scores">
+<span class="sig-name descname"><span class="pre">get_reviews_with_scores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_reviews_with_scores" title="Link to this definition">#</a></dt>
+<dd><p>Get the reviews of the movie from the soup
+reviews structure: [[review,score]]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The reviews of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_stars">
+<span class="sig-name descname"><span class="pre">get_stars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_stars" title="Link to this definition">#</a></dt>
+<dd><p>Get the stars of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The stars of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_summary">
+<span class="sig-name descname"><span class="pre">get_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_summary" title="Link to this definition">#</a></dt>
+<dd><p>Get the summary of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The summary of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_summary_link">
+<span class="sig-name descname"><span class="pre">get_summary_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_summary_link" title="Link to this definition">#</a></dt>
+<dd><p>Get the link to the summary page of the movie
+Example:
+<a class="reference external" href="https://www.imdb.com/title/tt0111161/">https://www.imdb.com/title/tt0111161/</a> is the page
+<a class="reference external" href="https://www.imdb.com/title/tt0111161/plotsummary">https://www.imdb.com/title/tt0111161/plotsummary</a> is the summary page</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The URL of the site</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL of the summary page</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_synopsis">
+<span class="sig-name descname"><span class="pre">get_synopsis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_synopsis" title="Link to this definition">#</a></dt>
+<dd><p>Get the synopsis of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The synopsis of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_title">
+<span class="sig-name descname"><span class="pre">get_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_title" title="Link to this definition">#</a></dt>
+<dd><p>Get the title of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The title of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.get_writers">
+<span class="sig-name descname"><span class="pre">get_writers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.get_writers" title="Link to this definition">#</a></dt>
+<dd><p>Get the writers of the movie from the soup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>soup</strong> (<em>BeautifulSoup</em>) – The soup of the page</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The writers of the movie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.headers">
+<span class="sig-name descname"><span class="pre">headers</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'User-Agent':</span> <span class="pre">None}</span></em><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.headers" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.read_from_file_as_json">
+<span class="sig-name descname"><span class="pre">read_from_file_as_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.read_from_file_as_json" title="Link to this definition">#</a></dt>
+<dd><p>Read the crawled files from json</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.start_crawling">
+<span class="sig-name descname"><span class="pre">start_crawling</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.start_crawling" title="Link to this definition">#</a></dt>
+<dd><p>Start crawling the movies until the crawling threshold is reached.
+.. todo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">replace</span> <span class="n">WHILE_LOOP_CONSTRAINTS</span> <span class="k">with</span> <span class="n">the</span> <span class="n">proper</span> <span class="n">constraints</span> <span class="k">for</span> <span class="n">the</span> <span class="k">while</span> <span class="n">loop</span><span class="o">.</span>
+<span class="n">replace</span> <span class="n">NEW_URL</span> <span class="k">with</span> <span class="n">the</span> <span class="n">new</span> <span class="n">URL</span> <span class="n">to</span> <span class="n">crawl</span><span class="o">.</span>
+<span class="n">replace</span> <span class="n">THERE_IS_NOTHING_TO_CRAWL</span> <span class="k">with</span> <span class="n">the</span> <span class="n">condition</span> <span class="n">to</span> <span class="n">check</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">nothing</span> <span class="n">to</span> <span class="n">crawl</span><span class="o">.</span>
+<span class="n">delete</span> <span class="n">help</span> <span class="n">variables</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>ThreadPoolExecutor is used to make the crawler faster by using multiple threads to crawl the pages.
+You are free to use it or not. If used, not to forget safe access to the shared resources.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.top_250_URL">
+<span class="sig-name descname"><span class="pre">top_250_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://www.imdb.com/chart/top/'</span></em><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.top_250_URL" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.IMDbCrawler.write_to_file_as_json">
+<span class="sig-name descname"><span class="pre">write_to_file_as_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.IMDbCrawler.write_to_file_as_json" title="Link to this definition">#</a></dt>
+<dd><p>Save the crawled files into json</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Logic.core.utility.crawler.main">
+<span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.crawler.main" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-Logic.core.utility.evaluation">
+<span id="logic-core-utility-evaluation-module"></span><h2>Logic.core.utility.evaluation module<a class="headerlink" href="#module-Logic.core.utility.evaluation" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.cacluate_DCG">
+<span class="sig-name descname"><span class="pre">cacluate_DCG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.cacluate_DCG" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the Normalized Discounted Cumulative Gain (NDCG) of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The DCG of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.cacluate_MRR">
+<span class="sig-name descname"><span class="pre">cacluate_MRR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.cacluate_MRR" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the Mean Reciprocal Rank of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The MRR of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.cacluate_NDCG">
+<span class="sig-name descname"><span class="pre">cacluate_NDCG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.cacluate_NDCG" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the Normalized Discounted Cumulative Gain (NDCG) of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The NDCG of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.cacluate_RR">
+<span class="sig-name descname"><span class="pre">cacluate_RR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.cacluate_RR" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the Mean Reciprocal Rank of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Reciprocal Rank of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.calculate_AP">
+<span class="sig-name descname"><span class="pre">calculate_AP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.calculate_AP" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the Mean Average Precision of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Average Precision of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.calculate_F1">
+<span class="sig-name descname"><span class="pre">calculate_F1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.calculate_F1" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the F1 score of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The F1 score of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.calculate_MAP">
+<span class="sig-name descname"><span class="pre">calculate_MAP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.calculate_MAP" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the Mean Average Precision of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Mean Average Precision of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.calculate_evaluation">
+<span class="sig-name descname"><span class="pre">calculate_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.calculate_evaluation" title="Link to this definition">#</a></dt>
+<dd><p>call all functions to calculate evaluation metrics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.calculate_precision">
+<span class="sig-name descname"><span class="pre">calculate_precision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.calculate_precision" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the precision of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The precision of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.calculate_recall">
+<span class="sig-name descname"><span class="pre">calculate_recall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.calculate_recall" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the recall of the predicted results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actual</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The actual results</p></li>
+<li><p><strong>predicted</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>]</em>) – The predicted results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The recall of the predicted results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.log_evaluation">
+<span class="sig-name descname"><span class="pre">log_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">precision</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dcg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndcg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.log_evaluation" title="Link to this definition">#</a></dt>
+<dd><p>Use Wandb to log the evaluation metrics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The precision of the predicted results</p></li>
+<li><p><strong>recall</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The recall of the predicted results</p></li>
+<li><p><strong>f1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The F1 score of the predicted results</p></li>
+<li><p><strong>ap</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Average Precision of the predicted results</p></li>
+<li><p><strong>map</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Mean Average Precision of the predicted results</p></li>
+<li><p><strong>dcg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Discounted Cumulative Gain of the predicted results</p></li>
+<li><p><strong>ndcg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Normalized Discounted Cumulative Gain of the predicted results</p></li>
+<li><p><strong>rr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Reciprocal Rank of the predicted results</p></li>
+<li><p><strong>mrr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Mean Reciprocal Rank of the predicted results</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.evaluation.Evaluation.print_evaluation">
+<span class="sig-name descname"><span class="pre">print_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">precision</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dcg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndcg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.evaluation.Evaluation.print_evaluation" title="Link to this definition">#</a></dt>
+<dd><p>Prints the evaluation metrics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The precision of the predicted results</p></li>
+<li><p><strong>recall</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The recall of the predicted results</p></li>
+<li><p><strong>f1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The F1 score of the predicted results</p></li>
+<li><p><strong>ap</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Average Precision of the predicted results</p></li>
+<li><p><strong>map</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Mean Average Precision of the predicted results</p></li>
+<li><p><strong>dcg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Discounted Cumulative Gain of the predicted results</p></li>
+<li><p><strong>ndcg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Normalized Discounted Cumulative Gain of the predicted results</p></li>
+<li><p><strong>rr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Reciprocal Rank of the predicted results</p></li>
+<li><p><strong>mrr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The Mean Reciprocal Rank of the predicted results</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.utility.preprocess">
+<span id="logic-core-utility-preprocess-module"></span><h2>Logic.core.utility.preprocess module<a class="headerlink" href="#module-Logic.core.utility.preprocess" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.utility.preprocess.Preprocessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Preprocessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.preprocess.Preprocessor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.preprocess.Preprocessor.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.preprocess.Preprocessor.normalize" title="Link to this definition">#</a></dt>
+<dd><p>Normalize the text by converting it to a lower case, stemming, lemmatization, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The text to be normalized.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The normalized text.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.preprocess.Preprocessor.preprocess">
+<span class="sig-name descname"><span class="pre">preprocess</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.preprocess.Preprocessor.preprocess" title="Link to this definition">#</a></dt>
+<dd><p>Preprocess the text using the methods in the class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The preprocessed documents.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>List</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.preprocess.Preprocessor.remove_links">
+<span class="sig-name descname"><span class="pre">remove_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.preprocess.Preprocessor.remove_links" title="Link to this definition">#</a></dt>
+<dd><p>Remove links from the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The text to be processed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The text with links removed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.preprocess.Preprocessor.remove_punctuations">
+<span class="sig-name descname"><span class="pre">remove_punctuations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.preprocess.Preprocessor.remove_punctuations" title="Link to this definition">#</a></dt>
+<dd><p>Remove punctuations from the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The text to be processed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The text with punctuations removed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.preprocess.Preprocessor.remove_stopwords">
+<span class="sig-name descname"><span class="pre">remove_stopwords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.preprocess.Preprocessor.remove_stopwords" title="Link to this definition">#</a></dt>
+<dd><p>Remove stopwords from the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The text to remove stopwords from.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of words with stopwords removed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.preprocess.Preprocessor.tokenize">
+<span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.preprocess.Preprocessor.tokenize" title="Link to this definition">#</a></dt>
+<dd><p>Tokenize the words in the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The text to be tokenized.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of words.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.utility.scorer">
+<span id="logic-core-utility-scorer-module"></span><h2>Logic.core.utility.scorer module<a class="headerlink" href="#module-Logic.core.utility.scorer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Scorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_documents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.compute_score_with_unigram_model">
+<span class="sig-name descname"><span class="pre">compute_score_with_unigram_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_lengths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.compute_score_with_unigram_model" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the scores for each document based on the unigram model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The query to search for.</p></li>
+<li><p><strong>document_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The document to calculate the score for.</p></li>
+<li><p><strong>smoothing_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>bayes</em><em> | </em><em>naive</em><em> | </em><em>mixture</em><em>)</em>) – The method used for smoothing the probabilities in the unigram model.</p></li>
+<li><p><strong>document_lengths</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – A dictionary of the document lengths. The keys are the document IDs, and the values are
+the document’s length in that field.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in bayesian smoothing method. Defaults to 0.5.</p></li>
+<li><p><strong>lamda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in some smoothing methods to balance between the document
+probability and the collection probability. Defaults to 0.5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Unigram score of the document for the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.compute_scores_with_unigram_model">
+<span class="sig-name descname"><span class="pre">compute_scores_with_unigram_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_lengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.compute_scores_with_unigram_model" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the scores for each document based on the unigram model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The query to search for.</p></li>
+<li><p><strong>smoothing_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>bayes</em><em> | </em><em>naive</em><em> | </em><em>mixture</em><em>)</em>) – The method used for smoothing the probabilities in the unigram model.</p></li>
+<li><p><strong>document_lengths</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – A dictionary of the document lengths. The keys are the document IDs, and the values are
+the document’s length in that field.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in bayesian smoothing method. Defaults to 0.5.</p></li>
+<li><p><strong>lamda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in some smoothing methods to balance between the document
+probability and the collection probability. Defaults to 0.5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of the document IDs and their scores.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.compute_scores_with_vector_space_model">
+<span class="sig-name descname"><span class="pre">compute_scores_with_vector_space_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.compute_scores_with_vector_space_model" title="Link to this definition">#</a></dt>
+<dd><p>compute scores with vector space model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to be scored</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>.</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>)</em>) – The method to use for searching.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of the document IDs and their scores.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.compute_socres_with_okapi_bm25">
+<span class="sig-name descname"><span class="pre">compute_socres_with_okapi_bm25</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_document_field_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_lengths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.compute_socres_with_okapi_bm25" title="Link to this definition">#</a></dt>
+<dd><p>compute scores with okapi bm25</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to be scored</p></li>
+<li><p><strong>average_document_field_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The average length of the documents in the index.</p></li>
+<li><p><strong>document_lengths</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – A dictionary of the document lengths. The keys are the document IDs, and the values are
+the document’s length in that field.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of the document IDs and their scores.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.get_idf">
+<span class="sig-name descname"><span class="pre">get_idf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.get_idf" title="Link to this definition">#</a></dt>
+<dd><p>Returns the inverse document frequency of a term.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>term</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The term to get the inverse document frequency for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The inverse document frequency of the term.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It was better to store dfs in a separate dict in preprocessing.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.get_list_of_documents">
+<span class="sig-name descname"><span class="pre">get_list_of_documents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.get_list_of_documents" title="Link to this definition">#</a></dt>
+<dd><p>Returns a list of documents that contain at least one of the terms in the query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to be scored</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of documents that contain at least one of the terms in the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current approach is not optimal but we use it due to the indexing structure of the dict we’re using.
+If we had pairs of (document_id, tf) sorted by document_id, we could improve this.</p>
+<blockquote>
+<div><p>We could initialize a list of pointers, each pointing to the first element of each list.
+Then, we could iterate through the lists in parallel.</p>
+</div></blockquote>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.get_okapi_bm25_score">
+<span class="sig-name descname"><span class="pre">get_okapi_bm25_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_document_field_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_lengths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.get_okapi_bm25_score" title="Link to this definition">#</a></dt>
+<dd><p>Returns the Okapi BM25 score of a document for a query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to be scored</p></li>
+<li><p><strong>document_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The document to calculate the score for.</p></li>
+<li><p><strong>average_document_field_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The average length of the documents in the index.</p></li>
+<li><p><strong>document_lengths</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – A dictionary of the document lengths. The keys are the document IDs, and the values are
+the document’s length in that field.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Okapi BM25 score of the document for the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.get_query_tfs">
+<span class="sig-name descname"><span class="pre">get_query_tfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.get_query_tfs" title="Link to this definition">#</a></dt>
+<dd><p>Returns the term frequencies of the terms in the query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to get the term frequencies for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of the term frequencies of the terms in the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.scorer.Scorer.get_vector_space_model_score">
+<span class="sig-name descname"><span class="pre">get_vector_space_model_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_tfs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.scorer.Scorer.get_vector_space_model_score" title="Link to this definition">#</a></dt>
+<dd><p>Returns the Vector Space Model score of a document for a query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to be scored</p></li>
+<li><p><strong>query_tfs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The term frequencies of the terms in the query.</p></li>
+<li><p><strong>document_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The document to calculate the score for.</p></li>
+<li><p><strong>document_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em>) – The method to use for the document.</p></li>
+<li><p><strong>query_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em>) – The method to use for the query.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Vector Space Model score of the document for the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.utility.snippet">
+<span id="logic-core-utility-snippet-module"></span><h2>Logic.core.utility.snippet module<a class="headerlink" href="#module-Logic.core.utility.snippet" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.utility.snippet.Snippet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Snippet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_words_on_each_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.snippet.Snippet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.snippet.Snippet.find_snippet">
+<span class="sig-name descname"><span class="pre">find_snippet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.snippet.Snippet.find_snippet" title="Link to this definition">#</a></dt>
+<dd><p>Find snippet in a doc based on a query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The retrieved doc which the snippet should be extracted from that.</p></li>
+<li><p><strong>query</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The query which the snippet should be extracted based on that.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>final_snippet</strong> (<em>str</em>) – The final extracted snippet. IMPORTANT: The keyword should be wrapped by <strong>* on both sides.
+For example: Sahwshank ***redemption*</strong> is one of … (for query: redemption)</p></li>
+<li><p><strong>not_exist_words</strong> (<em>list</em>) – Words in the query which don’t exist in the doc.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.snippet.Snippet.remove_stop_words_from_query">
+<span class="sig-name descname"><span class="pre">remove_stop_words_from_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.snippet.Snippet.remove_stop_words_from_query" title="Link to this definition">#</a></dt>
+<dd><p>Remove stop words from the input string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>query</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The query that you need to delete stop words from.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The query without stop words.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.utility.spell_correction">
+<span id="logic-core-utility-spell-correction-module"></span><h2>Logic.core.utility.spell_correction module<a class="headerlink" href="#module-Logic.core.utility.spell_correction" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.utility.spell_correction.SpellCorrection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SpellCorrection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_documents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.spell_correction.SpellCorrection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.spell_correction.SpellCorrection.find_nearest_words">
+<span class="sig-name descname"><span class="pre">find_nearest_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.spell_correction.SpellCorrection.find_nearest_words" title="Link to this definition">#</a></dt>
+<dd><p>Find correct form of a misspelled word.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>word</strong> (<em>stf</em>) – The misspelled word.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>5 nearest words.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.spell_correction.SpellCorrection.jaccard_score">
+<span class="sig-name descname"><span class="pre">jaccard_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.spell_correction.SpellCorrection.jaccard_score" title="Link to this definition">#</a></dt>
+<dd><p>Calculate jaccard score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><em>set</em></a>) – First set of shingles.</p></li>
+<li><p><strong>second_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><em>set</em></a>) – Second set of shingles.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Jaccard score.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.spell_correction.SpellCorrection.shingle_word">
+<span class="sig-name descname"><span class="pre">shingle_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.spell_correction.SpellCorrection.shingle_word" title="Link to this definition">#</a></dt>
+<dd><p>Convert a word into a set of shingles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The input word.</p></li>
+<li><p><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The size of each shingle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A set of shingles.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><em>set</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.spell_correction.SpellCorrection.shingling_and_counting">
+<span class="sig-name descname"><span class="pre">shingling_and_counting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_documents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.spell_correction.SpellCorrection.shingling_and_counting" title="Link to this definition">#</a></dt>
+<dd><p>Shingle all words of the corpus and count TF of each word.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>all_documents</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The input documents.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>all_shingled_words</strong> (<em>dict</em>) – A dictionary from words to their shingle sets.</p></li>
+<li><p><strong>word_counter</strong> (<em>dict</em>) – A dictionary from words to their TFs.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.utility.spell_correction.SpellCorrection.spell_check">
+<span class="sig-name descname"><span class="pre">spell_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.utility.spell_correction.SpellCorrection.spell_check" title="Link to this definition">#</a></dt>
+<dd><p>Find correct form of a misspelled query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>query</strong> (<em>stf</em>) – The misspelled query.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Correct form of the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Logic.core.link_analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Logic.core.link_analysis package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Logic.core.word_embedding.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Logic.core.word_embedding package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.crawler">Logic.core.utility.crawler module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.crawl"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.crawl()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.crawl_page_info"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.crawl_page_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.extract_movie_info"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.extract_movie_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.extract_top_250"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.extract_top_250()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_budget"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_budget()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_countries_of_origin"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_countries_of_origin()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_director"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_director()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_first_page_summary"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_first_page_summary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_genres"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_genres()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_gross_worldwide"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_gross_worldwide()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_id_from_URL"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_id_from_URL()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_imdb_instance"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_imdb_instance()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_languages"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_languages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_mpaa"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_mpaa()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_rating"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_rating()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_related_links"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_related_links()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_release_year"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_release_year()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_review_link"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_review_link()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_reviews_with_scores"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_reviews_with_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_stars"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_stars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_summary"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_summary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_summary_link"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_summary_link()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_synopsis"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_synopsis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_title"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_title()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.get_writers"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_writers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.headers"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.headers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.read_from_file_as_json"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.read_from_file_as_json()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.start_crawling"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.start_crawling()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.top_250_URL"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.top_250_URL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.IMDbCrawler.write_to_file_as_json"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.write_to_file_as_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.crawler.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.evaluation">Logic.core.utility.evaluation module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_DCG"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_DCG()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_MRR"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_MRR()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_NDCG"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_NDCG()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.cacluate_RR"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_RR()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_AP"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_AP()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_F1"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_F1()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_MAP"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_MAP()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_evaluation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_precision"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_precision()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.calculate_recall"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_recall()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.log_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.log_evaluation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.evaluation.Evaluation.print_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.print_evaluation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.preprocess">Logic.core.utility.preprocess module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor"><code class="docutils literal notranslate"><span class="pre">Preprocessor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.normalize"><code class="docutils literal notranslate"><span class="pre">Preprocessor.normalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.preprocess"><code class="docutils literal notranslate"><span class="pre">Preprocessor.preprocess()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.remove_links"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_links()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.remove_punctuations"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_punctuations()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.remove_stopwords"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_stopwords()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.preprocess.Preprocessor.tokenize"><code class="docutils literal notranslate"><span class="pre">Preprocessor.tokenize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.scorer">Logic.core.utility.scorer module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer"><code class="docutils literal notranslate"><span class="pre">Scorer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_score_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_score_with_unigram_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_scores_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_scores_with_unigram_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_scores_with_vector_space_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_scores_with_vector_space_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.compute_socres_with_okapi_bm25"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_socres_with_okapi_bm25()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_idf"><code class="docutils literal notranslate"><span class="pre">Scorer.get_idf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_list_of_documents"><code class="docutils literal notranslate"><span class="pre">Scorer.get_list_of_documents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_okapi_bm25_score"><code class="docutils literal notranslate"><span class="pre">Scorer.get_okapi_bm25_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_query_tfs"><code class="docutils literal notranslate"><span class="pre">Scorer.get_query_tfs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.scorer.Scorer.get_vector_space_model_score"><code class="docutils literal notranslate"><span class="pre">Scorer.get_vector_space_model_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.snippet">Logic.core.utility.snippet module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.snippet.Snippet"><code class="docutils literal notranslate"><span class="pre">Snippet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.snippet.Snippet.find_snippet"><code class="docutils literal notranslate"><span class="pre">Snippet.find_snippet()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.snippet.Snippet.remove_stop_words_from_query"><code class="docutils literal notranslate"><span class="pre">Snippet.remove_stop_words_from_query()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.utility.spell_correction">Logic.core.utility.spell_correction module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection"><code class="docutils literal notranslate"><span class="pre">SpellCorrection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.find_nearest_words"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.find_nearest_words()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.jaccard_score"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.jaccard_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.shingle_word"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.shingle_word()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.shingling_and_counting"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.shingling_and_counting()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.utility.spell_correction.SpellCorrection.spell_check"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.spell_check()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AmirHossein Razlighi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, MIR Course team @ CE at Sharif University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,946 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logic.core package &#8212; IMDb-IR-System  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Logic.core';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Logic.core.classification package" href="Logic.core.classification.html" />
+    <link rel="prev" title="Logic package" href="Logic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/IMDB_Logo.jpeg" class="logo__image only-light" alt="IMDb-IR-System  documentation - Home"/>
+    <script>document.write(`<img src="_static/IMDB_Logo.jpeg" class="logo__image only-dark" alt="IMDb-IR-System  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Logic.html">Logic package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Logic.core package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html">Logic.core.classification package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.clustering.html">Logic.core.clustering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html">Logic.core.indexer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.link_analysis.html">Logic.core.link_analysis package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html">Logic.core.utility package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.word_embedding.html">Logic.core.word_embedding package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="UI.html">UI package</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sharif-ml-lab/IMDb-IR-System" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Logic.core.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Logic.core package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.search">Logic.core.search module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine"><code class="docutils literal notranslate"><span class="pre">SearchEngine</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.aggregate_scores"><code class="docutils literal notranslate"><span class="pre">SearchEngine.aggregate_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.find_scores_with_safe_ranking"><code class="docutils literal notranslate"><span class="pre">SearchEngine.find_scores_with_safe_ranking()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.find_scores_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">SearchEngine.find_scores_with_unigram_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.find_scores_with_unsafe_ranking"><code class="docutils literal notranslate"><span class="pre">SearchEngine.find_scores_with_unsafe_ranking()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.merge_scores"><code class="docutils literal notranslate"><span class="pre">SearchEngine.merge_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.search"><code class="docutils literal notranslate"><span class="pre">SearchEngine.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="logic-core-package">
+<h1>Logic.core package<a class="headerlink" href="#logic-core-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Logic.core.classification.html">Logic.core.classification package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.classification.html#module-Logic.core.classification.basic_classifier">Logic.core.classification.basic_classifier module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.basic_classifier.BasicClassifier"><code class="docutils literal notranslate"><span class="pre">BasicClassifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.basic_classifier.BasicClassifier.fit"><code class="docutils literal notranslate"><span class="pre">BasicClassifier.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.basic_classifier.BasicClassifier.get_percent_of_positive_reviews"><code class="docutils literal notranslate"><span class="pre">BasicClassifier.get_percent_of_positive_reviews()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.basic_classifier.BasicClassifier.predict"><code class="docutils literal notranslate"><span class="pre">BasicClassifier.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.basic_classifier.BasicClassifier.prediction_report"><code class="docutils literal notranslate"><span class="pre">BasicClassifier.prediction_report()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.classification.html#module-Logic.core.classification.data_loader">Logic.core.classification.data_loader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.data_loader.ReviewLoader"><code class="docutils literal notranslate"><span class="pre">ReviewLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.data_loader.ReviewLoader.get_embeddings"><code class="docutils literal notranslate"><span class="pre">ReviewLoader.get_embeddings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.data_loader.ReviewLoader.load_data"><code class="docutils literal notranslate"><span class="pre">ReviewLoader.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.data_loader.ReviewLoader.split_data"><code class="docutils literal notranslate"><span class="pre">ReviewLoader.split_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.classification.html#module-Logic.core.classification.deep">Logic.core.classification.deep module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.DeepModelClassifier"><code class="docutils literal notranslate"><span class="pre">DeepModelClassifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.DeepModelClassifier.fit"><code class="docutils literal notranslate"><span class="pre">DeepModelClassifier.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.DeepModelClassifier.predict"><code class="docutils literal notranslate"><span class="pre">DeepModelClassifier.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.DeepModelClassifier.prediction_report"><code class="docutils literal notranslate"><span class="pre">DeepModelClassifier.prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.DeepModelClassifier.set_test_dataloader"><code class="docutils literal notranslate"><span class="pre">DeepModelClassifier.set_test_dataloader()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.MLPModel"><code class="docutils literal notranslate"><span class="pre">MLPModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.MLPModel.forward"><code class="docutils literal notranslate"><span class="pre">MLPModel.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.deep.ReviewDataSet"><code class="docutils literal notranslate"><span class="pre">ReviewDataSet</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.classification.html#module-Logic.core.classification.knn">Logic.core.classification.knn module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.knn.KnnClassifier"><code class="docutils literal notranslate"><span class="pre">KnnClassifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.knn.KnnClassifier.fit"><code class="docutils literal notranslate"><span class="pre">KnnClassifier.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.knn.KnnClassifier.predict"><code class="docutils literal notranslate"><span class="pre">KnnClassifier.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.knn.KnnClassifier.prediction_report"><code class="docutils literal notranslate"><span class="pre">KnnClassifier.prediction_report()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.classification.html#module-Logic.core.classification.naive_bayes">Logic.core.classification.naive_bayes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.naive_bayes.NaiveBayes"><code class="docutils literal notranslate"><span class="pre">NaiveBayes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.naive_bayes.NaiveBayes.fit"><code class="docutils literal notranslate"><span class="pre">NaiveBayes.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.naive_bayes.NaiveBayes.get_percent_of_positive_reviews"><code class="docutils literal notranslate"><span class="pre">NaiveBayes.get_percent_of_positive_reviews()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.naive_bayes.NaiveBayes.predict"><code class="docutils literal notranslate"><span class="pre">NaiveBayes.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.naive_bayes.NaiveBayes.prediction_report"><code class="docutils literal notranslate"><span class="pre">NaiveBayes.prediction_report()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.classification.html#module-Logic.core.classification.svm">Logic.core.classification.svm module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.svm.SVMClassifier"><code class="docutils literal notranslate"><span class="pre">SVMClassifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.svm.SVMClassifier.fit"><code class="docutils literal notranslate"><span class="pre">SVMClassifier.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.svm.SVMClassifier.predict"><code class="docutils literal notranslate"><span class="pre">SVMClassifier.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.classification.html#Logic.core.classification.svm.SVMClassifier.prediction_report"><code class="docutils literal notranslate"><span class="pre">SVMClassifier.prediction_report()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic.core.clustering.html">Logic.core.clustering package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.clustering.html#module-Logic.core.clustering.clustering_metrics">Logic.core.clustering.clustering_metrics module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_metrics.ClusteringMetrics"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_metrics.ClusteringMetrics.adjusted_rand_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.adjusted_rand_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_metrics.ClusteringMetrics.purity_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.purity_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_metrics.ClusteringMetrics.silhouette_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.silhouette_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.clustering.html#module-Logic.core.clustering.clustering_utils">Logic.core.clustering.clustering_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_average"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_average()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_complete"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_complete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_single"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_single()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_ward"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_ward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_kmeans()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans_WCSS"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_kmeans_WCSS()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.get_most_frequent_words"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.get_most_frequent_words()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.plot_kmeans_cluster_scores"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.plot_kmeans_cluster_scores()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_elbow_method_wcss"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.visualize_elbow_method_wcss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_kmeans_clustering_wandb"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.visualize_kmeans_clustering_wandb()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.clustering_utils.ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.clustering.html#module-Logic.core.clustering.dimension_reduction">Logic.core.clustering.dimension_reduction module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.dimension_reduction.DimensionReduction"><code class="docutils literal notranslate"><span class="pre">DimensionReduction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.dimension_reduction.DimensionReduction.convert_to_2d_tsne"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.convert_to_2d_tsne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.dimension_reduction.DimensionReduction.pca_reduce_dimension"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.pca_reduce_dimension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_2d_tsne"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.wandb_plot_2d_tsne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.clustering.html#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_explained_variance_by_components"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.wandb_plot_explained_variance_by_components()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.clustering.html#module-Logic.core.clustering.main">Logic.core.clustering.main module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic.core.indexer.html">Logic.core.indexer package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.indexer.html#module-Logic.core.indexer.LSH">Logic.core.indexer.LSH module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH"><code class="docutils literal notranslate"><span class="pre">MinHashLSH</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH.build_characteristic_matrix"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.build_characteristic_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH.jaccard_score"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.jaccard_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH.jaccard_similarity_test"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.jaccard_similarity_test()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH.lsh_buckets"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.lsh_buckets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH.min_hash_signature"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.min_hash_signature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH.perform_lsh"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.perform_lsh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.LSH.MinHashLSH.shingle_document"><code class="docutils literal notranslate"><span class="pre">MinHashLSH.shingle_document()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.indexer.html#module-Logic.core.indexer.document_lengths_index">Logic.core.indexer.document_lengths_index module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.get_documents_length"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex.get_documents_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.document_lengths_index.DocumentLengthsIndex.store_document_lengths_index"><code class="docutils literal notranslate"><span class="pre">DocumentLengthsIndex.store_document_lengths_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.indexer.html#module-Logic.core.indexer.index">Logic.core.indexer.index module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index"><code class="docutils literal notranslate"><span class="pre">Index</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.add_document_to_index"><code class="docutils literal notranslate"><span class="pre">Index.add_document_to_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.check_add_remove_is_correct"><code class="docutils literal notranslate"><span class="pre">Index.check_add_remove_is_correct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.check_if_index_loaded_correctly"><code class="docutils literal notranslate"><span class="pre">Index.check_if_index_loaded_correctly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.check_if_indexing_is_good"><code class="docutils literal notranslate"><span class="pre">Index.check_if_indexing_is_good()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.check_if_key_exists"><code class="docutils literal notranslate"><span class="pre">Index.check_if_key_exists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.delete_dummy_keys"><code class="docutils literal notranslate"><span class="pre">Index.delete_dummy_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.get_posting_list"><code class="docutils literal notranslate"><span class="pre">Index.get_posting_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.index_documents"><code class="docutils literal notranslate"><span class="pre">Index.index_documents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.index_genres"><code class="docutils literal notranslate"><span class="pre">Index.index_genres()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.index_stars"><code class="docutils literal notranslate"><span class="pre">Index.index_stars()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.index_summaries"><code class="docutils literal notranslate"><span class="pre">Index.index_summaries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.load_index"><code class="docutils literal notranslate"><span class="pre">Index.load_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.remove_document_from_index"><code class="docutils literal notranslate"><span class="pre">Index.remove_document_from_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index.Index.store_index"><code class="docutils literal notranslate"><span class="pre">Index.store_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.indexer.html#module-Logic.core.indexer.index_reader">Logic.core.indexer.index_reader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index_reader.Index_reader"><code class="docutils literal notranslate"><span class="pre">Index_reader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.index_reader.Index_reader.get_index"><code class="docutils literal notranslate"><span class="pre">Index_reader.get_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.indexer.html#module-Logic.core.indexer.indexes_enum">Logic.core.indexer.indexes_enum module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Index_types"><code class="docutils literal notranslate"><span class="pre">Index_types</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Index_types.DOCUMENT_LENGTH"><code class="docutils literal notranslate"><span class="pre">Index_types.DOCUMENT_LENGTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Index_types.METADATA"><code class="docutils literal notranslate"><span class="pre">Index_types.METADATA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Index_types.TIERED"><code class="docutils literal notranslate"><span class="pre">Index_types.TIERED</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Indexes"><code class="docutils literal notranslate"><span class="pre">Indexes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Indexes.DOCUMENTS"><code class="docutils literal notranslate"><span class="pre">Indexes.DOCUMENTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Indexes.GENRES"><code class="docutils literal notranslate"><span class="pre">Indexes.GENRES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Indexes.STARS"><code class="docutils literal notranslate"><span class="pre">Indexes.STARS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.indexes_enum.Indexes.SUMMARIES"><code class="docutils literal notranslate"><span class="pre">Indexes.SUMMARIES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.indexer.html#module-Logic.core.indexer.metadata_index">Logic.core.indexer.metadata_index module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.metadata_index.Metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.metadata_index.Metadata_index.create_metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index.create_metadata_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.metadata_index.Metadata_index.get_average_document_field_length"><code class="docutils literal notranslate"><span class="pre">Metadata_index.get_average_document_field_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.metadata_index.Metadata_index.read_documents"><code class="docutils literal notranslate"><span class="pre">Metadata_index.read_documents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.metadata_index.Metadata_index.store_metadata_index"><code class="docutils literal notranslate"><span class="pre">Metadata_index.store_metadata_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.indexer.html#module-Logic.core.indexer.tiered_index">Logic.core.indexer.tiered_index module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.tiered_index.Tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.tiered_index.Tiered_index.convert_to_tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index.convert_to_tiered_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.indexer.html#Logic.core.indexer.tiered_index.Tiered_index.store_tiered_index"><code class="docutils literal notranslate"><span class="pre">Tiered_index.store_tiered_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic.core.link_analysis.html">Logic.core.link_analysis package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.link_analysis.html#module-Logic.core.link_analysis.analyzer">Logic.core.link_analysis.analyzer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.analyzer.LinkAnalyzer"><code class="docutils literal notranslate"><span class="pre">LinkAnalyzer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.analyzer.LinkAnalyzer.expand_graph"><code class="docutils literal notranslate"><span class="pre">LinkAnalyzer.expand_graph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.analyzer.LinkAnalyzer.hits"><code class="docutils literal notranslate"><span class="pre">LinkAnalyzer.hits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.analyzer.LinkAnalyzer.initiate_params"><code class="docutils literal notranslate"><span class="pre">LinkAnalyzer.initiate_params()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.link_analysis.html#module-Logic.core.link_analysis.graph">Logic.core.link_analysis.graph module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.graph.LinkGraph"><code class="docutils literal notranslate"><span class="pre">LinkGraph</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.graph.LinkGraph.add_edge"><code class="docutils literal notranslate"><span class="pre">LinkGraph.add_edge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.graph.LinkGraph.add_node"><code class="docutils literal notranslate"><span class="pre">LinkGraph.add_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.graph.LinkGraph.get_predecessors"><code class="docutils literal notranslate"><span class="pre">LinkGraph.get_predecessors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.link_analysis.html#Logic.core.link_analysis.graph.LinkGraph.get_successors"><code class="docutils literal notranslate"><span class="pre">LinkGraph.get_successors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic.core.utility.html">Logic.core.utility package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.utility.html#module-Logic.core.utility.crawler">Logic.core.utility.crawler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.crawl"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.crawl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.crawl_page_info"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.crawl_page_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.extract_movie_info"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.extract_movie_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.extract_top_250"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.extract_top_250()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_budget"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_budget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_countries_of_origin"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_countries_of_origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_director"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_director()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_first_page_summary"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_first_page_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_genres"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_genres()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_gross_worldwide"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_gross_worldwide()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_id_from_URL"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_id_from_URL()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_imdb_instance"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_imdb_instance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_languages"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_languages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_mpaa"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_mpaa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_rating"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_rating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_related_links"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_related_links()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_release_year"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_release_year()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_review_link"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_review_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_reviews_with_scores"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_reviews_with_scores()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_stars"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_stars()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_summary"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_summary_link"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_summary_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_synopsis"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_synopsis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_title"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.get_writers"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.get_writers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.headers"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.headers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.read_from_file_as_json"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.read_from_file_as_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.start_crawling"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.start_crawling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.top_250_URL"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.top_250_URL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.IMDbCrawler.write_to_file_as_json"><code class="docutils literal notranslate"><span class="pre">IMDbCrawler.write_to_file_as_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.crawler.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.utility.html#module-Logic.core.utility.evaluation">Logic.core.utility.evaluation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.cacluate_DCG"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_DCG()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.cacluate_MRR"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_MRR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.cacluate_NDCG"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_NDCG()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.cacluate_RR"><code class="docutils literal notranslate"><span class="pre">Evaluation.cacluate_RR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.calculate_AP"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_AP()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.calculate_F1"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_F1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.calculate_MAP"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_MAP()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.calculate_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_evaluation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.calculate_precision"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_precision()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.calculate_recall"><code class="docutils literal notranslate"><span class="pre">Evaluation.calculate_recall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.log_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.log_evaluation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.evaluation.Evaluation.print_evaluation"><code class="docutils literal notranslate"><span class="pre">Evaluation.print_evaluation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.utility.html#module-Logic.core.utility.preprocess">Logic.core.utility.preprocess module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.preprocess.Preprocessor"><code class="docutils literal notranslate"><span class="pre">Preprocessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.preprocess.Preprocessor.normalize"><code class="docutils literal notranslate"><span class="pre">Preprocessor.normalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.preprocess.Preprocessor.preprocess"><code class="docutils literal notranslate"><span class="pre">Preprocessor.preprocess()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.preprocess.Preprocessor.remove_links"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_links()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.preprocess.Preprocessor.remove_punctuations"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_punctuations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.preprocess.Preprocessor.remove_stopwords"><code class="docutils literal notranslate"><span class="pre">Preprocessor.remove_stopwords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.preprocess.Preprocessor.tokenize"><code class="docutils literal notranslate"><span class="pre">Preprocessor.tokenize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.utility.html#module-Logic.core.utility.scorer">Logic.core.utility.scorer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer"><code class="docutils literal notranslate"><span class="pre">Scorer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.compute_score_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_score_with_unigram_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.compute_scores_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_scores_with_unigram_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.compute_scores_with_vector_space_model"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_scores_with_vector_space_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.compute_socres_with_okapi_bm25"><code class="docutils literal notranslate"><span class="pre">Scorer.compute_socres_with_okapi_bm25()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.get_idf"><code class="docutils literal notranslate"><span class="pre">Scorer.get_idf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.get_list_of_documents"><code class="docutils literal notranslate"><span class="pre">Scorer.get_list_of_documents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.get_okapi_bm25_score"><code class="docutils literal notranslate"><span class="pre">Scorer.get_okapi_bm25_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.get_query_tfs"><code class="docutils literal notranslate"><span class="pre">Scorer.get_query_tfs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.scorer.Scorer.get_vector_space_model_score"><code class="docutils literal notranslate"><span class="pre">Scorer.get_vector_space_model_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.utility.html#module-Logic.core.utility.snippet">Logic.core.utility.snippet module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.snippet.Snippet"><code class="docutils literal notranslate"><span class="pre">Snippet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.snippet.Snippet.find_snippet"><code class="docutils literal notranslate"><span class="pre">Snippet.find_snippet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.snippet.Snippet.remove_stop_words_from_query"><code class="docutils literal notranslate"><span class="pre">Snippet.remove_stop_words_from_query()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.utility.html#module-Logic.core.utility.spell_correction">Logic.core.utility.spell_correction module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.spell_correction.SpellCorrection"><code class="docutils literal notranslate"><span class="pre">SpellCorrection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.spell_correction.SpellCorrection.find_nearest_words"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.find_nearest_words()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.spell_correction.SpellCorrection.jaccard_score"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.jaccard_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.spell_correction.SpellCorrection.shingle_word"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.shingle_word()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.spell_correction.SpellCorrection.shingling_and_counting"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.shingling_and_counting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.utility.html#Logic.core.utility.spell_correction.SpellCorrection.spell_check"><code class="docutils literal notranslate"><span class="pre">SpellCorrection.spell_check()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic.core.word_embedding.html">Logic.core.word_embedding package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.word_embedding.html#module-Logic.core.word_embedding.fasttext_data_loader">Logic.core.word_embedding.fasttext_data_loader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_data_loader.FastTextDataLoader"><code class="docutils literal notranslate"><span class="pre">FastTextDataLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_data_loader.FastTextDataLoader.create_train_data"><code class="docutils literal notranslate"><span class="pre">FastTextDataLoader.create_train_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_data_loader.FastTextDataLoader.read_data_to_df"><code class="docutils literal notranslate"><span class="pre">FastTextDataLoader.read_data_to_df()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Logic.core.word_embedding.html#module-Logic.core.word_embedding.fasttext_model">Logic.core.word_embedding.fasttext_model module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText"><code class="docutils literal notranslate"><span class="pre">FastText</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.method"><code class="docutils literal notranslate"><span class="pre">FastText.method</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.model"><code class="docutils literal notranslate"><span class="pre">FastText.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.analogy"><code class="docutils literal notranslate"><span class="pre">FastText.analogy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.get_query_embedding"><code class="docutils literal notranslate"><span class="pre">FastText.get_query_embedding()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.load_model"><code class="docutils literal notranslate"><span class="pre">FastText.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.prepare"><code class="docutils literal notranslate"><span class="pre">FastText.prepare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.save_model"><code class="docutils literal notranslate"><span class="pre">FastText.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.FastText.train"><code class="docutils literal notranslate"><span class="pre">FastText.train()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.word_embedding.html#Logic.core.word_embedding.fasttext_model.preprocess_text"><code class="docutils literal notranslate"><span class="pre">preprocess_text()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-Logic.core.search">
+<span id="logic-core-search-module"></span><h2>Logic.core.search module<a class="headerlink" href="#module-Logic.core.search" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.search.SearchEngine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SearchEngine</span></span><a class="headerlink" href="#Logic.core.search.SearchEngine" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.search.SearchEngine.aggregate_scores">
+<span class="sig-name descname"><span class="pre">aggregate_scores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_scores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.search.SearchEngine.aggregate_scores" title="Link to this definition">#</a></dt>
+<dd><p>Aggregates the scores of the fields.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The weights of the fields.</p></li>
+<li><p><strong>scores</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The scores of the fields.</p></li>
+<li><p><strong>final_scores</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The final scores of the documents.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.search.SearchEngine.find_scores_with_safe_ranking">
+<span class="sig-name descname"><span class="pre">find_scores_with_safe_ranking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.search.SearchEngine.find_scores_with_safe_ranking" title="Link to this definition">#</a></dt>
+<dd><p>Finds the scores of the documents using the safe ranking method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to be scored</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>.</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>) </em><em>| </em><em>OkapiBM25</em>) – The method to use for searching.</p></li>
+<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The weights of the fields.</p></li>
+<li><p><strong>scores</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The scores of the documents.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.search.SearchEngine.find_scores_with_unigram_model">
+<span class="sig-name descname"><span class="pre">find_scores_with_unigram_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.search.SearchEngine.find_scores_with_unigram_model" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the scores for each document based on the unigram model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The query to search for.</p></li>
+<li><p><strong>smoothing_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>bayes</em><em> | </em><em>naive</em><em> | </em><em>mixture</em><em>)</em>) – The method used for smoothing the probabilities in the unigram model.</p></li>
+<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – A dictionary mapping each field (e.g., ‘stars’, ‘genres’, ‘summaries’) to its weight in the final score. Fields with a weight of 0 are ignored.</p></li>
+<li><p><strong>scores</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The scores of the documents.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in bayesian smoothing method. Defaults to 0.5.</p></li>
+<li><p><strong>lamda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in some smoothing methods to balance between the document
+probability and the collection probability. Defaults to 0.5.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.search.SearchEngine.find_scores_with_unsafe_ranking">
+<span class="sig-name descname"><span class="pre">find_scores_with_unsafe_ranking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.search.SearchEngine.find_scores_with_unsafe_ranking" title="Link to this definition">#</a></dt>
+<dd><p>Finds the scores of the documents using the unsafe ranking method using the tiered index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The query to be scored</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>.</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>) </em><em>| </em><em>OkapiBM25</em>) – The method to use for searching.</p></li>
+<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The weights of the fields.</p></li>
+<li><p><strong>max_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The maximum number of results to return.</p></li>
+<li><p><strong>scores</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The scores of the documents.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.search.SearchEngine.merge_scores">
+<span class="sig-name descname"><span class="pre">merge_scores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scores1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.search.SearchEngine.merge_scores" title="Link to this definition">#</a></dt>
+<dd><p>Merges two dictionaries of scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scores1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The first dictionary of scores.</p></li>
+<li><p><strong>scores2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The second dictionary of scores.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The merged dictionary of scores.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.search.SearchEngine.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">safe_ranking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.search.SearchEngine.search" title="Link to this definition">#</a></dt>
+<dd><p>searches for the query in the indexes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The query to search for.</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>.</em><em>(</em><em>n</em><em>|</em><em>l</em><em>)</em><em>(</em><em>n</em><em>|</em><em>t</em><em>)</em><em>(</em><em>n</em><em>|</em><em>c</em><em>)</em><em>) </em><em>| </em><em>OkapiBM25</em><em> | </em><em>Unigram</em>) – The method to use for searching.</p></li>
+<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The weights of the fields.</p></li>
+<li><p><strong>safe_ranking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If True, the search engine will search in whole index and then rank the results.
+If False, the search engine will search in tiered index.</p></li>
+<li><p><strong>max_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The maximum number of results to return. If None, all results are returned.</p></li>
+<li><p><strong>smoothing_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> (</em><em>bayes</em><em> | </em><em>naive</em><em> | </em><em>mixture</em><em>)</em>) – The method used for smoothing the probabilities in the unigram model.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in bayesian smoothing method. Defaults to 0.5.</p></li>
+<li><p><strong>lamda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – The parameter used in some smoothing methods to balance between the document
+probability and the collection probability. Defaults to 0.5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of tuples containing the document IDs and their scores sorted by their scores.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Logic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Logic package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Logic.core.classification.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Logic.core.classification package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.search">Logic.core.search module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine"><code class="docutils literal notranslate"><span class="pre">SearchEngine</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.aggregate_scores"><code class="docutils literal notranslate"><span class="pre">SearchEngine.aggregate_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.find_scores_with_safe_ranking"><code class="docutils literal notranslate"><span class="pre">SearchEngine.find_scores_with_safe_ranking()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.find_scores_with_unigram_model"><code class="docutils literal notranslate"><span class="pre">SearchEngine.find_scores_with_unigram_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.find_scores_with_unsafe_ranking"><code class="docutils literal notranslate"><span class="pre">SearchEngine.find_scores_with_unsafe_ranking()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.merge_scores"><code class="docutils literal notranslate"><span class="pre">SearchEngine.merge_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.search.SearchEngine.search"><code class="docutils literal notranslate"><span class="pre">SearchEngine.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AmirHossein Razlighi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, MIR Course team @ CE at Sharif University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

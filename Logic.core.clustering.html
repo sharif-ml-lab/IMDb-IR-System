@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logic.core.clustering package &#8212; IMDb-IR-System  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Logic.core.clustering';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Logic.core.indexer package" href="Logic.core.indexer.html" />
+    <link rel="prev" title="Logic.core.classification package" href="Logic.core.classification.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/IMDB_Logo.jpeg" class="logo__image only-light" alt="IMDb-IR-System  documentation - Home"/>
+    <script>document.write(`<img src="_static/IMDB_Logo.jpeg" class="logo__image only-dark" alt="IMDb-IR-System  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Logic.html">Logic package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="Logic.core.html">Logic.core package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.classification.html">Logic.core.classification package</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Logic.core.clustering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.indexer.html">Logic.core.indexer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.link_analysis.html">Logic.core.link_analysis package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.utility.html">Logic.core.utility package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logic.core.word_embedding.html">Logic.core.word_embedding package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="UI.html">UI package</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sharif-ml-lab/IMDb-IR-System" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Logic.core.clustering.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Logic.core.clustering package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.clustering_metrics">Logic.core.clustering.clustering_metrics module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.adjusted_rand_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.adjusted_rand_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.purity_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.purity_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.silhouette_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.silhouette_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.clustering_utils">Logic.core.clustering.clustering_utils module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_average"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_average()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_complete"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_complete()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_single"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_single()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_ward"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_ward()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_kmeans()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans_WCSS"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_kmeans_WCSS()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.get_most_frequent_words"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.get_most_frequent_words()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.plot_kmeans_cluster_scores"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.plot_kmeans_cluster_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_elbow_method_wcss"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.visualize_elbow_method_wcss()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_kmeans_clustering_wandb"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.visualize_kmeans_clustering_wandb()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.dimension_reduction">Logic.core.clustering.dimension_reduction module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction"><code class="docutils literal notranslate"><span class="pre">DimensionReduction</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.convert_to_2d_tsne"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.convert_to_2d_tsne()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.pca_reduce_dimension"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.pca_reduce_dimension()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_2d_tsne"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.wandb_plot_2d_tsne()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_explained_variance_by_components"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.wandb_plot_explained_variance_by_components()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.main">Logic.core.clustering.main module</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="logic-core-clustering-package">
+<h1>Logic.core.clustering package<a class="headerlink" href="#logic-core-clustering-package" title="Link to this heading">#</a></h1>
+<section id="module-Logic.core.clustering.clustering_metrics">
+<span id="logic-core-clustering-clustering-metrics-module"></span><h2>Logic.core.clustering.clustering_metrics module<a class="headerlink" href="#module-Logic.core.clustering.clustering_metrics" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_metrics.ClusteringMetrics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClusteringMetrics</span></span><a class="headerlink" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_metrics.ClusteringMetrics.adjusted_rand_score">
+<span class="sig-name descname"><span class="pre">adjusted_rand_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.adjusted_rand_score" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the adjusted Rand index for the given cluster assignments and ground truth labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true_labels</strong> (<em>List</em>) – A list of ground truth labels for each data point (Genres).</p></li>
+<li><p><strong>cluster_labels</strong> (<em>List</em>) – A list of cluster assignments for each data point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The adjusted Rand index, ranging from -1 to 1, where a higher value indicates better clustering.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_metrics.ClusteringMetrics.purity_score">
+<span class="sig-name descname"><span class="pre">purity_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.purity_score" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the purity score for the given cluster assignments and ground truth labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true_labels</strong> (<em>List</em>) – A list of ground truth labels for each data point (Genres).</p></li>
+<li><p><strong>cluster_labels</strong> (<em>List</em>) – A list of cluster assignments for each data point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The purity score, ranging from 0 to 1, where a higher value indicates better clustering.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_metrics.ClusteringMetrics.silhouette_score">
+<span class="sig-name descname"><span class="pre">silhouette_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.silhouette_score" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the average silhouette score for the given cluster assignments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>embeddings</strong> (<em>List</em>) – A list of vectors representing the data points.</p></li>
+<li><p><strong>cluster_labels</strong> (<em>List</em>) – A list of cluster assignments for each data point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The average silhouette score, ranging from -1 to 1, where a higher value indicates better clustering.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.clustering.clustering_utils">
+<span id="logic-core-clustering-clustering-utils-module"></span><h2>Logic.core.clustering.clustering_utils module<a class="headerlink" href="#module-Logic.core.clustering.clustering_utils" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClusteringUtils</span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_average">
+<span class="sig-name descname"><span class="pre">cluster_hierarchical_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_vecs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_average" title="Link to this definition">#</a></dt>
+<dd><p>Clusters input vectors using the hierarchical clustering method with average linkage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>emb_vecs</strong> (<em>List</em>) – A list of vectors to be clustered.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the cluster index for each input vector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_complete">
+<span class="sig-name descname"><span class="pre">cluster_hierarchical_complete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_vecs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_complete" title="Link to this definition">#</a></dt>
+<dd><p>Clusters input vectors using the hierarchical clustering method with complete linkage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>emb_vecs</strong> (<em>List</em>) – A list of vectors to be clustered.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the cluster index for each input vector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_single">
+<span class="sig-name descname"><span class="pre">cluster_hierarchical_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_vecs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_single" title="Link to this definition">#</a></dt>
+<dd><p>Clusters input vectors using the hierarchical clustering method with single linkage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>emb_vecs</strong> (<em>List</em>) – A list of vectors to be clustered.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the cluster index for each input vector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_ward">
+<span class="sig-name descname"><span class="pre">cluster_hierarchical_ward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_vecs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_ward" title="Link to this definition">#</a></dt>
+<dd><p>Clusters input vectors using the hierarchical clustering method with Ward’s method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>emb_vecs</strong> (<em>List</em>) – A list of vectors to be clustered.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the cluster index for each input vector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans">
+<span class="sig-name descname"><span class="pre">cluster_kmeans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_vecs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.12)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans" title="Link to this definition">#</a></dt>
+<dd><p>Clusters input vectors using the K-means method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>emb_vecs</strong> (<em>List</em>) – A list of vectors to be clustered.</p></li>
+<li><p><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The number of clusters to form.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Two lists:
+1. A list containing the cluster centers.
+2. A list containing the cluster index for each input vector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>, <em>List</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans_WCSS">
+<span class="sig-name descname"><span class="pre">cluster_kmeans_WCSS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_vecs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.12)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans_WCSS" title="Link to this definition">#</a></dt>
+<dd><p>This function performs K-means clustering on a list of input vectors and calculates the Within-Cluster Sum of Squares (WCSS) for the resulting clusters.</p>
+<p>This function implements the K-means algorithm and returns the cluster centroids, cluster assignments for each input vector, and the WCSS value.</p>
+<p>The WCSS is a measure of the compactness of the clustering, and it is calculated as the sum of squared distances between each data point and its assigned cluster centroid. A lower WCSS value indicates that the data points are closer to their respective cluster centroids, suggesting a more compact and well-defined clustering.</p>
+<p>The K-means algorithm works by iteratively updating the cluster centroids and reassigning data points to the closest centroid until convergence or a maximum number of iterations is reached. This function uses a random initialization of the centroids and runs the algorithm for a maximum of 100 iterations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>emb_vecs</strong> (<em>List</em>) – A list of vectors to be clustered.</p></li>
+<li><p><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The number of clusters to form.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Three elements:
+1) A list containing the cluster centers.
+2) A list containing the cluster index for each input vector.
+3) The Within-Cluster Sum of Squares (WCSS) value for the clustering.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>, <em>List</em>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.get_most_frequent_words">
+<span class="sig-name descname"><span class="pre">get_most_frequent_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.12)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.get_most_frequent_words" title="Link to this definition">#</a></dt>
+<dd><p>Finds the most frequent words in a list of documents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>documents</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – A list of documents, where each document is a string representing a list of words.</p></li>
+<li><p><strong>top_n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>, </em><em>optional</em>) – The number of most frequent words to return. Default is 10.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of tuples, where each tuple contains a word and its frequency, sorted in descending order of frequency.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>Tuple</em>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.plot_kmeans_cluster_scores">
+<span class="sig-name descname"><span class="pre">plot_kmeans_cluster_scores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.plot_kmeans_cluster_scores" title="Link to this definition">#</a></dt>
+<dd><p>This function, using implemented metrics in clustering_metrics, calculates and plots both purity scores and silhouette scores for various numbers of clusters.
+Then using wandb plots the respective scores (each with a different color) for each k value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>embeddings</strong> (<em>List</em>) – A list of vectors representing the data points.</p></li>
+<li><p><strong>true_labels</strong> (<em>List</em>) – A list of ground truth labels for each data point.</p></li>
+<li><p><strong>k_values</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>]</em>) – A list containing the various values of ‘k’ (number of clusters) for which the scores will be calculated.
+Default is range(2, 9), which means it will calculate scores for k values from 2 to 8.</p></li>
+<li><p><strong>project_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Your wandb project name. If None, the plot will not be logged to wandb. Default is None.</p></li>
+<li><p><strong>run_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Your wandb run name. If None, the plot will not be logged to wandb. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_elbow_method_wcss">
+<span class="sig-name descname"><span class="pre">visualize_elbow_method_wcss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_elbow_method_wcss" title="Link to this definition">#</a></dt>
+<dd><p>This function implements the elbow method to determine the optimal number of clusters for K-means clustering based on the Within-Cluster Sum of Squares (WCSS).</p>
+<p>The elbow method is a heuristic used to determine the optimal number of clusters in K-means clustering. It involves plotting the WCSS values for different values of K (number of clusters) and finding the “elbow” point in the curve, where the marginal improvement in WCSS starts to diminish. This point is considered as the optimal number of clusters.</p>
+<p>The function performs the following steps:
+1. Iterate over the specified range of K values.
+2. For each K value, perform K-means clustering using the <cite>cluster_kmeans_WCSS</cite> function and store the resulting WCSS value.
+3. Create a line plot of WCSS values against the number of clusters (K).
+4. Log the plot to Weights &amp; Biases (wandb) for visualization and tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>embeddings</strong> (<em>List</em>) – A list of vectors representing the data points to be clustered.</p></li>
+<li><p><strong>k_values</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>]</em>) – A list of K values (number of clusters) to explore for the elbow method.</p></li>
+<li><p><strong>project_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb project to log the elbow method plot.</p></li>
+<li><p><strong>run_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb run to log the elbow method plot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_kmeans_clustering_wandb">
+<span class="sig-name descname"><span class="pre">visualize_kmeans_clustering_wandb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_kmeans_clustering_wandb" title="Link to this definition">#</a></dt>
+<dd><p>This function performs K-means clustering on the input data and visualizes the resulting clusters by logging a scatter plot to Weights &amp; Biases (wandb).</p>
+<p>This function applies the K-means algorithm to the input data and generates a scatter plot where each data point is colored according to its assigned cluster.
+For visualization use convert_to_2d_tsne to make your scatter plot 2d and visualizable.
+The function performs the following steps:
+1. Initialize a new wandb run with the provided project and run names.
+2. Perform K-means clustering on the input data with the specified number of clusters.
+3. Obtain the cluster labels for each data point from the K-means model.
+4. Create a scatter plot of the data, coloring each point according to its cluster label.
+5. Log the scatter plot as an image to the wandb run, allowing visualization of the clustering results.
+6. Close the plot display window to conserve system resources (optional).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>np.ndarray</em>) – The input data to perform K-means clustering on.</p></li>
+<li><p><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The number of clusters to form during the K-means clustering process.</p></li>
+<li><p><strong>project_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb project to log the clustering visualization.</p></li>
+<li><p><strong>run_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb run to log the clustering visualization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.clustering_utils.ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram">
+<span class="sig-name descname"><span class="pre">wandb_plot_hierarchical_clustering_dendrogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linkage_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram" title="Link to this definition">#</a></dt>
+<dd><p>This function performs hierarchical clustering on the provided data and generates a dendrogram plot, which is then logged to Weights &amp; Biases (wandb).</p>
+<p>The dendrogram is a tree-like diagram that visualizes the hierarchical clustering process. It shows how the data points (or clusters) are progressively merged into larger clusters based on their similarity or distance.</p>
+<p>The function performs the following steps:
+1. Initialize a new wandb run with the provided project and run names.
+2. Perform hierarchical clustering on the input data using the specified linkage method.
+3. Create a linkage matrix, which represents the merging of clusters at each step of the hierarchical clustering process.
+4. Generate a dendrogram plot using the linkage matrix.
+5. Log the dendrogram plot as an image to the wandb run.
+6. Close the plot display window to conserve system resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>np.ndarray</em>) – The input data to perform hierarchical clustering on.</p></li>
+<li><p><strong>linkage_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The linkage method for hierarchical clustering. It can be one of the following: “average”, “ward”, “complete”, or “single”.</p></li>
+<li><p><strong>project_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb project to log the dendrogram plot.</p></li>
+<li><p><strong>run_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb run to log the dendrogram plot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.clustering.dimension_reduction">
+<span id="logic-core-clustering-dimension-reduction-module"></span><h2>Logic.core.clustering.dimension_reduction module<a class="headerlink" href="#module-Logic.core.clustering.dimension_reduction" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Logic.core.clustering.dimension_reduction.DimensionReduction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DimensionReduction</span></span><a class="headerlink" href="#Logic.core.clustering.dimension_reduction.DimensionReduction" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.dimension_reduction.DimensionReduction.convert_to_2d_tsne">
+<span class="sig-name descname"><span class="pre">convert_to_2d_tsne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_vecs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.convert_to_2d_tsne" title="Link to this definition">#</a></dt>
+<dd><p>Converts each raw embedding vector to a 2D vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>list</strong><strong>)</strong> (<em>emb_vecs</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>list</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of 2D vectors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.dimension_reduction.DimensionReduction.pca_reduce_dimension">
+<span class="sig-name descname"><span class="pre">pca_reduce_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.pca_reduce_dimension" title="Link to this definition">#</a></dt>
+<dd><p>Performs dimensional reduction using PCA with n components left behind.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>list</strong><strong>)</strong> (<em>embeddings</em>)</p></li>
+<li><p><strong>(</strong><strong>int</strong><strong>)</strong> (<em>n_components</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>list</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of reduced embeddings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_2d_tsne">
+<span class="sig-name descname"><span class="pre">wandb_plot_2d_tsne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_2d_tsne" title="Link to this definition">#</a></dt>
+<dd><p>This function performs t-SNE (t-Distributed Stochastic Neighbor Embedding) dimensionality reduction on the input data and visualizes the resulting 2D embeddings by logging a scatter plot to Weights &amp; Biases (wandb).</p>
+<p>t-SNE is a widely used technique for visualizing high-dimensional data in a lower-dimensional space, typically 2D. It aims to preserve the local structure of the data points while capturing the global structure as well. This function applies t-SNE to the input data and generates a scatter plot of the resulting 2D embeddings, allowing for visual exploration and analysis of the data’s structure and potential clusters.</p>
+<p>The scatter plot is a useful way to visualize the t-SNE embeddings, as it shows the spatial distribution of the data points in the reduced 2D space.</p>
+<p>The function performs the following steps:
+1. Initialize a new wandb run with the provided project and run names.
+2. Perform t-SNE dimensionality reduction on the input data, obtaining 2D embeddings.
+3. Create a scatter plot of the 2D embeddings using matplotlib.
+4. Log the scatter plot as an image to the wandb run, allowing visualization of the t-SNE embeddings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>np.ndarray</em>) – The input data to perform t-SNE dimensionality reduction on.</p></li>
+<li><p><strong>project_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb project to log the t-SNE scatter plot.</p></li>
+<li><p><strong>run_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb run to log the t-SNE scatter plot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_explained_variance_by_components">
+<span class="sig-name descname"><span class="pre">wandb_plot_explained_variance_by_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_explained_variance_by_components" title="Link to this definition">#</a></dt>
+<dd><p>This function plots the cumulative explained variance ratio against the number of components for a given dataset and logs the plot to Weights &amp; Biases (wandb).</p>
+<p>The cumulative explained variance ratio is a metric used in dimensionality reduction techniques, such as Principal Component Analysis (PCA), to determine the amount of information (variance) retained by the selected number of components. It helps in deciding how many components to keep while balancing the trade-off between retaining valuable information and reducing the dimensionality of the data.</p>
+<p>The function performs the following steps:
+1. Fit a PCA model to the input data and compute the cumulative explained variance ratio.
+2. Create a line plot using Matplotlib, where the x-axis represents the number of components, and the y-axis represents the corresponding cumulative explained variance ratio.
+3. Initialize a new wandb run with the provided project and run names.
+4. Log the plot as an image to the wandb run, allowing visualization of the explained variance by components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>np.ndarray</em>) – The input data for which the explained variance by components will be computed and plotted.</p></li>
+<li><p><strong>project_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb project to log the explained variance plot.</p></li>
+<li><p><strong>run_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the wandb run to log the explained variance plot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Logic.core.clustering.main">
+<span id="logic-core-clustering-main-module"></span><h2>Logic.core.clustering.main module<a class="headerlink" href="#module-Logic.core.clustering.main" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Logic.core.classification.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Logic.core.classification package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Logic.core.indexer.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Logic.core.indexer package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.clustering_metrics">Logic.core.clustering.clustering_metrics module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.adjusted_rand_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.adjusted_rand_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.purity_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.purity_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_metrics.ClusteringMetrics.silhouette_score"><code class="docutils literal notranslate"><span class="pre">ClusteringMetrics.silhouette_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.clustering_utils">Logic.core.clustering.clustering_utils module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_average"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_average()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_complete"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_complete()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_single"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_single()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_hierarchical_ward"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_hierarchical_ward()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_kmeans()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.cluster_kmeans_WCSS"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.cluster_kmeans_WCSS()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.get_most_frequent_words"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.get_most_frequent_words()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.plot_kmeans_cluster_scores"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.plot_kmeans_cluster_scores()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_elbow_method_wcss"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.visualize_elbow_method_wcss()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.visualize_kmeans_clustering_wandb"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.visualize_kmeans_clustering_wandb()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.clustering_utils.ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram"><code class="docutils literal notranslate"><span class="pre">ClusteringUtils.wandb_plot_hierarchical_clustering_dendrogram()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.dimension_reduction">Logic.core.clustering.dimension_reduction module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction"><code class="docutils literal notranslate"><span class="pre">DimensionReduction</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.convert_to_2d_tsne"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.convert_to_2d_tsne()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.pca_reduce_dimension"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.pca_reduce_dimension()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_2d_tsne"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.wandb_plot_2d_tsne()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Logic.core.clustering.dimension_reduction.DimensionReduction.wandb_plot_explained_variance_by_components"><code class="docutils literal notranslate"><span class="pre">DimensionReduction.wandb_plot_explained_variance_by_components()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-Logic.core.clustering.main">Logic.core.clustering.main module</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AmirHossein Razlighi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, MIR Course team @ CE at Sharif University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
